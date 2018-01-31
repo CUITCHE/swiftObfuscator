@@ -7,18 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		OBJ_18 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_24 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
+		FB1D6E172020509100FBB100 /* ClassExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D6E162020509100FBB100 /* ClassExpression.swift */; };
+		FB1D6E1A2020796100FBB100 /* MethodExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D6E192020796100FBB100 /* MethodExpression.swift */; };
+		FB1D6E1C20207A2900FBB100 /* PropertyExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D6E1B20207A2900FBB100 /* PropertyExpression.swift */; };
+		OBJ_20 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_26 /* Renamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Renamer.swift */; };
+		OBJ_27 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB1D6E162020509100FBB100 /* ClassExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExpression.swift; sourceTree = "<group>"; };
+		FB1D6E192020796100FBB100 /* MethodExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodExpression.swift; sourceTree = "<group>"; };
+		FB1D6E1B20207A2900FBB100 /* PropertyExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyExpression.swift; sourceTree = "<group>"; };
+		OBJ_10 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		"swiftObfuscator::swiftObfuscator::Product" /* swiftObfuscator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = swiftObfuscator; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_9 /* Renamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renamer.swift; sourceTree = "<group>"; };
+		"swiftObfuscator::swiftObfuscator::Product" /* swiftObfuscator */ = {isa = PBXFileReference; lastKnownFileType = text; path = swiftObfuscator; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_25 /* Frameworks */ = {
+		OBJ_28 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
@@ -28,14 +36,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		OBJ_10 /* Tests */ = {
+		FB1D6E152020506300FBB100 /* Expression */ = {
+			isa = PBXGroup;
+			children = (
+				FB1D6E162020509100FBB100 /* ClassExpression.swift */,
+				FB1D6E192020796100FBB100 /* MethodExpression.swift */,
+				FB1D6E1B20207A2900FBB100 /* PropertyExpression.swift */,
+			);
+			path = Expression;
+			sourceTree = "<group>";
+		};
+		OBJ_11 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_11 /* Products */ = {
+		OBJ_12 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		OBJ_13 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"swiftObfuscator::swiftObfuscator::Product" /* swiftObfuscator */,
@@ -48,8 +73,9 @@
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_10 /* Tests */,
-				OBJ_11 /* Products */,
+				OBJ_11 /* Tests */,
+				OBJ_12 /* Dependencies */,
+				OBJ_13 /* Products */,
 			);
 			name = "";
 			sourceTree = "<group>";
@@ -65,7 +91,9 @@
 		OBJ_8 /* swiftObfuscator */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* main.swift */,
+				FB1D6E152020506300FBB100 /* Expression */,
+				OBJ_9 /* Renamer.swift */,
+				OBJ_10 /* main.swift */,
 			);
 			name = swiftObfuscator;
 			path = Sources/swiftObfuscator;
@@ -76,9 +104,9 @@
 /* Begin PBXNativeTarget section */
 		"swiftObfuscator::SwiftPMPackageDescription" /* swiftObfuscatorPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_14 /* Build configuration list for PBXNativeTarget "swiftObfuscatorPackageDescription" */;
+			buildConfigurationList = OBJ_16 /* Build configuration list for PBXNativeTarget "swiftObfuscatorPackageDescription" */;
 			buildPhases = (
-				OBJ_17 /* Sources */,
+				OBJ_19 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -90,10 +118,10 @@
 		};
 		"swiftObfuscator::swiftObfuscator" /* swiftObfuscator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_20 /* Build configuration list for PBXNativeTarget "swiftObfuscator" */;
+			buildConfigurationList = OBJ_22 /* Build configuration list for PBXNativeTarget "swiftObfuscator" */;
 			buildPhases = (
-				OBJ_23 /* Sources */,
-				OBJ_25 /* Frameworks */,
+				OBJ_25 /* Sources */,
+				OBJ_28 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,7 +148,7 @@
 				en,
 			);
 			mainGroup = OBJ_5 /*  */;
-			productRefGroup = OBJ_11 /* Products */;
+			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -131,26 +159,30 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_17 /* Sources */ = {
+		OBJ_19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_18 /* Package.swift in Sources */,
+				OBJ_20 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_23 /* Sources */ = {
+		OBJ_25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_24 /* main.swift in Sources */,
+				FB1D6E1C20207A2900FBB100 /* PropertyExpression.swift in Sources */,
+				OBJ_26 /* Renamer.swift in Sources */,
+				OBJ_27 /* main.swift in Sources */,
+				FB1D6E1A2020796100FBB100 /* MethodExpression.swift in Sources */,
+				FB1D6E172020509100FBB100 /* ClassExpression.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_15 /* Debug */ = {
+		OBJ_17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -159,7 +191,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_16 /* Release */ = {
+		OBJ_18 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -168,7 +200,7 @@
 			};
 			name = Release;
 		};
-		OBJ_21 /* Debug */ = {
+		OBJ_23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -178,7 +210,6 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = swiftObfuscator.xcodeproj/swiftObfuscator_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
@@ -188,7 +219,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_22 /* Release */ = {
+		OBJ_24 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -198,7 +229,6 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = swiftObfuscator.xcodeproj/swiftObfuscator_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				LIBRARY_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
@@ -253,11 +283,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_14 /* Build configuration list for PBXNativeTarget "swiftObfuscatorPackageDescription" */ = {
+		OBJ_16 /* Build configuration list for PBXNativeTarget "swiftObfuscatorPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_15 /* Debug */,
-				OBJ_16 /* Release */,
+				OBJ_17 /* Debug */,
+				OBJ_18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -271,11 +301,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_20 /* Build configuration list for PBXNativeTarget "swiftObfuscator" */ = {
+		OBJ_22 /* Build configuration list for PBXNativeTarget "swiftObfuscator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_21 /* Debug */,
-				OBJ_22 /* Release */,
+				OBJ_23 /* Debug */,
+				OBJ_24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

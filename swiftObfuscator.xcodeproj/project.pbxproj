@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		FB1D6E172020509100FBB100 /* ClassExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D6E162020509100FBB100 /* ClassExpression.swift */; };
-		FB1D6E1A2020796100FBB100 /* MethodExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D6E192020796100FBB100 /* MethodExpression.swift */; };
+		FB1D6E1A2020796100FBB100 /* FunctionExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D6E192020796100FBB100 /* FunctionExpression.swift */; };
 		FB1D6E1C20207A2900FBB100 /* PropertyExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D6E1B20207A2900FBB100 /* PropertyExpression.swift */; };
+		FB858AD9203FEEAB000C53C6 /* EnumExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB858AD8203FEEAB000C53C6 /* EnumExpression.swift */; };
+		FB858ADB203FF856000C53C6 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB858ADA203FF856000C53C6 /* Fetcher.swift */; };
+		FB858ADD20400098000C53C6 /* ExtensionExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB858ADC20400098000C53C6 /* ExtensionExpression.swift */; };
 		OBJ_20 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_26 /* Renamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Renamer.swift */; };
 		OBJ_27 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* main.swift */; };
@@ -17,8 +20,11 @@
 
 /* Begin PBXFileReference section */
 		FB1D6E162020509100FBB100 /* ClassExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExpression.swift; sourceTree = "<group>"; };
-		FB1D6E192020796100FBB100 /* MethodExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodExpression.swift; sourceTree = "<group>"; };
+		FB1D6E192020796100FBB100 /* FunctionExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionExpression.swift; sourceTree = "<group>"; };
 		FB1D6E1B20207A2900FBB100 /* PropertyExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyExpression.swift; sourceTree = "<group>"; };
+		FB858AD8203FEEAB000C53C6 /* EnumExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExpression.swift; sourceTree = "<group>"; };
+		FB858ADA203FF856000C53C6 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		FB858ADC20400098000C53C6 /* ExtensionExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionExpression.swift; sourceTree = "<group>"; };
 		OBJ_10 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* Renamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renamer.swift; sourceTree = "<group>"; };
@@ -40,8 +46,10 @@
 			isa = PBXGroup;
 			children = (
 				FB1D6E162020509100FBB100 /* ClassExpression.swift */,
-				FB1D6E192020796100FBB100 /* MethodExpression.swift */,
+				FB1D6E192020796100FBB100 /* FunctionExpression.swift */,
 				FB1D6E1B20207A2900FBB100 /* PropertyExpression.swift */,
+				FB858AD8203FEEAB000C53C6 /* EnumExpression.swift */,
+				FB858ADC20400098000C53C6 /* ExtensionExpression.swift */,
 			);
 			path = Expression;
 			sourceTree = "<group>";
@@ -68,7 +76,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -77,7 +85,6 @@
 				OBJ_12 /* Dependencies */,
 				OBJ_13 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -94,6 +101,7 @@
 				FB1D6E152020506300FBB100 /* Expression */,
 				OBJ_9 /* Renamer.swift */,
 				OBJ_10 /* main.swift */,
+				FB858ADA203FF856000C53C6 /* Fetcher.swift */,
 			);
 			name = swiftObfuscator;
 			path = Sources/swiftObfuscator;
@@ -147,7 +155,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -171,10 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				FB858ADB203FF856000C53C6 /* Fetcher.swift in Sources */,
 				FB1D6E1C20207A2900FBB100 /* PropertyExpression.swift in Sources */,
 				OBJ_26 /* Renamer.swift in Sources */,
+				FB858AD9203FEEAB000C53C6 /* EnumExpression.swift in Sources */,
 				OBJ_27 /* main.swift in Sources */,
-				FB1D6E1A2020796100FBB100 /* MethodExpression.swift in Sources */,
+				FB858ADD20400098000C53C6 /* ExtensionExpression.swift in Sources */,
+				FB1D6E1A2020796100FBB100 /* FunctionExpression.swift in Sources */,
 				FB1D6E172020509100FBB100 /* ClassExpression.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

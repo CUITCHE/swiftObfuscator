@@ -5,18 +5,14 @@
 //  Created by He,Junqiu on 2018/1/30.
 //
 
-import Foundation
+import SwiftSyntax
 
 class PropertyExpression: Expression {
     let name: String
+    let type: String
 
-    var hashValue: Int { return name.hashValue }
-
-    static func == (lhs: PropertyExpression, rhs: PropertyExpression) -> Bool {
-        return lhs.name == rhs.name
-    }
-
-    required init(name: String) {
+    required init(name: String, type: String) {
         self.name = name
+        self.type = type
     }
 }

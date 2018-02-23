@@ -6,28 +6,22 @@
 //
 
 import Foundation
+import SwiftSyntax
 
-protocol Expression: Hashable {
+protocol Expression {
     var name: String { get }
-    init(name: String)
 }
 
 class ClassExpression: Expression {
+
     let name: String
+    let inheritanceClause: TypeInheritanceClauseSyntax?
 
-    var hashValue: Int { return name.hashValue }
-
-    static func == (lhs: ClassExpression, rhs: ClassExpression) -> Bool {
-        return lhs.name == rhs.name
-    }
-
-    required init(name: String) {
+    required init(name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
         self.name = name
+        self.inheritanceClause = inheritanceClause
     }
 
-    private var _methods = [MethodExpression]()
-    var methods: [MethodExpression] { return _methods }
-
-    private var _properties = [PropertyExpression]()
-    var properties: [PropertyExpression] { return _properties }
+    var methods = [FunctionExpression]()
+    var properties = [PropertyExpression]()
 }

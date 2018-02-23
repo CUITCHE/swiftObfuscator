@@ -1,21 +1,19 @@
 //
-//  ClassExpression.swift
+//  ProtocolExpression.swift
 //  swiftObfuscator
 //
-//  Created by He,Junqiu on 2018/1/30.
+//  Created by hejunqiu on 2018/2/23.
 //
 
-import Foundation
 import SwiftSyntax
 
-class ClassExpression: Expression {
+class ProtocolExpression: Expression {
     let name: String
-    var exprType: ExpressionType { return .class }
+    var exprType: ExpressionType { return .protocol }
 
     let inheritanceClause: TypeInheritanceClauseSyntax?
-    var innested: Expression? = nil
 
-    required init(name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
+    init(name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
         self.name = name
         self.inheritanceClause = inheritanceClause
     }

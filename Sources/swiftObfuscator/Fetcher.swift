@@ -24,29 +24,37 @@ class Fetcher: SyntaxRewriter {
     var currentClazz: _NestingClazzClause? { return _nestingClazzClauseList.last }
 
     override func visit(_ node: ClassDeclSyntax) -> DeclSyntax {
-        _nestingClazzClauseList.append(_NestingClazzClause(clazz: ClassExpression(name: node.identifier.description,
-                                                                                  inheritanceClause: node.inheritanceClause)))
-        clazzes[node.identifier.description] = currentClazz!.clazz
-        currentClazz!.clazzClauseCounter += 1
+        let newClazz = _NestingClazzClause(clazz: ClassExpression(name: node.identifier.description,
+                                                                  inheritanceClause: node.inheritanceClause))
+        if let lastone = currentClazz {
+            newClazz.clazz.outerClassExpr = newClazz.clazz
+        }
+
+        _nestingClazzClauseList.append(newClazz)
+        clazzes[node.identifier.description] = newClazz.clazz
+        newClazz.clazzClauseCounter += 1
+
         defer {
-            if _nestingClazzClauseList.isEmpty == false {
-                _nestingClazzClauseList.removeLast()
-            }
-            currentClazz!.clazzClauseCounter -= 1
+            _nestingClazzClauseList.removeLast()
+            newClazz.clazzClauseCounter -= 1
         }
         return super.visit(node)
     }
 
     override func visit(_ node: StructDeclSyntax) -> DeclSyntax {
-        _nestingClazzClauseList.append(_NestingClazzClause(clazz: ClassExpression(name: node.identifier.description,
-                                                                                  inheritanceClause: node.inheritanceClause)))
-        clazzes[node.identifier.description] = currentClazz!.clazz
-        currentClazz!.clazzClauseCounter += 1
+        let newClazz = _NestingClazzClause(clazz: ClassExpression(name: node.identifier.description,
+                                                                  inheritanceClause: node.inheritanceClause))
+        if let lastone = currentClazz {
+            newClazz.clazz.outerClassExpr = newClazz.clazz
+        }
+
+        _nestingClazzClauseList.append(newClazz)
+        clazzes[node.identifier.description] = newClazz.clazz
+        newClazz.clazzClauseCounter += 1
+
         defer {
-            if _nestingClazzClauseList.isEmpty == false {
-                _nestingClazzClauseList.removeLast()
-            }
-            currentClazz!.clazzClauseCounter -= 1
+            _nestingClazzClauseList.removeLast()
+            newClazz.clazzClauseCounter -= 1
         }
         return super.visit(node)
     }

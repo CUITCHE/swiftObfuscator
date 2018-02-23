@@ -9,6 +9,8 @@ import SwiftSyntax
 
 class PropertyExpression: Expression {
     let name: String
+    var exprType: ExpressionType { return .property }
+
     let type: String
 
     required init(name: String, type: String) {

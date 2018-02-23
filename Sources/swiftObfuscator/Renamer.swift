@@ -49,6 +49,16 @@ class Renamer: SyntaxRewriter {
 //        print(node)
         return super.visit(node)
     }
+
+    override func visit(_ node: UnknownDeclSyntax) -> DeclSyntax {
+        print(node)
+        return super.visit(node)
+    }
+
+    override func visit(_ node: EnumCasePatternSyntax) -> PatternSyntax {
+        print(node)
+        return super.visit(node)
+    }
 }
 
 

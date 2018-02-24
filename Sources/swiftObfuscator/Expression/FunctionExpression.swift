@@ -18,6 +18,10 @@ class FunctionExpression: Expression {
         self.name = name
         self.signature = signature
     }
+}
 
-
+extension FunctionExpression: CustomStringConvertible {
+    var description: String {
+        return "\(name)\(signature)"
+    }
 }

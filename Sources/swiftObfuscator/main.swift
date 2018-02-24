@@ -2,16 +2,15 @@ import Foundation
 import SwiftSyntax
 import ObjectiveC.runtime
 
-struct _ABC: Syntax {
-
-}
-
 func foo() {
+    struct ABC: Syntax {
+
+    }
     // Parse a .swift file
     let currentFile = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("123.swift")
     do {
 
-        let parsed = try _ABC.parse(currentFile)
+        let parsed = try ABC.parse(currentFile)
 
         var textStream = String()
 
@@ -29,5 +28,7 @@ func foo() {
     print("...End...")
 }
 
-foo()
+//var obs = Obfuscator(filepaths: [FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("123.swift")])
+//obs.start()
 
+foo()

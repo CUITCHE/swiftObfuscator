@@ -7,14 +7,22 @@
 
 import SwiftSyntax
 
+/// Express property: 'var name: type'
 class PropertyExpression: Expression {
+    let kind: TokenSyntax
     let name: String
+    let type: String
     var exprType: ExpressionType { return .property }
 
-    let type: String
+    init(name: String, type: String, letOrVar: TokenSyntax) {
+        self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.type = type.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.kind = letOrVar
+    }
+}
 
-    required init(name: String, type: String) {
-        self.name = name
-        self.type = type
+extension PropertyExpression: CustomStringConvertible {
+    var description: String {
+        return "\(kind)\(name): \(type)"
     }
 }

@@ -15,6 +15,7 @@ class Renamer: SyntaxRewriter {
 //        if let arguments = node.declNameArguments {
 //            print(node, arguments)
 //        }
+//        print(node)
         return super.visit(node)
     }
 
@@ -24,6 +25,7 @@ class Renamer: SyntaxRewriter {
         // calledExpression: delegate?.cropFrameCaptureView
         // argumentList: self, didFinish: item
         //        print("\(node.calledExpression), \(node.argumentList)")
+//        print(node.calledExpression)
         return super.visit(node)
     }
 
@@ -45,18 +47,13 @@ class Renamer: SyntaxRewriter {
         return super.visit(node)
     }
 
-    override func visit(_ node: ProtocolDeclSyntax) -> DeclSyntax {
+    override func visit(_ node: ExpressionStmtSyntax) -> StmtSyntax {
 //        print(node)
         return super.visit(node)
     }
 
-    override func visit(_ node: UnknownDeclSyntax) -> DeclSyntax {
-        print(node)
-        return super.visit(node)
-    }
-
-    override func visit(_ node: EnumCasePatternSyntax) -> PatternSyntax {
-        print(node)
+    override func visit(_ node: IdentifierPatternSyntax) -> PatternSyntax {
+        print(node.parent)
         return super.visit(node)
     }
 }

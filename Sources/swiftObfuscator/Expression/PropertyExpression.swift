@@ -9,20 +9,40 @@ import SwiftSyntax
 
 /// Express property: 'var name: type'
 class PropertyExpression: Expression {
-    let kind: TokenSyntax
-    let name: String
-    let type: String
-    var exprType: ExpressionType { return .property }
+    enum PropertyTypeExpr {
+        case unknown
+        case certain
 
-    init(name: String, type: String, letOrVar: TokenSyntax) {
+        enum Literal {
+            case Bool, Double, Int, String, Array, Dictionary
+        }
+        case literal(Literal)
+
+        case `func`(FunctionCallExprSyntax)
+    }
+    let name: String
+    var type: String?
+    var exprType: ExpressionType { return .property }
+    var syntaxExpr: PropertyTypeExpr
+
+    init(name: String, type: String?, syntaxExpr: PropertyTypeExpr = .unknown) {
         self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.type = type.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.kind = letOrVar
+        self.type = type?.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.syntaxExpr = syntaxExpr
+    }
+}
+
+extension PropertyExpression {
+    var isCertain: Bool {
+        switch syntaxExpr {
+        case .literal(_): return true
+        default: return false
+        }
     }
 }
 
 extension PropertyExpression: CustomStringConvertible {
     var description: String {
-        return "\(kind)\(name): \(type)"
+        return "\(name): \(type ?? "Unknown") <syntaxExpr>"
     }
 }

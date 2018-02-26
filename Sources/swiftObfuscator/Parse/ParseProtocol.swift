@@ -14,7 +14,7 @@ class ParserProtocol: SyntaxRewriter {
 
     override func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
         if let binding = node.bindings.first, let type = binding.typeAnnotation?.type.description {
-            variableDelcs.append(PropertyExpression(name: binding.pattern.description, type: type, letOrVar: node.letOrVarKeyword))
+            variableDelcs.append(PropertyExpression(name: binding.pattern.description, type: type))
         } else {
             print("Can not parse protocol variable: \(node)")
             exit(1)

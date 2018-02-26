@@ -98,37 +98,42 @@ class SourceFileParse: SyntaxRewriter {
         return super.visit(node)
     }
 
-    override func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
+    override func visit(_ node: PatternBindingSyntax) -> Syntax {
         guard let clazz = currentClazz else { return super.visit(node) }
         if clazz.clazzClauseCounter > clazz.functionClauseCounter {
-            if let binding = node.bindings.first {
-                if let type = binding.typeAnnotation?.description {
-                    clazz.clazz.properties.append(PropertyExpression(name: binding.pattern.description, type: type, letOrVar: node.letOrVarKeyword))
+            if let type = node.typeAnnotation?.type.description {
+                clazz.clazz.properties.append(PropertyExpression(name: node.pattern.description, type: type, syntaxExpr: .certain))
+            } else {
+                let function = SyntaxFactory.makeFunctionDecl(attributes: nil, modifiers: nil, funcKeyword: SyntaxFactory.makeFuncKeyword(), identifier: SyntaxFactory.makeIdentifier("tempFunction"), genericParameterClause: nil, signature: SyntaxFactory.makeFunctionSignature(input: SyntaxFactory.makeBlankParameterClause(), throwsOrRethrowsKeyword: nil, output: nil), genericWhereClause: nil, body: SyntaxFactory.makeCodeBlock(leftBrace: SyntaxFactory.makeLeftBraceToken(), statements: SyntaxFactory.makeCodeBlockItemList([SyntaxFactory.makeCodeBlockItem(item: node, semicolon: nil)]), rightBrace: SyntaxFactory.makeRightBraceToken()))
+                let ppt = ParsePropertyType()
+                _ = ppt.visit(function)
+
+                if case .unknown = ppt.exprType {
+                    print("Can not recognise type of member variable: \(node), \(ppt.exprType)")
+                    exit(3)
                 } else {
-                    if let component = binding.description.components(separatedBy: "=").last?.trimmingCharacters(in: .whitespacesAndNewlines) {
-                        let type: String
-                        if component == "false" || component == "true" {
-                            type = "Bool"
-                        } else if component.hasPrefix("0") || Double(component) != nil {
-                            type = "Swift.Digital"
-                        } else if component.hasPrefix("[") {
-                            type = "Swift.Collection"
-                        } else if component.hasPrefix("\"") {
-                            type = "String"
-                        } else {
-                            let letfBraceIndex = component.index(of: "(") ?? component.endIndex
-                            let dotIndex = component.index(of: ".") ?? component.endIndex
-                            let perferredIndex = min(letfBraceIndex, dotIndex)
-                            type = String(component[...component.index(before: perferredIndex)])
-                            print("'\(node.description.trimmingCharacters(in: .whitespacesAndNewlines))' hasn't specified type in class(\(clazz.clazz.name)). We suppose it is \(type).")
-                        }
-                        clazz.clazz.properties.append(PropertyExpression(name: binding.pattern.description, type: type, letOrVar: node.letOrVarKeyword))
-                    } else {
-                        print("'\(node)' hasn't specified type in class(\(clazz.clazz.name)). Please specify one.")
-                        exit(1)
-                    }
+                    let property = PropertyExpression(name: node.pattern.description, type: ppt.type, syntaxExpr: ppt.exprType)
+                    clazz.clazz.properties.append(property)
                 }
             }
+        }
+        return super.visit(node)
+    }
+
+    override func visit(_ node: InitializerDeclSyntax) -> DeclSyntax {
+        guard let clazz = currentClazz else { return super.visit(node) }
+        clazz.functionClauseCounter += 1
+        defer {
+            clazz.functionClauseCounter -= 1
+        }
+        return super.visit(node)
+    }
+
+    override func visit(_ node: InitializerClauseSyntax) -> Syntax {
+        guard let clazz = currentClazz else { return super.visit(node) }
+        clazz.functionClauseCounter += 1
+        defer {
+            clazz.functionClauseCounter -= 1
         }
         return super.visit(node)
     }

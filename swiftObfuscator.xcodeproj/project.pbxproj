@@ -11,6 +11,8 @@
 		FB1D6E1A2020796100FBB100 /* FunctionExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D6E192020796100FBB100 /* FunctionExpression.swift */; };
 		FB1D6E1C20207A2900FBB100 /* PropertyExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D6E1B20207A2900FBB100 /* PropertyExpression.swift */; };
 		FB274EDC2041362C001E98FC /* Obfuscator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB274EDB2041362C001E98FC /* Obfuscator.swift */; };
+		FB37976C2043DDEA0026F6FF /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37976B2043DDEA0026F6FF /* Lock.swift */; };
+		FB37976E2043E6E50026F6FF /* ParsePropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37976D2043E6E50026F6FF /* ParsePropertyType.swift */; };
 		FB545873204117ED0077B3E1 /* ParseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB545872204117ED0077B3E1 /* ParseProtocol.swift */; };
 		FB60B152204060360050B69C /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60B151204060360050B69C /* Expression.swift */; };
 		FB60B154204066DB0050B69C /* ProtocolExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB60B153204066DB0050B69C /* ProtocolExpression.swift */; };
@@ -26,6 +28,8 @@
 		FB1D6E192020796100FBB100 /* FunctionExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionExpression.swift; sourceTree = "<group>"; };
 		FB1D6E1B20207A2900FBB100 /* PropertyExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyExpression.swift; sourceTree = "<group>"; };
 		FB274EDB2041362C001E98FC /* Obfuscator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obfuscator.swift; sourceTree = "<group>"; };
+		FB37976B2043DDEA0026F6FF /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
+		FB37976D2043E6E50026F6FF /* ParsePropertyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsePropertyType.swift; sourceTree = "<group>"; };
 		FB545872204117ED0077B3E1 /* ParseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseProtocol.swift; sourceTree = "<group>"; };
 		FB60B151204060360050B69C /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
 		FB60B153204066DB0050B69C /* ProtocolExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolExpression.swift; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			children = (
 				FB858ADA203FF856000C53C6 /* SourceFileParse.swift */,
 				FB545872204117ED0077B3E1 /* ParseProtocol.swift */,
+				FB37976D2043E6E50026F6FF /* ParsePropertyType.swift */,
 			);
 			path = Parse;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 				OBJ_9 /* Renamer.swift */,
 				OBJ_10 /* main.swift */,
 				FB274EDB2041362C001E98FC /* Obfuscator.swift */,
+				FB37976B2043DDEA0026F6FF /* Lock.swift */,
 			);
 			name = swiftObfuscator;
 			path = Sources/swiftObfuscator;
@@ -206,6 +212,8 @@
 				FB858AD9203FEEAB000C53C6 /* EnumExpression.swift in Sources */,
 				OBJ_27 /* main.swift in Sources */,
 				FB1D6E1A2020796100FBB100 /* FunctionExpression.swift in Sources */,
+				FB37976C2043DDEA0026F6FF /* Lock.swift in Sources */,
+				FB37976E2043E6E50026F6FF /* ParsePropertyType.swift in Sources */,
 				FB1D6E172020509100FBB100 /* ClassExpression.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,7 +15,7 @@ struct Obfuscator {
     let filepaths: [URL]
 
     struct SourceFile {
-        let name: String
+        let name: FileNameType
         let filepath: URL
         let sourceFileParsiton: SourceFileParse
     }

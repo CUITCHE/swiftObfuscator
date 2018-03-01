@@ -13,6 +13,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "swiftObfuscator",
-            dependencies: []),
+            dependencies: ["SQLite"]),
     ]
 )
+
+// In Mac OS X, use /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift to build

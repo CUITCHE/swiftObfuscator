@@ -31,7 +31,7 @@ class SourceFileParse: SyntaxRewriter {
         let newClazz = _NestingClazzClause(clazz: ClassExpression(name: node.identifier.description,
                                                                   inheritanceClause: node.inheritanceClause))
         if let lastone = currentClazz {
-            newClazz.clazz.innested = newClazz.clazz
+            newClazz.clazz.innested = lastone.clazz
         }
 
         _nestingClazzClauseList.append(newClazz)
@@ -49,7 +49,7 @@ class SourceFileParse: SyntaxRewriter {
         let newClazz = _NestingClazzClause(clazz: ClassExpression(name: node.identifier.description,
                                                                   inheritanceClause: node.inheritanceClause))
         if let lastone = currentClazz {
-            newClazz.clazz.innested = newClazz.clazz
+            newClazz.clazz.innested = lastone.clazz
         }
 
         _nestingClazzClauseList.append(newClazz)

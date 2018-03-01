@@ -32,6 +32,10 @@ struct Obfuscator {
                 let P = SourceFileParse()
                 _ = P.visit(sourceFile)
                 parsed.append(SourceFile(name: item.lastPathComponent, filepath: item, sourceFileParsiton: P))
+                let file = parsed.first!
+                print("class: \(file.sourceFileParsiton.clazzes)\n")
+                print("extension: \(file.sourceFileParsiton.extension)\n")
+                print("protocol: \(file.sourceFileParsiton.protocols)\n")
             } catch {
                 print(error)
                 exit(2)

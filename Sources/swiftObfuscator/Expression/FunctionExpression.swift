@@ -15,7 +15,7 @@ class FunctionExpression: Expression {
     let signature: FunctionSignatureSyntax
 
     required init(name: String, signature: FunctionSignatureSyntax) {
-        self.name = name
+        self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
         self.signature = signature
     }
 }

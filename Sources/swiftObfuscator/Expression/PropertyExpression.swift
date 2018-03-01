@@ -43,6 +43,6 @@ extension PropertyExpression {
 
 extension PropertyExpression: CustomStringConvertible {
     var description: String {
-        return "\(name): \(type ?? "Unknown") <syntaxExpr>"
+        return "\(name): \(type ?? "Unknown")"
     }
 }

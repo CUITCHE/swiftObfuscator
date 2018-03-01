@@ -15,11 +15,28 @@ class ClassExpression: Expression {
     let inheritanceClause: TypeInheritanceClauseSyntax?
     var innested: Expression? = nil
 
+    var fullClassname: String {
+        var names: [String] = [name]
+        var nested: Expression? = innested
+        while let expr = nested as? ClassExpression {
+            names.append(expr.name)
+            nested = expr.innested
+        }
+        names.reverse()
+        return names.joined(separator: ".")
+    }
+
     required init(name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
         self.name = name
         self.inheritanceClause = inheritanceClause
     }
 
-    var methods = [FunctionExpression]()
     var properties = [PropertyExpression]()
+    var methods = [FunctionExpression]()
+}
+
+extension ClassExpression: CustomStringConvertible {
+    var description: String {
+        return "\(fullClassname)<\(properties), \(methods)>"
+    }
 }

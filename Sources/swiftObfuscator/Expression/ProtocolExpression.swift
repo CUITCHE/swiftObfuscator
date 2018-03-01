@@ -14,10 +14,16 @@ class ProtocolExpression: Expression {
     let inheritanceClause: TypeInheritanceClauseSyntax?
 
     init(name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
-        self.name = name
+        self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
         self.inheritanceClause = inheritanceClause
     }
 
     var methods = [FunctionExpression]()
     var properties = [PropertyExpression]()
+}
+
+extension ProtocolExpression: CustomStringConvertible {
+    var description: String {
+        return "\(name)<\(properties), \(methods)>"
+    }
 }

@@ -19,16 +19,36 @@ class PropertyExpression: Expression {
         case literal(Literal)
 
         case `func`(FunctionCallExprSyntax)
+
+        var libraryClassType: LibraryClassExpression? {
+            switch self {
+            case .literal(let literal):
+                switch literal {
+                case .Bool: return boolType
+                case .Double: return doubleType
+                case .Int: return intType
+                case .String: return stringType
+                case .Array: return arrayType
+                case .Dictionary: return dictionaryType
+                }
+            default:
+                return nil
+            }
+        }
     }
     let name: String
-    var type: String?
+    var obfuscating: String?
+    var typeName: String?
+    var type: Expression?
     var exprType: ExpressionType { return .property }
+
     var syntaxExpr: PropertyTypeExpr
 
     init(name: String, type: String?, syntaxExpr: PropertyTypeExpr = .unknown) {
         self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.type = type?.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.typeName = type?.trimmingCharacters(in: .whitespacesAndNewlines)
         self.syntaxExpr = syntaxExpr
+        self.type = syntaxExpr.libraryClassType
     }
 }
 
@@ -43,6 +63,6 @@ extension PropertyExpression {
 
 extension PropertyExpression: CustomStringConvertible {
     var description: String {
-        return "\(name): \(type ?? "Unknown")"
+        return "\(name): \(typeName ?? "Unknown")"
     }
 }

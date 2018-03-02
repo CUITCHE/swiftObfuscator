@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB116634204941C000BEFA48 /* ExtensionExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB116633204941C000BEFA48 /* ExtensionExpression.swift */; };
+		FB55082F2049129700587A3E /* LibraryClassExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB55082E2049129700587A3E /* LibraryClassExpression.swift */; };
 		FB57B7C42047FAA5001F9752 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB57B7C02047FA22001F9752 /* libsqlite3.0.tbd */; };
 		OBJ_102 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* Package.swift */; };
 		OBJ_107 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* SQLite-Bridging.m */; };
@@ -77,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB116633204941C000BEFA48 /* ExtensionExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionExpression.swift; sourceTree = "<group>"; };
+		FB55082E2049129700587A3E /* LibraryClassExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryClassExpression.swift; sourceTree = "<group>"; };
 		FB57B7C02047FA22001F9752 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		OBJ_10 /* ClassExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExpression.swift; sourceTree = "<group>"; };
 		OBJ_11 /* EnumExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExpression.swift; sourceTree = "<group>"; };
@@ -285,7 +289,7 @@
 			path = Typed;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -295,7 +299,6 @@
 				OBJ_62 /* Products */,
 				FB57B7BF2047FA22001F9752 /* Frameworks */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_62 /* Products */ = {
@@ -335,11 +338,13 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* ClassExpression.swift */,
+				FB116633204941C000BEFA48 /* ExtensionExpression.swift */,
 				OBJ_11 /* EnumExpression.swift */,
 				OBJ_12 /* Expression.swift */,
 				OBJ_13 /* FunctionExpression.swift */,
 				OBJ_14 /* PropertyExpression.swift */,
 				OBJ_15 /* ProtocolExpression.swift */,
+				FB55082E2049129700587A3E /* LibraryClassExpression.swift */,
 			);
 			path = Expression;
 			sourceTree = "<group>";
@@ -441,7 +446,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_62 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -477,6 +482,8 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_114 /* ClassExpression.swift in Sources */,
+				FB116634204941C000BEFA48 /* ExtensionExpression.swift in Sources */,
+				FB55082F2049129700587A3E /* LibraryClassExpression.swift in Sources */,
 				OBJ_115 /* EnumExpression.swift in Sources */,
 				OBJ_116 /* Expression.swift in Sources */,
 				OBJ_117 /* FunctionExpression.swift in Sources */,

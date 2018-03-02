@@ -10,6 +10,7 @@ import SwiftSyntax
 class ProtocolExpression: Expression {
     let name: String
     var exprType: ExpressionType { return .protocol }
+    var obfuscating: String?
 
     let inheritanceClause: TypeInheritanceClauseSyntax?
 

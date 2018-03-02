@@ -14,7 +14,11 @@ enum ExpressionType {
 
 protocol Expression {
     var name: String { get }
+
     var exprType: ExpressionType { get }
+
+    /// The string of obfuscating name
+    var obfuscating: String? { get set }
 }
 
 extension Expression {

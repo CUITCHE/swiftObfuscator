@@ -28,8 +28,8 @@ func foo() {
     print("...End...")
 }
 
-//var obs = Obfuscator(filepaths: [FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("123.swift")])
-//obs.start()
+var obs = Obfuscator(filepaths: [FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("123.swift")])
+obs.start()
 
-foo()
+//foo()
 

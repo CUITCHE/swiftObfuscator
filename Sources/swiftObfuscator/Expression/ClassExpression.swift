@@ -11,6 +11,7 @@ import SwiftSyntax
 class ClassExpression: Expression {
     let name: String
     var exprType: ExpressionType { return .class }
+    var obfuscating: String?
 
     let inheritanceClause: TypeInheritanceClauseSyntax?
     var innested: Expression? = nil

@@ -13,6 +13,7 @@ import SwiftSyntax
 class EnumExpression: Expression {
     let name: String
     var exprType: ExpressionType { return .enum }
+    var obfuscating: String?
 
     init(name: String) {
         self.name = name

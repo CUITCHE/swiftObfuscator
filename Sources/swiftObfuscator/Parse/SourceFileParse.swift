@@ -12,7 +12,7 @@ import Foundation
 /// 整理数据，为后续工作提供数据支撑。
 class SourceFileParse: SyntaxRewriter {
     var clazzes = [String: ClassExpression]()
-    var `extension` = [String: ClassExpression]() // TODO: 可能是Swift自带库的扩展
+    var extensions = [ClassExpression]() // TODO: 可能是Swift自带库的扩展
     private class _NestingClazzClause {
         let clazz: ClassExpression
         // 使用clazzClauseCounter、functionClauseCounter来识别成员变量的声明
@@ -26,6 +26,7 @@ class SourceFileParse: SyntaxRewriter {
     private var currentClazz: _NestingClazzClause? { return _nestingClazzClauseList.last }
 
     var protocols = [String: ProtocolExpression]()
+    var topFunctions = [FunctionExpression]()
 
     override func visit(_ node: ClassDeclSyntax) -> DeclSyntax {
         let newClazz = _NestingClazzClause(clazz: ClassExpression(name: node.identifier.description,
@@ -79,7 +80,7 @@ class SourceFileParse: SyntaxRewriter {
         let newClazz = _NestingClazzClause(clazz: ClassExpression(name: node.extendedType.description,
                                                                   inheritanceClause: node.inheritanceClause))
         _nestingClazzClauseList.append(newClazz)
-        self.extension[node.extendedType.description] = newClazz.clazz
+        self.extensions.append(newClazz.clazz)
         newClazz.clazzClauseCounter += 1
         defer {
             newClazz.clazzClauseCounter -= 1

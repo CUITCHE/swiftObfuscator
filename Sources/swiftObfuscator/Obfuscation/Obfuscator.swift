@@ -13,7 +13,7 @@ typealias FileNameType = String
 struct Obfuscator {
     static var protocols  = [ProtocolExpression]()
     static var mainclazzs = [ClassExpression]()
-    static var extensions = [ExtensionExpression]()
+    static var extensions = [Expression]()
     static var topfunctions  = [FunctionExpression]()
 
     private struct NestedParsePlaceholder: Syntax { }
@@ -22,8 +22,8 @@ struct Obfuscator {
     struct SourceFile {
         let name: FileNameType
         let filepath: URL
-        let clazzs: [String: ClassExpression]
-        let extensions: [ClassExpression]
+        let clazzs: [ClassExpression]
+        let extensions: [String: Expression]
         let protocols: [ProtocolExpression]
         let topFunctions: [FunctionExpression]
     }
@@ -37,16 +37,29 @@ struct Obfuscator {
         for item in filepaths {
             do {
                 let sourceFile = try NestedParsePlaceholder.parse(item)
-                let P = SourceFileParse()
-                _ = P.visit(sourceFile)
-                parsed.append(SourceFile(name: item.lastPathComponent, filepath: item, clazzs: P.clazzes, extensions: P.extensions, protocols: P.protocols, topFunctions: P.topFunctions))
-                let file = parsed.first!
-                print("class: \(file.sourceFileParsiton.clazzes)\n")
-                print("extension: \(file.sourceFileParsiton.extension)\n")
-                print("protocol: \(file.sourceFileParsiton.protocols)\n")
+                let sp = SourceFileParse()
+                _ = sp.visit(sourceFile)
+                parsed.append(SourceFile(name: item.lastPathComponent, filepath: item, clazzs: sp.clazzes, extensions: sp.extensions, protocols: sp.protocols, topFunctions: sp.topFunctions))
             } catch {
                 print(error)
                 exit(2)
+            }
+        }
+        merge()
+    }
+
+    mutating func merge() {
+        for item in parsed {
+            Obfuscator.mainclazzs.append(contentsOf: item.clazzs)
+        }
+        Configure.shared.debug {
+            let names = Obfuscator.mainclazzs.map({
+                return $0.fullClassname
+            }).sorted()
+            for item in zip(names, names.dropFirst()) {
+                if item.0 == item.1 {
+                    print("The Same class name! => \(item)")
+                }
             }
         }
     }

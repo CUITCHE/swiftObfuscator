@@ -12,7 +12,12 @@ enum ExpressionType {
     case `func`, property
 }
 
+enum ExpressionAccessLevel: String {
+    case `open`, `public`, `internal`, `fileprivate`, `private`
+}
+
 protocol Expression {
+    var accessLevel: ExpressionAccessLevel { get }
     var name: String { get }
 
     var exprType: ExpressionType { get }

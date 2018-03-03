@@ -7,16 +7,12 @@
 
 import Foundation
 
-enum lock {
-    final class `guard` {
-        unowned let mutex: NSLock
-        init(_ mutex: NSLock) {
-            self.mutex = mutex
-            mutex.lock()
+extension NSLocking {
+    func lock<R>(_ codeblock: @autoclosure () -> R) -> R {
+        lock()
+        defer {
+            unlock()
         }
-
-        deinit {
-            mutex.unlock()
-        }
+        return codeblock()
     }
 }

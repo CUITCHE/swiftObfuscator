@@ -11,8 +11,9 @@ import Foundation
 /// 提取一个Swift文件的class(struct)、extension、protocol、function、member-variable。
 /// 整理数据，为后续工作提供数据支撑。
 class SourceFileParse: SyntaxRewriter {
-    var clazzes = [String: ClassExpression]()
-    var extensions = [ClassExpression]() // TODO: 可能是Swift自带库的扩展
+    var clazzes = [ClassExpression]()
+    /// Include Custom and library
+    var extensions = [String: Expression]()
     private class _NestingClazzClause {
         let clazz: ClassExpression
         // 使用clazzClauseCounter、functionClauseCounter来识别成员变量的声明
@@ -25,18 +26,24 @@ class SourceFileParse: SyntaxRewriter {
     private var _nestingClazzClauseList = [_NestingClazzClause]()
     private var currentClazz: _NestingClazzClause? { return _nestingClazzClauseList.last }
 
-    var protocols = [String: ProtocolExpression]()
+    var protocols = [ProtocolExpression]()
     var topFunctions = [FunctionExpression]()
 
     override func visit(_ node: ClassDeclSyntax) -> DeclSyntax {
-        let newClazz = _NestingClazzClause(clazz: ClassExpression(name: node.identifier.description,
+        var accessLevel: ExpressionAccessLevel = .internal
+        if let modifier = node.accessLevelModifier {
+            if let access = ExpressionAccessLevel(rawValue: modifier.name.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                accessLevel = access
+            }
+        }
+        let newClazz = _NestingClazzClause(clazz: ClassExpression(accessLevel: accessLevel, name: node.identifier.description,
                                                                   inheritanceClause: node.inheritanceClause))
         if let lastone = currentClazz {
             newClazz.clazz.innested = lastone.clazz
         }
 
         _nestingClazzClauseList.append(newClazz)
-        clazzes[node.identifier.description] = newClazz.clazz
+        clazzes.append(newClazz.clazz)
         newClazz.clazzClauseCounter += 1
 
         defer {
@@ -47,14 +54,20 @@ class SourceFileParse: SyntaxRewriter {
     }
 
     override func visit(_ node: StructDeclSyntax) -> DeclSyntax {
-        let newClazz = _NestingClazzClause(clazz: ClassExpression(name: node.identifier.description,
+        var accessLevel: ExpressionAccessLevel = .internal
+        if let modifier = node.accessLevelModifier {
+            if let access = ExpressionAccessLevel(rawValue: modifier.name.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                accessLevel = access
+            }
+        }
+        let newClazz = _NestingClazzClause(clazz: ClassExpression(accessLevel: accessLevel, name: node.identifier.description,
                                                                   inheritanceClause: node.inheritanceClause))
         if let lastone = currentClazz {
             newClazz.clazz.innested = lastone.clazz
         }
 
         _nestingClazzClauseList.append(newClazz)
-        clazzes[node.identifier.description] = newClazz.clazz
+        clazzes.append(newClazz.clazz)
         newClazz.clazzClauseCounter += 1
 
         defer {
@@ -69,18 +82,32 @@ class SourceFileParse: SyntaxRewriter {
         let pp = ParserProtocol()
         _ = pp.visit(structDecl)
 
-        let protocolExpr = ProtocolExpression(name: node.identifier.description, inheritanceClause: node.inheritanceClause)
+        var accessLevel: ExpressionAccessLevel = .internal
+        if let modifier = node.accessLevelModifier {
+            if let access = ExpressionAccessLevel(rawValue: modifier.name.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                accessLevel = access
+            }
+        }
+
+        let protocolExpr = ProtocolExpression(accessLevel: accessLevel, name: node.identifier.description, inheritanceClause: node.inheritanceClause)
         protocolExpr.properties = pp.variableDelcs
         protocolExpr.methods    = pp.funcDecls
-        protocols[protocolExpr.name] = protocolExpr
+        protocols.append(protocolExpr)
         return super.visit(node)
     }
 
     override func visit(_ node: ExtensionDeclSyntax) -> DeclSyntax {
-        let newClazz = _NestingClazzClause(clazz: ClassExpression(name: node.extendedType.description,
+        var accessLevel: ExpressionAccessLevel = .internal
+        if let modifier = node.accessLevelModifier {
+            if let access = ExpressionAccessLevel(rawValue: modifier.name.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                accessLevel = access
+            }
+        }
+
+        let newClazz = _NestingClazzClause(clazz: ClassExpression(accessLevel: accessLevel, name: node.extendedType.description,
                                                                   inheritanceClause: node.inheritanceClause))
         _nestingClazzClauseList.append(newClazz)
-        self.extensions.append(newClazz.clazz)
+        self.extensions[newClazz.clazz.name] = newClazz.clazz
         newClazz.clazzClauseCounter += 1
         defer {
             newClazz.clazzClauseCounter -= 1
@@ -91,7 +118,16 @@ class SourceFileParse: SyntaxRewriter {
 
     override func visit(_ node: FunctionDeclSyntax) -> DeclSyntax {
         guard let clazz = currentClazz else { return super.visit(node) }
-        clazz.clazz.methods.append(FunctionExpression(name: node.identifier.description, signature: node.signature))
+        var accessLevel: ExpressionAccessLevel = .internal
+        if let modifiers = node.modifiers {
+            for item in modifiers {
+                if let access = ExpressionAccessLevel(rawValue: item.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                    accessLevel = access
+                    break
+                }
+            }
+        }
+        clazz.clazz.methods.append(FunctionExpression(accessLevel: accessLevel, name: node.identifier.description, signature: node.signature))
         clazz.functionClauseCounter += 1
         defer {
             clazz.functionClauseCounter -= 1
@@ -103,7 +139,7 @@ class SourceFileParse: SyntaxRewriter {
         guard let clazz = currentClazz else { return super.visit(node) }
         if clazz.clazzClauseCounter > clazz.functionClauseCounter {
             if let type = node.typeAnnotation?.type.description {
-                clazz.clazz.properties.append(PropertyExpression(name: node.pattern.description, type: type, syntaxExpr: .certain))
+                clazz.clazz.properties.append(PropertyExpression(accessLevel: .internal, name: node.pattern.description, type: type, syntaxExpr: .certain))
             } else {
                 let function = SyntaxFactory.makeFunctionDecl(attributes: nil, modifiers: nil, funcKeyword: SyntaxFactory.makeFuncKeyword(), identifier: SyntaxFactory.makeIdentifier("tempFunction"), genericParameterClause: nil, signature: SyntaxFactory.makeFunctionSignature(input: SyntaxFactory.makeBlankParameterClause(), throwsOrRethrowsKeyword: nil, output: nil), genericWhereClause: nil, body: SyntaxFactory.makeCodeBlock(leftBrace: SyntaxFactory.makeLeftBraceToken(), statements: SyntaxFactory.makeCodeBlockItemList([SyntaxFactory.makeCodeBlockItem(item: node, semicolon: nil)]), rightBrace: SyntaxFactory.makeRightBraceToken()))
                 let ppt = ParsePropertyType()
@@ -113,7 +149,7 @@ class SourceFileParse: SyntaxRewriter {
                     print("Can not recognise type of member variable: \(node), \(ppt.exprType)")
                     exit(3)
                 } else {
-                    let property = PropertyExpression(name: node.pattern.description, type: ppt.type, syntaxExpr: ppt.exprType)
+                    let property = PropertyExpression(accessLevel: .internal, name: node.pattern.description, type: ppt.type, syntaxExpr: ppt.exprType)
                     clazz.clazz.properties.append(property)
                 }
             }

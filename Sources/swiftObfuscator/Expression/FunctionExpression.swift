@@ -9,23 +9,26 @@ import Foundation
 import SwiftSyntax
 
 class FunctionExpression: Expression {
+    let accessLevel: ExpressionAccessLevel
     let name: String
     var exprType: ExpressionType { return .func }
     var obfuscating: String?
 
     let signature: FunctionSignatureSyntax
 
-    required init(name: String, signature: FunctionSignatureSyntax) {
+    init(accessLevel: ExpressionAccessLevel, name: String, signature: FunctionSignatureSyntax) {
+        self.accessLevel = accessLevel
         self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
         self.signature = signature
     }
 
     var parameterList: ParameterList?
-    func parseSignature() {
+    /// 将参数整理，分离出name和type
+    func prepareArguments() {
         guard parameterList == nil else { return }
         var pl = ParameterList()
         for item in signature.input.parameterList {
-            var argument = ParameterList.Parameter
+//            var argument = ParameterList.Parameter
         }
     }
 }
@@ -36,18 +39,29 @@ extension FunctionExpression: CustomStringConvertible {
     }
 }
 
+extension FunctionExpression: Equatable {
+    static func == (lhs: FunctionExpression, rhs: FunctionExpression) -> Bool {
+        return lhs.name == rhs.name && lhs.signature == rhs.signature
+    }
+}
+
 struct ParameterList {
     struct Parameter {
         let firstName: String
-        var firstObfuscating: String? = nil
-
         let secondName: String?
-        var secondObfuscating: String? = nil
         let type: Expression
+
+        var firstObfuscating: String? = nil
+        var secondObfuscating: String? = nil
     }
-    var argument = [Parameter]()
+
+    private var argument = [Parameter]()
 
     func makeIterator() -> Array<Parameter>.Iterator {
         return argument.makeIterator()
+    }
+
+    mutating func append(_ newElement: Parameter) {
+        argument.append(newElement)
     }
 }

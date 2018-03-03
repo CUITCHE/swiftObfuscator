@@ -8,6 +8,7 @@
 import SwiftSyntax
 
 class ExtensionExpression: Expression {
+    let accessLevel: ExpressionAccessLevel
     let name: String
     var obfuscating: String? {
         set { }
@@ -18,7 +19,8 @@ class ExtensionExpression: Expression {
     let conformsProtocols: TypeInheritanceClauseSyntax?
     var main: Expression?
 
-    required init(name: String, inheritanceClause: TypeInheritanceClauseSyntax?, main: Expression?) {
+    init(accessLevel: ExpressionAccessLevel, name: String, inheritanceClause: TypeInheritanceClauseSyntax?, main: Expression?) {
+        self.accessLevel = accessLevel
         self.name = name
         self.conformsProtocols = inheritanceClause
         self.main = main

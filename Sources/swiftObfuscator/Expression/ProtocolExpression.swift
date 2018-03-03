@@ -8,13 +8,15 @@
 import SwiftSyntax
 
 class ProtocolExpression: Expression {
+    let accessLevel: ExpressionAccessLevel
     let name: String
     var exprType: ExpressionType { return .protocol }
     var obfuscating: String?
 
     let inheritanceClause: TypeInheritanceClauseSyntax?
 
-    init(name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
+    init(accessLevel: ExpressionAccessLevel, name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
+        self.accessLevel = accessLevel
         self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
         self.inheritanceClause = inheritanceClause
     }

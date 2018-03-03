@@ -9,6 +9,7 @@ import Foundation
 import SwiftSyntax
 
 class ClassExpression: Expression {
+    let accessLevel: ExpressionAccessLevel
     let name: String
     var exprType: ExpressionType { return .class }
     var obfuscating: String?
@@ -27,9 +28,10 @@ class ClassExpression: Expression {
         return names.joined(separator: ".")
     }
 
-    required init(name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
+    init(accessLevel: ExpressionAccessLevel, name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
         self.name = name
         self.inheritanceClause = inheritanceClause
+        self.accessLevel = accessLevel
     }
 
     var properties = [PropertyExpression]()

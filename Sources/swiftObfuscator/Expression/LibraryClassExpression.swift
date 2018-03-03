@@ -8,6 +8,7 @@
 import Foundation
 
 class LibraryClassExpression: Expression {
+    let accessLevel: ExpressionAccessLevel
     let name: String
     var exprType: ExpressionType { return .class }
     /// Always nil
@@ -16,7 +17,8 @@ class LibraryClassExpression: Expression {
         set { /* do nothing */ }
     }
 
-    init(name: String) {
+    init(accessLevel: ExpressionAccessLevel, name: String) {
+        self.accessLevel = accessLevel
         self.name = name
     }
 }
@@ -29,12 +31,12 @@ extension LibraryClassExpression: Hashable {
     var hashValue: Int { return name.hashValue }
 }
 
-let boolType: LibraryClassExpression = LibraryClassExpression(name: "Bool")
-let doubleType: LibraryClassExpression = LibraryClassExpression(name: "Double")
-let intType: LibraryClassExpression = LibraryClassExpression(name: "Int")
-let stringType: LibraryClassExpression = LibraryClassExpression(name: "String")
-let arrayType: LibraryClassExpression = LibraryClassExpression(name: "Array")
-let dictionaryType: LibraryClassExpression = LibraryClassExpression(name: "Dictionary")
+let boolType: LibraryClassExpression = LibraryClassExpression(accessLevel: .public, name: "Bool")
+let doubleType: LibraryClassExpression = LibraryClassExpression(accessLevel: .public, name: "Double")
+let intType: LibraryClassExpression = LibraryClassExpression(accessLevel: .public, name: "Int")
+let stringType: LibraryClassExpression = LibraryClassExpression(accessLevel: .public, name: "String")
+let arrayType: LibraryClassExpression = LibraryClassExpression(accessLevel: .public, name: "Array")
+let dictionaryType: LibraryClassExpression = LibraryClassExpression(accessLevel: .public, name: "Dictionary")
 
 /// Store third-part library or system class type.
 var libraryClazzs: Set<LibraryClassExpression> = [boolType, doubleType, intType, stringType, arrayType, dictionaryType]

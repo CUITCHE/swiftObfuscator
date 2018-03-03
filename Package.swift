@@ -17,4 +17,4 @@ let package = Package(
     ]
 )
 
-// In Mac OS X, use /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift to build
+// In Mac OS X, use /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift build

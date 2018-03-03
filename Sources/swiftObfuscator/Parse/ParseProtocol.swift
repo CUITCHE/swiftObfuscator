@@ -14,7 +14,15 @@ class ParserProtocol: SyntaxRewriter {
 
     override func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
         if let binding = node.bindings.first, let type = binding.typeAnnotation?.type.description {
-            variableDelcs.append(PropertyExpression(name: binding.pattern.description, type: type))
+            if let modifiers = node.modifiers {
+                for item in modifiers {
+                    if let access = ExpressionAccessLevel(rawValue: item.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                        variableDelcs.append(PropertyExpression(accessLevel: access, name: binding.pattern.description, type: type))
+                        return super.visit(node)
+                    }
+                }
+            }
+            variableDelcs.append(PropertyExpression(accessLevel: .internal, name: binding.pattern.description, type: type))
         } else {
             print("Can not parse protocol variable: \(node)")
             exit(1)
@@ -23,7 +31,15 @@ class ParserProtocol: SyntaxRewriter {
     }
 
     override func visit(_ node: FunctionDeclSyntax) -> DeclSyntax {
-        funcDecls.append(FunctionExpression(name: node.identifier.description, signature: node.signature))
+        if let modifiers = node.modifiers {
+            for item in modifiers {
+                if let access = ExpressionAccessLevel(rawValue: item.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                    funcDecls.append(FunctionExpression(accessLevel: access, name: node.identifier.description, signature: node.signature))
+                    return super.visit(node)
+                }
+            }
+        }
+        funcDecls.append(FunctionExpression(accessLevel: .internal, name: node.identifier.description, signature: node.signature))
         return super.visit(node)
     }
 }

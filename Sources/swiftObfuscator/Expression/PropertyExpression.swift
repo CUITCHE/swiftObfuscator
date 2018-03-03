@@ -36,6 +36,7 @@ class PropertyExpression: Expression {
             }
         }
     }
+    let accessLevel: ExpressionAccessLevel
     let name: String
     var obfuscating: String?
     var typeName: String?
@@ -44,7 +45,8 @@ class PropertyExpression: Expression {
 
     var syntaxExpr: PropertyTypeExpr
 
-    init(name: String, type: String?, syntaxExpr: PropertyTypeExpr = .unknown) {
+    init(accessLevel: ExpressionAccessLevel, name: String, type: String?, syntaxExpr: PropertyTypeExpr = .unknown) {
+        self.accessLevel = accessLevel
         self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
         self.typeName = type?.trimmingCharacters(in: .whitespacesAndNewlines)
         self.syntaxExpr = syntaxExpr

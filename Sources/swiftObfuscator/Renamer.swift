@@ -37,13 +37,16 @@ class Renamer: SyntaxRewriter {
     // MARK: - string合成语法解析
     override func visit(_ node: StringInterpolationExprSyntax) -> ExprSyntax {
         // "criticalWidth: \(criticalWidth)"
-        //        print(node)
         return super.visit(node)
     }
 
     override func visit(_ node: StringSegmentSyntax) -> Syntax {
         // "criticalWidth: \(criticalWidth)" => "criticalWidth: "
-        //        print(node)
+        return super.visit(node)
+    }
+
+    override func visit(_ node: ExpressionSegmentSyntax) -> Syntax {
+        // "criticalWidth: \(criticalWidth)" => "\(criticalWidth)"
         return super.visit(node)
     }
 
@@ -52,8 +55,12 @@ class Renamer: SyntaxRewriter {
         return super.visit(node)
     }
 
+    override func visit(_ node: StringLiteralExprSyntax) -> ExprSyntax {
+        return super.visit(SyntaxFactory.makeStringLiteralExpr("zxcvbnm"))
+    }
+
     override func visit(_ node: IdentifierPatternSyntax) -> PatternSyntax {
-        print(node.parent)
+//        print(node.parent)
         return super.visit(node)
     }
 }

@@ -34,8 +34,7 @@ struct Configure: Decodable {
                 exit(2)
             }
         } else {
-            print(#function)
-            exit(3)
+            return Configure()
         }
     }
 
@@ -58,5 +57,9 @@ struct Configure: Decodable {
         } else {
             isDebug = false
         }
+    }
+
+    private init() {
+        isDebug = true
     }
 }

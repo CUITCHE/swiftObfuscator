@@ -117,7 +117,10 @@ class SourceFileParse: SyntaxRewriter {
     }
 
     override func visit(_ node: FunctionDeclSyntax) -> DeclSyntax {
-        guard let clazz = currentClazz else { return super.visit(node) }
+        guard let clazz = currentClazz else {
+            // FIXME:这里有可能是全局函数
+            return super.visit(node)
+        }
         var accessLevel: ExpressionAccessLevel = .internal
         if let modifiers = node.modifiers {
             for item in modifiers {

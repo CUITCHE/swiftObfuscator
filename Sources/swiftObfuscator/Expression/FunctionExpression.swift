@@ -25,11 +25,13 @@ class FunctionExpression: Expression {
     var parameterList: ParameterList?
     /// 将参数整理，分离出name和type
     func prepareArguments() {
-        guard parameterList == nil else { return }
+        guard parameterList == nil, parameterList != nil else { return }
         var pl = ParameterList()
         for item in signature.input.parameterList {
-//            var argument = ParameterList.Parameter
+            let argument = ParameterList.Parameter(firstName: item.firstName.text, secondName: item.secondName?.text, typeString: item.typeAnnotation.description, type: nil, firstObfuscating: nil, secondObfuscating: nil)
+            pl.append(argument)
         }
+        parameterList = pl
     }
 }
 
@@ -49,7 +51,8 @@ struct ParameterList {
     struct Parameter {
         let firstName: String
         let secondName: String?
-        let type: Expression
+        let typeString: String
+        var type: Expression? = nil
 
         var firstObfuscating: String? = nil
         var secondObfuscating: String? = nil

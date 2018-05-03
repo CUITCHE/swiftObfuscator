@@ -37,7 +37,7 @@ class FunctionExpression: Expression {
 
 extension FunctionExpression: CustomStringConvertible {
     var description: String {
-        return "\(name)\(signature)"
+        return "\(accessLevel) \(name)\(signature)"
     }
 }
 
@@ -49,7 +49,7 @@ extension FunctionExpression: Equatable {
 
 struct ParameterList {
     struct Parameter {
-        let firstName: String
+        let firstName: String // Maybe '_'
         let secondName: String?
         let typeString: String
         var type: Expression? = nil

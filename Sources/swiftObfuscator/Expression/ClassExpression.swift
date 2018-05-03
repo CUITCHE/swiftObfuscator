@@ -8,10 +8,11 @@
 import Foundation
 import SwiftSyntax
 
-class ClassExpression: Expression {
+class ClassExpression: Expression, CustomStringConvertible {
     let accessLevel: ExpressionAccessLevel
     let name: String
-    var exprType: ExpressionType { return .class }
+    var exprType: ExpressionType { return _exprType }
+    private let _exprType: ExpressionType
     var obfuscating: String?
 
     let inheritanceClause: TypeInheritanceClauseSyntax?
@@ -28,18 +29,26 @@ class ClassExpression: Expression {
         return names.joined(separator: ".")
     }
 
-    init(accessLevel: ExpressionAccessLevel, name: String, inheritanceClause: TypeInheritanceClauseSyntax?) {
-        self.name = name
+    init(accessLevel: ExpressionAccessLevel, name: String, inheritanceClause: TypeInheritanceClauseSyntax?, exprType: ExpressionType) {
+        self.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
         self.inheritanceClause = inheritanceClause
         self.accessLevel = accessLevel
+        self._exprType = exprType
     }
 
     var properties = [PropertyExpression]()
     var methods = [FunctionExpression]()
-}
 
-extension ClassExpression: CustomStringConvertible {
     var description: String {
-        return "\(fullClassname)<\(properties), \(methods)>"
+        let propertiesString = properties.map { "- " + $0.description }.joined(separator: "\n\t\t")
+        let methodsString = methods.map { "- " + $0.description }.joined(separator: "\n\t\t")
+        return """
+        \(accessLevel) \(exprType) \(fullClassname) = {
+            - property:
+                \(propertiesString)
+            - function:
+                \(methodsString)
+        }
+        """
     }
 }

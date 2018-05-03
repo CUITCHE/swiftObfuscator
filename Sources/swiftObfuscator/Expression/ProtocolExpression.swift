@@ -27,6 +27,15 @@ class ProtocolExpression: Expression {
 
 extension ProtocolExpression: CustomStringConvertible {
     var description: String {
-        return "\(name)<\(properties), \(methods)>"
+        let propertiesString = properties.map { "- " + $0.description }.joined(separator: "\n\t\t")
+        let methodsString = methods.map { "- " + $0.description }.joined(separator: "\n\t\t")
+        return """
+        \(accessLevel) protocol \(name) = {
+            - property:
+                \(propertiesString)
+            - function:
+                \(methodsString)
+        }
+        """
     }
 }

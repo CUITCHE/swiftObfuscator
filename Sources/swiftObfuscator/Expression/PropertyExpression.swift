@@ -43,7 +43,7 @@ class PropertyExpression: Expression {
     var type: Expression?
     var exprType: ExpressionType { return .property }
 
-    var syntaxExpr: PropertyTypeExpr
+    let syntaxExpr: PropertyTypeExpr
 
     init(accessLevel: ExpressionAccessLevel, name: String, type: String?, syntaxExpr: PropertyTypeExpr = .unknown) {
         self.accessLevel = accessLevel
@@ -65,6 +65,6 @@ extension PropertyExpression {
 
 extension PropertyExpression: CustomStringConvertible {
     var description: String {
-        return "\(name): \(typeName ?? "Unknown")"
+        return "\(accessLevel) \(name): \(typeName ?? "Unknown")"
     }
 }

@@ -10,6 +10,7 @@
 		FB116634204941C000BEFA48 /* ExtensionExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB116633204941C000BEFA48 /* ExtensionExpression.swift */; };
 		FB55082F2049129700587A3E /* LibraryClassExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB55082E2049129700587A3E /* LibraryClassExpression.swift */; };
 		FB57B7C42047FAA5001F9752 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB57B7C02047FA22001F9752 /* libsqlite3.0.tbd */; };
+		FB6F2F97209AE5020014D1C0 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6F2F96209AE5020014D1C0 /* Log.swift */; };
 		FB999A58204A549A001AF073 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB999A57204A549A001AF073 /* Configure.swift */; };
 		OBJ_102 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* Package.swift */; };
 		OBJ_107 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* SQLite-Bridging.m */; };
@@ -83,6 +84,7 @@
 		FB116633204941C000BEFA48 /* ExtensionExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionExpression.swift; sourceTree = "<group>"; };
 		FB55082E2049129700587A3E /* LibraryClassExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryClassExpression.swift; sourceTree = "<group>"; };
 		FB57B7C02047FA22001F9752 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FB6F2F96209AE5020014D1C0 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		FB999A57204A549A001AF073 /* Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
 		OBJ_10 /* ClassExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExpression.swift; sourceTree = "<group>"; };
 		OBJ_11 /* EnumExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExpression.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				OBJ_23 /* Persist */,
 				OBJ_25 /* Renamer.swift */,
 				OBJ_26 /* main.swift */,
+				FB6F2F96209AE5020014D1C0 /* Log.swift */,
 			);
 			name = swiftObfuscator;
 			path = Sources/swiftObfuscator;
@@ -500,6 +503,7 @@
 				OBJ_124 /* SourceFileParse.swift in Sources */,
 				OBJ_125 /* ObfuscateDatabase.swift in Sources */,
 				OBJ_126 /* Renamer.swift in Sources */,
+				FB6F2F97209AE5020014D1C0 /* Log.swift in Sources */,
 				OBJ_127 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

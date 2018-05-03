@@ -11,35 +11,46 @@ import SwiftSyntax
 class ParserProtocol: SyntaxRewriter {
     var funcDecls = [FunctionExpression]()
     var variableDelcs = [PropertyExpression]()
+    var accessLevel: ExpressionAccessLevel = .internal
+
+    override func visit(_ node: StructDeclSyntax) -> DeclSyntax {
+        var accessLevel: ExpressionAccessLevel = .internal
+        if let modifier = node.accessLevelModifier, modifier.description.isEmpty == false {
+            if let access = ExpressionAccessLevel(rawValue: modifier.name.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                accessLevel = access
+            }
+        }
+        self.accessLevel = accessLevel
+        return super.visit(node)
+    }
 
     override func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
-        if let binding = node.bindings.first, let type = binding.typeAnnotation?.type.description {
-            if let modifiers = node.modifiers {
-                for item in modifiers {
-                    if let access = ExpressionAccessLevel(rawValue: item.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
-                        variableDelcs.append(PropertyExpression(accessLevel: access, name: binding.pattern.description, type: type))
-                        return super.visit(node)
-                    }
-                }
+        var accessLevel: ExpressionAccessLevel = self.accessLevel
+        node.modifiers?.forEach({
+            if let val = ExpressionAccessLevel(rawValue: $0.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                accessLevel = val
             }
-            variableDelcs.append(PropertyExpression(accessLevel: .internal, name: binding.pattern.description, type: type))
+        })
+        if let binding = node.bindings.first, let type = binding.typeAnnotation?.type.description {
+            variableDelcs.append(PropertyExpression(accessLevel: accessLevel, name: binding.pattern.description, type: type))
         } else {
-            print("Can not parse protocol variable: \(node)")
+            Log("Can not parse protocol variable: \(node)")
             exit(1)
         }
         return super.visit(node)
     }
 
     override func visit(_ node: FunctionDeclSyntax) -> DeclSyntax {
+        var accessLevel: ExpressionAccessLevel = self.accessLevel
         if let modifiers = node.modifiers {
             for item in modifiers {
                 if let access = ExpressionAccessLevel(rawValue: item.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
-                    funcDecls.append(FunctionExpression(accessLevel: access, name: node.identifier.description, signature: node.signature))
-                    return super.visit(node)
+                    accessLevel = access
+                    break
                 }
             }
         }
-        funcDecls.append(FunctionExpression(accessLevel: .internal, name: node.identifier.description, signature: node.signature))
+        funcDecls.append(FunctionExpression(accessLevel: accessLevel, name: node.identifier.description, signature: node.signature))
         return super.visit(node)
     }
 }

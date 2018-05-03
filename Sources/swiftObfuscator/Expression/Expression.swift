@@ -10,6 +10,8 @@ import Foundation
 enum ExpressionType {
     case `class`, `struct`, `protocol`, `enum`
     case `func`, property
+    /// 用于extension，不知道extension的是class还是struct的时候。当遍历完所有已知的class还不知道是谁，就可以断定是library了。
+    case unknown
 }
 
 enum ExpressionAccessLevel: String {

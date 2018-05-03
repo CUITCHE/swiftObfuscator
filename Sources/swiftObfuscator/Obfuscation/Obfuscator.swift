@@ -23,7 +23,6 @@ struct Obfuscator {
         let name: FileNameType
         let filepath: URL
         let clazzs: [ClassExpression]
-        let extensions: [String: Expression]
         let protocols: [ProtocolExpression]
         let topFunctions: [FunctionExpression]
     }
@@ -39,28 +38,19 @@ struct Obfuscator {
                 let sourceFile = try NestedParsePlaceholder.parse(item)
                 let sp = SourceFileParse()
                 _ = sp.visit(sourceFile)
-                parsed.append(SourceFile(name: item.lastPathComponent, filepath: item, clazzs: sp.clazzes, extensions: sp.extensions, protocols: sp.protocols, topFunctions: sp.topFunctions))
+                parsed.append(SourceFile(name: item.lastPathComponent, filepath: item, clazzs: sp.clazzes, protocols: sp.protocols, topFunctions: sp.topFunctions))
             } catch {
-                print(error)
+                Log(error)
                 exit(2)
             }
         }
         merge()
+        Log(parsed.first!)
     }
 
     mutating func merge() {
         for item in parsed {
             Obfuscator.mainclazzs.append(contentsOf: item.clazzs)
-        }
-        Configure.shared.debug {
-            let names = Obfuscator.mainclazzs.map({
-                return $0.fullClassname
-            }).sorted()
-            for item in zip(names, names.dropFirst()) {
-                if item.0 == item.1 {
-                    print("The Same class name! => \(item)")
-                }
-            }
         }
     }
 }

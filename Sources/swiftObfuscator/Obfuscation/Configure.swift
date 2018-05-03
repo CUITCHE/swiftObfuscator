@@ -30,7 +30,7 @@ struct Configure: Decodable {
                 let config = try JSONDecoder().decode(Configure.self, from: data)
                 return config
             } catch {
-                print(error)
+                Log(error)
                 exit(2)
             }
         } else {

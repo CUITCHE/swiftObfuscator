@@ -18,7 +18,7 @@ class ParsePropertyType: SyntaxRewriter {
             case .unknown:
                 _type = nil
             case .certain:
-                print("Unreachable place")
+                Log("Unreachable place")
                 exit(-1)
             case .literal(let v):
                 _type = "\(v)"
@@ -29,29 +29,11 @@ class ParsePropertyType: SyntaxRewriter {
     }
 
     override func visit(_ node: FunctionCallExprSyntax) -> ExprSyntax {
-        if case .unknown = _exprType {
-            let expr = node.description
-            if expr.hasPrefix("[") { // maybe [] or [:]
-                if expr.contains(":") {
-                    var colon = 1, rightBrackets = 0, leftBrackets = 0
-                    let colonFisrtIndex = expr.index(of: ":")!
-                    for ch in expr[expr.index(after: colonFisrtIndex)...] {
-                        if ch == "[" {
-                            leftBrackets += 1
-                        } else if ch == "]" {
-                            rightBrackets += 1
-                        }
-                    }
-                    rightBrackets -= leftBrackets
-                    if colon == rightBrackets {
-                        _exprType = .literal(.Dictionary)
-                    } else {
-                        _exprType = .literal(.Array)
-                    }
-                } else {
-                    _exprType = .literal(.Array)
-                }
-            } else {
+        if !node.description.hasPrefix("[") {
+            _exprType = .func(node)
+        }
+        defer {
+            if case .unknown = _exprType {
                 _exprType = .func(node)
             }
         }

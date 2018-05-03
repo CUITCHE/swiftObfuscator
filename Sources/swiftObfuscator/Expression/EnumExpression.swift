@@ -20,4 +20,12 @@ class EnumExpression: Expression {
         self.accessLevel = accessLevel
         self.name = name
     }
+
+    class ABC {
+        //
+    }
+}
+
+extension EnumExpression.ABC {
+    func foo() {}
 }

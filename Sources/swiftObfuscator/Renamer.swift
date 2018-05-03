@@ -19,6 +19,13 @@ class Renamer: SyntaxRewriter {
         return super.visit(node)
     }
 
+    override func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
+        for idx in node.bindings.enumerated() {
+            print(idx.offset, idx.element)
+        }
+        return super.visit(node)
+    }
+
     // MARK: - 方法的调用，包含调用的对象和方法
     override func visit(_ node: FunctionCallExprSyntax) -> ExprSyntax {
         // delegate?.cropFrameCaptureView(self, didFinish: item)
@@ -56,7 +63,7 @@ class Renamer: SyntaxRewriter {
     }
 
     override func visit(_ node: StringLiteralExprSyntax) -> ExprSyntax {
-        return super.visit(SyntaxFactory.makeStringLiteralExpr("zxcvbnm"))
+        return super.visit(node)
     }
 
     override func visit(_ node: IdentifierPatternSyntax) -> PatternSyntax {

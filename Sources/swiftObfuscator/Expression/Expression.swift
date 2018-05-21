@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ObjectiveC
 
 enum ExpressionType {
     case `class`, `struct`, `protocol`, `enum`

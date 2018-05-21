@@ -8,7 +8,7 @@
 import Foundation
 import SwiftSyntax
 
-class ParsePropertyType: SyntaxRewriter {
+class ParsePropertyType: SyntaxVisitor {
     var type: String? { return _type }
     private var _type: String?
     var exprType: PropertyExpression.PropertyTypeExpr { return _exprType }
@@ -28,7 +28,7 @@ class ParsePropertyType: SyntaxRewriter {
         }
     }
 
-    override func visit(_ node: FunctionCallExprSyntax) -> ExprSyntax {
+    override func visit(_ node: FunctionCallExprSyntax) {
         if !node.description.hasPrefix("[") {
             _exprType = .func(node)
         }
@@ -40,49 +40,49 @@ class ParsePropertyType: SyntaxRewriter {
         return super.visit(node)
     }
 
-    override func visit(_ node: BooleanLiteralExprSyntax) -> ExprSyntax {
+    override func visit(_ node: BooleanLiteralExprSyntax) {
         if case .unknown = exprType {
             _exprType = .literal(.Bool)
         }
         return super.visit(node)
     }
 
-    override func visit(_ node: IntegerLiteralExprSyntax) -> ExprSyntax {
+    override func visit(_ node: IntegerLiteralExprSyntax) {
         if case .unknown = exprType {
             _exprType = .literal(.Int)
         }
         return super.visit(node)
     }
 
-    override func visit(_ node: FloatLiteralExprSyntax) -> ExprSyntax {
+    override func visit(_ node: FloatLiteralExprSyntax) {
         if case .unknown = exprType {
             _exprType = .literal(.Double)
         }
         return super.visit(node)
     }
 
-    override func visit(_ node: StringLiteralExprSyntax) -> ExprSyntax {
+    override func visit(_ node: StringLiteralExprSyntax) {
         if case .unknown = exprType {
             _exprType = .literal(.String)
         }
         return super.visit(node)
     }
 
-    override func visit(_ node: StringSegmentSyntax) -> Syntax {
+    override func visit(_ node: StringSegmentSyntax) {
         if case .unknown = exprType {
             _exprType = .literal(.String)
         }
         return super.visit(node)
     }
 
-    override func visit(_ node: ArrayExprSyntax) -> ExprSyntax {
+    override func visit(_ node: ArrayExprSyntax) {
         if case .unknown = exprType {
             _exprType = .literal(.Array)
         }
         return super.visit(node)
     }
 
-    override func visit(_ node: DictionaryExprSyntax) -> ExprSyntax {
+    override func visit(_ node: DictionaryExprSyntax) {
         if case .unknown = exprType {
             _exprType = .literal(.Dictionary)
         }

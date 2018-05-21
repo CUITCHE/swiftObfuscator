@@ -11,34 +11,36 @@ public struct AccessLevelModifierSyntax : Syntax, Hashable {
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessLevelModifierSyntax
 
-    public var openParen: SwiftSyntax.TokenSyntax? { get }
+    public var leftParen: SwiftSyntax.TokenSyntax? { get }
 
-    public func withOpenParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessLevelModifierSyntax
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
+    public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessLevelModifierSyntax
 
     public var modifier: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `modifier` replaced.
+    /// - param newChild: The new `modifier` to replace the node's
+    ///                   current `modifier`, if present.
     public func withModifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessLevelModifierSyntax
 
-    public var closeParen: SwiftSyntax.TokenSyntax? { get }
+    public var rightParen: SwiftSyntax.TokenSyntax? { get }
 
-    public func withCloseParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessLevelModifierSyntax
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
+    public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessLevelModifierSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AccessLevelModifierSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AccessLevelModifierSyntax, rhs: SwiftSyntax.AccessLevelModifierSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -59,37 +61,33 @@ public struct AccessLevelModifierSyntaxBuilder {
 
     public mutating func useName(_ node: SwiftSyntax.TokenSyntax)
 
-    public mutating func useOpenParen(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useLeftParen(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useModifier(_ node: SwiftSyntax.TokenSyntax)
 
-    public mutating func useCloseParen(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useRightParen(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct AccessPathComponentSyntax : Syntax, Hashable {
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessPathComponentSyntax
 
     public var trailingDot: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingDot` replaced.
+    /// - param newChild: The new `trailingDot` to replace the node's
+    ///                   current `trailingDot`, if present.
     public func withTrailingDot(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessPathComponentSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AccessPathComponentSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AccessPathComponentSyntax, rhs: SwiftSyntax.AccessPathComponentSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -264,30 +262,29 @@ public struct AccessorBlockSyntax : Syntax, Hashable {
 
     public var leftBrace: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftBrace` replaced.
+    /// - param newChild: The new `leftBrace` to replace the node's
+    ///                   current `leftBrace`, if present.
     public func withLeftBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessorBlockSyntax
 
     public var accessorListOrStmtList: Syntax { get }
 
+    /// Returns a copy of the receiver with its `accessorListOrStmtList` replaced.
+    /// - param newChild: The new `accessorListOrStmtList` to replace the node's
+    ///                   current `accessorListOrStmtList`, if present.
     public func withAccessorListOrStmtList(_ newChild: Syntax?) -> SwiftSyntax.AccessorBlockSyntax
 
     public var rightBrace: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightBrace` replaced.
+    /// - param newChild: The new `rightBrace` to replace the node's
+    ///                   current `rightBrace`, if present.
     public func withRightBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessorBlockSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AccessorBlockSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AccessorBlockSyntax, rhs: SwiftSyntax.AccessorBlockSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -304,6 +301,9 @@ extension AccessorBlockSyntax {
     public init(_ build: (inout SwiftSyntax.AccessorBlockSyntaxBuilder) -> Swift.Void)
 }
 
+extension AccessorBlockSyntax : BracedSyntax {
+}
+
 public struct AccessorBlockSyntaxBuilder {
 
     public mutating func useLeftBrace(_ node: SwiftSyntax.TokenSyntax)
@@ -317,40 +317,51 @@ public struct AccessorDeclSyntax : DeclSyntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.AccessorDeclSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.AccessorDeclSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.AccessorDeclSyntax
 
     public var modifier: SwiftSyntax.DeclModifierSyntax? { get }
 
+    /// Returns a copy of the receiver with its `modifier` replaced.
+    /// - param newChild: The new `modifier` to replace the node's
+    ///                   current `modifier`, if present.
     public func withModifier(_ newChild: SwiftSyntax.DeclModifierSyntax?) -> SwiftSyntax.AccessorDeclSyntax
 
     public var accessorKind: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `accessorKind` replaced.
+    /// - param newChild: The new `accessorKind` to replace the node's
+    ///                   current `accessorKind`, if present.
     public func withAccessorKind(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessorDeclSyntax
 
     public var parameter: SwiftSyntax.AccessorParameterSyntax? { get }
 
+    /// Returns a copy of the receiver with its `parameter` replaced.
+    /// - param newChild: The new `parameter` to replace the node's
+    ///                   current `parameter`, if present.
     public func withParameter(_ newChild: SwiftSyntax.AccessorParameterSyntax?) -> SwiftSyntax.AccessorDeclSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax? { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.AccessorDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AccessorDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AccessorDeclSyntax, rhs: SwiftSyntax.AccessorDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -531,30 +542,29 @@ public struct AccessorParameterSyntax : Syntax, Hashable {
 
     public var leftParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessorParameterSyntax
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessorParameterSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessorParameterSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AccessorParameterSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AccessorParameterSyntax, rhs: SwiftSyntax.AccessorParameterSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -569,6 +579,9 @@ extension AccessorParameterSyntax {
     /// - Returns: A `AccessorParameterSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.AccessorParameterSyntaxBuilder) -> Swift.Void)
+}
+
+extension AccessorParameterSyntax : ParenthesizedSyntax {
 }
 
 public struct AccessorParameterSyntaxBuilder {
@@ -731,26 +744,22 @@ public struct ArrayElementSyntax : Syntax, Hashable {
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.ArrayElementSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ArrayElementSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ArrayElementSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ArrayElementSyntax, rhs: SwiftSyntax.ArrayElementSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -767,6 +776,9 @@ extension ArrayElementSyntax {
     public init(_ build: (inout SwiftSyntax.ArrayElementSyntaxBuilder) -> Swift.Void)
 }
 
+extension ArrayElementSyntax : WithTrailingCommaSyntax {
+}
+
 public struct ArrayElementSyntaxBuilder {
 
     public mutating func useExpression(_ node: ExprSyntax)
@@ -778,32 +790,37 @@ public struct ArrayExprSyntax : ExprSyntax, Hashable {
 
     public var leftSquare: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftSquare` replaced.
+    /// - param newChild: The new `leftSquare` to replace the node's
+    ///                   current `leftSquare`, if present.
     public func withLeftSquare(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ArrayExprSyntax
 
     public var elements: SwiftSyntax.ArrayElementListSyntax { get }
 
-    public func addArrayElement(_ elt: SwiftSyntax.ArrayElementSyntax) -> SwiftSyntax.ArrayExprSyntax
+    /// Adds the provided `ArrayElement` to the node's `elements`
+    /// collection.
+    /// - param element: The new `ArrayElement` to add to the node's
+    ///                  `elements` collection.
+    /// - returns: A copy of the receiver with the provided `ArrayElement`
+    ///            appended to its `elements` collection.
+    public func addArrayElement(_ element: SwiftSyntax.ArrayElementSyntax) -> SwiftSyntax.ArrayExprSyntax
 
+    /// Returns a copy of the receiver with its `elements` replaced.
+    /// - param newChild: The new `elements` to replace the node's
+    ///                   current `elements`, if present.
     public func withElements(_ newChild: SwiftSyntax.ArrayElementListSyntax?) -> SwiftSyntax.ArrayExprSyntax
 
     public var rightSquare: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightSquare` replaced.
+    /// - param newChild: The new `rightSquare` to replace the node's
+    ///                   current `rightSquare`, if present.
     public func withRightSquare(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ArrayExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ArrayExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ArrayExprSyntax, rhs: SwiftSyntax.ArrayExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -833,30 +850,29 @@ public struct ArrayTypeSyntax : TypeSyntax, Hashable {
 
     public var leftSquareBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftSquareBracket` replaced.
+    /// - param newChild: The new `leftSquareBracket` to replace the node's
+    ///                   current `leftSquareBracket`, if present.
     public func withLeftSquareBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ArrayTypeSyntax
 
     public var elementType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `elementType` replaced.
+    /// - param newChild: The new `elementType` to replace the node's
+    ///                   current `elementType`, if present.
     public func withElementType(_ newChild: TypeSyntax?) -> SwiftSyntax.ArrayTypeSyntax
 
     public var rightSquareBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightSquareBracket` replaced.
+    /// - param newChild: The new `rightSquareBracket` to replace the node's
+    ///                   current `rightSquareBracket`, if present.
     public func withRightSquareBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ArrayTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ArrayTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ArrayTypeSyntax, rhs: SwiftSyntax.ArrayTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -882,34 +898,76 @@ public struct ArrayTypeSyntaxBuilder {
     public mutating func useRightSquareBracket(_ node: SwiftSyntax.TokenSyntax)
 }
 
+public struct ArrowExprSyntax : ExprSyntax, Hashable {
+
+    public var throwsToken: SwiftSyntax.TokenSyntax? { get }
+
+    /// Returns a copy of the receiver with its `throwsToken` replaced.
+    /// - param newChild: The new `throwsToken` to replace the node's
+    ///                   current `throwsToken`, if present.
+    public func withThrowsToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ArrowExprSyntax
+
+    public var arrowToken: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `arrowToken` replaced.
+    /// - param newChild: The new `arrowToken` to replace the node's
+    ///                   current `arrowToken`, if present.
+    public func withArrowToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ArrowExprSyntax
+
+    /// Determines if two `ArrowExprSyntax` nodes are equal to each other.
+    public static func == (lhs: SwiftSyntax.ArrowExprSyntax, rhs: SwiftSyntax.ArrowExprSyntax) -> Bool
+
+    /// A unique hash value for this node.
+    public var hashValue: Int { get }
+}
+
+extension ArrowExprSyntax {
+
+    /// Creates a `ArrowExprSyntax` using the provided build function.
+    /// - Parameter:
+    ///   - build: A closure that wil be invoked in order to initialize
+    ///            the fields of the syntax node.
+    ///            This closure is passed a `ArrowExprSyntaxBuilder` which you can use to
+    ///            incrementally build the structure of the node.
+    /// - Returns: A `ArrowExprSyntax` with all the fields populated in the builder
+    ///            closure.
+    public init(_ build: (inout SwiftSyntax.ArrowExprSyntaxBuilder) -> Swift.Void)
+}
+
+public struct ArrowExprSyntaxBuilder {
+
+    public mutating func useThrowsToken(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useArrowToken(_ node: SwiftSyntax.TokenSyntax)
+}
+
 public struct AsExprSyntax : ExprSyntax, Hashable {
 
     public var asTok: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `asTok` replaced.
+    /// - param newChild: The new `asTok` to replace the node's
+    ///                   current `asTok`, if present.
     public func withAsTok(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AsExprSyntax
 
     public var questionOrExclamationMark: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `questionOrExclamationMark` replaced.
+    /// - param newChild: The new `questionOrExclamationMark` to replace the node's
+    ///                   current `questionOrExclamationMark`, if present.
     public func withQuestionOrExclamationMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AsExprSyntax
 
     public var typeName: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `typeName` replaced.
+    /// - param newChild: The new `typeName` to replace the node's
+    ///                   current `typeName`, if present.
     public func withTypeName(_ newChild: TypeSyntax?) -> SwiftSyntax.AsExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AsExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AsExprSyntax, rhs: SwiftSyntax.AsExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -939,30 +997,29 @@ public struct AsTypePatternSyntax : PatternSyntax, Hashable {
 
     public var pattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `pattern` replaced.
+    /// - param newChild: The new `pattern` to replace the node's
+    ///                   current `pattern`, if present.
     public func withPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.AsTypePatternSyntax
 
     public var asKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `asKeyword` replaced.
+    /// - param newChild: The new `asKeyword` to replace the node's
+    ///                   current `asKeyword`, if present.
     public func withAsKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AsTypePatternSyntax
 
     public var type: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `type` replaced.
+    /// - param newChild: The new `type` to replace the node's
+    ///                   current `type`, if present.
     public func withType(_ newChild: TypeSyntax?) -> SwiftSyntax.AsTypePatternSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AsTypePatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AsTypePatternSyntax, rhs: SwiftSyntax.AsTypePatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -992,22 +1049,15 @@ public struct AssignmentExprSyntax : ExprSyntax, Hashable {
 
     public var assignToken: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `assignToken` replaced.
+    /// - param newChild: The new `assignToken` to replace the node's
+    ///                   current `assignToken`, if present.
     public func withAssignToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AssignmentExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AssignmentExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AssignmentExprSyntax, rhs: SwiftSyntax.AssignmentExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1027,6 +1077,105 @@ extension AssignmentExprSyntax {
 public struct AssignmentExprSyntaxBuilder {
 
     public mutating func useAssignToken(_ node: SwiftSyntax.TokenSyntax)
+}
+
+public struct AssociatedtypeDeclSyntax : DeclSyntax, Hashable {
+
+    public var attributes: SwiftSyntax.AttributeListSyntax? { get }
+
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.AssociatedtypeDeclSyntax
+
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
+    public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.AssociatedtypeDeclSyntax
+
+    public var accessLevelModifier: SwiftSyntax.DeclModifierSyntax? { get }
+
+    /// Returns a copy of the receiver with its `accessLevelModifier` replaced.
+    /// - param newChild: The new `accessLevelModifier` to replace the node's
+    ///                   current `accessLevelModifier`, if present.
+    public func withAccessLevelModifier(_ newChild: SwiftSyntax.DeclModifierSyntax?) -> SwiftSyntax.AssociatedtypeDeclSyntax
+
+    public var associatedtypeKeyword: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `associatedtypeKeyword` replaced.
+    /// - param newChild: The new `associatedtypeKeyword` to replace the node's
+    ///                   current `associatedtypeKeyword`, if present.
+    public func withAssociatedtypeKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AssociatedtypeDeclSyntax
+
+    public var identifier: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
+    public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AssociatedtypeDeclSyntax
+
+    public var inheritanceClause: SwiftSyntax.TypeInheritanceClauseSyntax? { get }
+
+    /// Returns a copy of the receiver with its `inheritanceClause` replaced.
+    /// - param newChild: The new `inheritanceClause` to replace the node's
+    ///                   current `inheritanceClause`, if present.
+    public func withInheritanceClause(_ newChild: SwiftSyntax.TypeInheritanceClauseSyntax?) -> SwiftSyntax.AssociatedtypeDeclSyntax
+
+    public var initializer: SwiftSyntax.TypeInitializerClauseSyntax? { get }
+
+    /// Returns a copy of the receiver with its `initializer` replaced.
+    /// - param newChild: The new `initializer` to replace the node's
+    ///                   current `initializer`, if present.
+    public func withInitializer(_ newChild: SwiftSyntax.TypeInitializerClauseSyntax?) -> SwiftSyntax.AssociatedtypeDeclSyntax
+
+    public var genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax? { get }
+
+    /// Returns a copy of the receiver with its `genericWhereClause` replaced.
+    /// - param newChild: The new `genericWhereClause` to replace the node's
+    ///                   current `genericWhereClause`, if present.
+    public func withGenericWhereClause(_ newChild: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.AssociatedtypeDeclSyntax
+
+    /// Determines if two `AssociatedtypeDeclSyntax` nodes are equal to each other.
+    public static func == (lhs: SwiftSyntax.AssociatedtypeDeclSyntax, rhs: SwiftSyntax.AssociatedtypeDeclSyntax) -> Bool
+
+    /// A unique hash value for this node.
+    public var hashValue: Int { get }
+}
+
+extension AssociatedtypeDeclSyntax {
+
+    /// Creates a `AssociatedtypeDeclSyntax` using the provided build function.
+    /// - Parameter:
+    ///   - build: A closure that wil be invoked in order to initialize
+    ///            the fields of the syntax node.
+    ///            This closure is passed a `AssociatedtypeDeclSyntaxBuilder` which you can use to
+    ///            incrementally build the structure of the node.
+    /// - Returns: A `AssociatedtypeDeclSyntax` with all the fields populated in the builder
+    ///            closure.
+    public init(_ build: (inout SwiftSyntax.AssociatedtypeDeclSyntaxBuilder) -> Swift.Void)
+}
+
+extension AssociatedtypeDeclSyntax : IdentifiedDeclSyntax {
+}
+
+public struct AssociatedtypeDeclSyntaxBuilder {
+
+    public mutating func addAttribute(_ elt: SwiftSyntax.AttributeSyntax)
+
+    public mutating func useAccessLevelModifier(_ node: SwiftSyntax.DeclModifierSyntax)
+
+    public mutating func useAssociatedtypeKeyword(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useIdentifier(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useInheritanceClause(_ node: SwiftSyntax.TypeInheritanceClauseSyntax)
+
+    public mutating func useInitializer(_ node: SwiftSyntax.TypeInitializerClauseSyntax)
+
+    public mutating func useGenericWhereClause(_ node: SwiftSyntax.GenericWhereClauseSyntax)
 }
 
 /// `AttributeListSyntax` represents a collection of one or more
@@ -1180,32 +1329,37 @@ public struct AttributeSyntax : Syntax, Hashable {
 
     public var atSignToken: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `atSignToken` replaced.
+    /// - param newChild: The new `atSignToken` to replace the node's
+    ///                   current `atSignToken`, if present.
     public func withAtSignToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AttributeSyntax
 
     public var attributeName: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `attributeName` replaced.
+    /// - param newChild: The new `attributeName` to replace the node's
+    ///                   current `attributeName`, if present.
     public func withAttributeName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AttributeSyntax
 
     public var balancedTokens: SwiftSyntax.TokenListSyntax { get }
 
-    public func addToken(_ elt: SwiftSyntax.TokenSyntax) -> SwiftSyntax.AttributeSyntax
+    /// Adds the provided `Token` to the node's `balancedTokens`
+    /// collection.
+    /// - param element: The new `Token` to add to the node's
+    ///                  `balancedTokens` collection.
+    /// - returns: A copy of the receiver with the provided `Token`
+    ///            appended to its `balancedTokens` collection.
+    public func addToken(_ element: SwiftSyntax.TokenSyntax) -> SwiftSyntax.AttributeSyntax
 
+    /// Returns a copy of the receiver with its `balancedTokens` replaced.
+    /// - param newChild: The new `balancedTokens` to replace the node's
+    ///                   current `balancedTokens`, if present.
     public func withBalancedTokens(_ newChild: SwiftSyntax.TokenListSyntax?) -> SwiftSyntax.AttributeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AttributeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AttributeSyntax, rhs: SwiftSyntax.AttributeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1235,32 +1389,37 @@ public struct AttributedTypeSyntax : TypeSyntax, Hashable {
 
     public var specifier: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `specifier` replaced.
+    /// - param newChild: The new `specifier` to replace the node's
+    ///                   current `specifier`, if present.
     public func withSpecifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AttributedTypeSyntax
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.AttributedTypeSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.AttributedTypeSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.AttributedTypeSyntax
 
     public var baseType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `baseType` replaced.
+    /// - param newChild: The new `baseType` to replace the node's
+    ///                   current `baseType`, if present.
     public func withBaseType(_ newChild: TypeSyntax?) -> SwiftSyntax.AttributedTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AttributedTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AttributedTypeSyntax, rhs: SwiftSyntax.AttributedTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1290,28 +1449,30 @@ public struct AvailabilityConditionSyntax : Syntax, Hashable {
 
     public var poundAvailableKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundAvailableKeyword` replaced.
+    /// - param newChild: The new `poundAvailableKeyword` to replace the node's
+    ///                   current `poundAvailableKeyword`, if present.
     public func withPoundAvailableKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AvailabilityConditionSyntax
 
     public var arguments: SwiftSyntax.TokenListSyntax { get }
 
-    public func addToken(_ elt: SwiftSyntax.TokenSyntax) -> SwiftSyntax.AvailabilityConditionSyntax
+    /// Adds the provided `Token` to the node's `arguments`
+    /// collection.
+    /// - param element: The new `Token` to add to the node's
+    ///                  `arguments` collection.
+    /// - returns: A copy of the receiver with the provided `Token`
+    ///            appended to its `arguments` collection.
+    public func addToken(_ element: SwiftSyntax.TokenSyntax) -> SwiftSyntax.AvailabilityConditionSyntax
 
+    /// Returns a copy of the receiver with its `arguments` replaced.
+    /// - param newChild: The new `arguments` to replace the node's
+    ///                   current `arguments`, if present.
     public func withArguments(_ newChild: SwiftSyntax.TokenListSyntax?) -> SwiftSyntax.AvailabilityConditionSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `AvailabilityConditionSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.AvailabilityConditionSyntax, rhs: SwiftSyntax.AvailabilityConditionSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1339,22 +1500,15 @@ public struct BinaryOperatorExprSyntax : ExprSyntax, Hashable {
 
     public var operatorToken: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `operatorToken` replaced.
+    /// - param newChild: The new `operatorToken` to replace the node's
+    ///                   current `operatorToken`, if present.
     public func withOperatorToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.BinaryOperatorExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `BinaryOperatorExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.BinaryOperatorExprSyntax, rhs: SwiftSyntax.BinaryOperatorExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1380,22 +1534,15 @@ public struct BooleanLiteralExprSyntax : ExprSyntax, Hashable {
 
     public var booleanLiteral: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `booleanLiteral` replaced.
+    /// - param newChild: The new `booleanLiteral` to replace the node's
+    ///                   current `booleanLiteral`, if present.
     public func withBooleanLiteral(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.BooleanLiteralExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `BooleanLiteralExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.BooleanLiteralExprSyntax, rhs: SwiftSyntax.BooleanLiteralExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1417,34 +1564,37 @@ public struct BooleanLiteralExprSyntaxBuilder {
     public mutating func useBooleanLiteral(_ node: SwiftSyntax.TokenSyntax)
 }
 
+public protocol BracedSyntax {
+
+    public var leftBrace: SwiftSyntax.TokenSyntax { get }
+
+    public func withLeftBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> Self
+
+    public var rightBrace: SwiftSyntax.TokenSyntax { get }
+
+    public func withRightBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> Self
+}
+
 public struct BreakStmtSyntax : StmtSyntax, Hashable {
 
     public var breakKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `breakKeyword` replaced.
+    /// - param newChild: The new `breakKeyword` to replace the node's
+    ///                   current `breakKeyword`, if present.
     public func withBreakKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.BreakStmtSyntax
 
     public var label: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `label` replaced.
+    /// - param newChild: The new `label` to replace the node's
+    ///                   current `label`, if present.
     public func withLabel(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.BreakStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.BreakStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `BreakStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.BreakStmtSyntax, rhs: SwiftSyntax.BreakStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1466,8 +1616,6 @@ public struct BreakStmtSyntaxBuilder {
     public mutating func useBreakKeyword(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useLabel(_ node: SwiftSyntax.TokenSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 /// `CaseItemListSyntax` represents a collection of one or more
@@ -1621,30 +1769,29 @@ public struct CaseItemSyntax : Syntax, Hashable {
 
     public var pattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `pattern` replaced.
+    /// - param newChild: The new `pattern` to replace the node's
+    ///                   current `pattern`, if present.
     public func withPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.CaseItemSyntax
 
     public var whereClause: SwiftSyntax.WhereClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `whereClause` replaced.
+    /// - param newChild: The new `whereClause` to replace the node's
+    ///                   current `whereClause`, if present.
     public func withWhereClause(_ newChild: SwiftSyntax.WhereClauseSyntax?) -> SwiftSyntax.CaseItemSyntax
 
-    public var comma: SwiftSyntax.TokenSyntax? { get }
+    public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
-    public func withComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CaseItemSyntax
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
+    public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CaseItemSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `CaseItemSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.CaseItemSyntax, rhs: SwiftSyntax.CaseItemSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1661,13 +1808,16 @@ extension CaseItemSyntax {
     public init(_ build: (inout SwiftSyntax.CaseItemSyntaxBuilder) -> Swift.Void)
 }
 
+extension CaseItemSyntax : WithTrailingCommaSyntax {
+}
+
 public struct CaseItemSyntaxBuilder {
 
     public mutating func usePattern(_ node: PatternSyntax)
 
     public mutating func useWhereClause(_ node: SwiftSyntax.WhereClauseSyntax)
 
-    public mutating func useComma(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useTrailingComma(_ node: SwiftSyntax.TokenSyntax)
 }
 
 /// `CatchClauseListSyntax` represents a collection of one or more
@@ -1821,34 +1971,36 @@ public struct CatchClauseSyntax : Syntax, Hashable {
 
     public var catchKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `catchKeyword` replaced.
+    /// - param newChild: The new `catchKeyword` to replace the node's
+    ///                   current `catchKeyword`, if present.
     public func withCatchKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CatchClauseSyntax
 
     public var pattern: PatternSyntax? { get }
 
+    /// Returns a copy of the receiver with its `pattern` replaced.
+    /// - param newChild: The new `pattern` to replace the node's
+    ///                   current `pattern`, if present.
     public func withPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.CatchClauseSyntax
 
     public var whereClause: SwiftSyntax.WhereClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `whereClause` replaced.
+    /// - param newChild: The new `whereClause` to replace the node's
+    ///                   current `whereClause`, if present.
     public func withWhereClause(_ newChild: SwiftSyntax.WhereClauseSyntax?) -> SwiftSyntax.CatchClauseSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.CatchClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `CatchClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.CatchClauseSyntax, rhs: SwiftSyntax.CatchClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1880,52 +2032,72 @@ public struct ClassDeclSyntax : DeclSyntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.ClassDeclSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.ClassDeclSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.ClassDeclSyntax
 
     public var accessLevelModifier: SwiftSyntax.DeclModifierSyntax? { get }
 
+    /// Returns a copy of the receiver with its `accessLevelModifier` replaced.
+    /// - param newChild: The new `accessLevelModifier` to replace the node's
+    ///                   current `accessLevelModifier`, if present.
     public func withAccessLevelModifier(_ newChild: SwiftSyntax.DeclModifierSyntax?) -> SwiftSyntax.ClassDeclSyntax
 
     public var classKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `classKeyword` replaced.
+    /// - param newChild: The new `classKeyword` to replace the node's
+    ///                   current `classKeyword`, if present.
     public func withClassKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClassDeclSyntax
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClassDeclSyntax
 
     public var genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericParameterClause` replaced.
+    /// - param newChild: The new `genericParameterClause` to replace the node's
+    ///                   current `genericParameterClause`, if present.
     public func withGenericParameterClause(_ newChild: SwiftSyntax.GenericParameterClauseSyntax?) -> SwiftSyntax.ClassDeclSyntax
 
     public var inheritanceClause: SwiftSyntax.TypeInheritanceClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `inheritanceClause` replaced.
+    /// - param newChild: The new `inheritanceClause` to replace the node's
+    ///                   current `inheritanceClause`, if present.
     public func withInheritanceClause(_ newChild: SwiftSyntax.TypeInheritanceClauseSyntax?) -> SwiftSyntax.ClassDeclSyntax
 
     public var genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericWhereClause` replaced.
+    /// - param newChild: The new `genericWhereClause` to replace the node's
+    ///                   current `genericWhereClause`, if present.
     public func withGenericWhereClause(_ newChild: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.ClassDeclSyntax
 
     public var members: SwiftSyntax.MemberDeclBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `members` replaced.
+    /// - param newChild: The new `members` to replace the node's
+    ///                   current `members`, if present.
     public func withMembers(_ newChild: SwiftSyntax.MemberDeclBlockSyntax?) -> SwiftSyntax.ClassDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ClassDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ClassDeclSyntax, rhs: SwiftSyntax.ClassDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -1940,6 +2112,9 @@ extension ClassDeclSyntax {
     /// - Returns: A `ClassDeclSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.ClassDeclSyntaxBuilder) -> Swift.Void)
+}
+
+extension ClassDeclSyntax : DeclGroupSyntax, IdentifiedDeclSyntax {
 }
 
 public struct ClassDeclSyntaxBuilder {
@@ -2112,40 +2287,51 @@ public struct ClosureCaptureItemSyntax : Syntax, Hashable {
 
     public var specifier: SwiftSyntax.TokenListSyntax? { get }
 
-    public func addToken(_ elt: SwiftSyntax.TokenSyntax) -> SwiftSyntax.ClosureCaptureItemSyntax
+    /// Adds the provided `Token` to the node's `specifier`
+    /// collection.
+    /// - param element: The new `Token` to add to the node's
+    ///                  `specifier` collection.
+    /// - returns: A copy of the receiver with the provided `Token`
+    ///            appended to its `specifier` collection.
+    public func addToken(_ element: SwiftSyntax.TokenSyntax) -> SwiftSyntax.ClosureCaptureItemSyntax
 
+    /// Returns a copy of the receiver with its `specifier` replaced.
+    /// - param newChild: The new `specifier` to replace the node's
+    ///                   current `specifier`, if present.
     public func withSpecifier(_ newChild: SwiftSyntax.TokenListSyntax?) -> SwiftSyntax.ClosureCaptureItemSyntax
 
     public var name: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureCaptureItemSyntax
 
     public var assignToken: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `assignToken` replaced.
+    /// - param newChild: The new `assignToken` to replace the node's
+    ///                   current `assignToken`, if present.
     public func withAssignToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureCaptureItemSyntax
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.ClosureCaptureItemSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureCaptureItemSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ClosureCaptureItemSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ClosureCaptureItemSyntax, rhs: SwiftSyntax.ClosureCaptureItemSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -2160,6 +2346,9 @@ extension ClosureCaptureItemSyntax {
     /// - Returns: A `ClosureCaptureItemSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.ClosureCaptureItemSyntaxBuilder) -> Swift.Void)
+}
+
+extension ClosureCaptureItemSyntax : WithTrailingCommaSyntax {
 }
 
 public struct ClosureCaptureItemSyntaxBuilder {
@@ -2179,32 +2368,37 @@ public struct ClosureCaptureSignatureSyntax : Syntax, Hashable {
 
     public var leftSquare: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftSquare` replaced.
+    /// - param newChild: The new `leftSquare` to replace the node's
+    ///                   current `leftSquare`, if present.
     public func withLeftSquare(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureCaptureSignatureSyntax
 
     public var items: SwiftSyntax.ClosureCaptureItemListSyntax? { get }
 
-    public func addClosureCaptureItem(_ elt: SwiftSyntax.ClosureCaptureItemSyntax) -> SwiftSyntax.ClosureCaptureSignatureSyntax
+    /// Adds the provided `ClosureCaptureItem` to the node's `items`
+    /// collection.
+    /// - param element: The new `ClosureCaptureItem` to add to the node's
+    ///                  `items` collection.
+    /// - returns: A copy of the receiver with the provided `ClosureCaptureItem`
+    ///            appended to its `items` collection.
+    public func addClosureCaptureItem(_ element: SwiftSyntax.ClosureCaptureItemSyntax) -> SwiftSyntax.ClosureCaptureSignatureSyntax
 
+    /// Returns a copy of the receiver with its `items` replaced.
+    /// - param newChild: The new `items` to replace the node's
+    ///                   current `items`, if present.
     public func withItems(_ newChild: SwiftSyntax.ClosureCaptureItemListSyntax?) -> SwiftSyntax.ClosureCaptureSignatureSyntax
 
     public var rightSquare: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightSquare` replaced.
+    /// - param newChild: The new `rightSquare` to replace the node's
+    ///                   current `rightSquare`, if present.
     public func withRightSquare(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureCaptureSignatureSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ClosureCaptureSignatureSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ClosureCaptureSignatureSyntax, rhs: SwiftSyntax.ClosureCaptureSignatureSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -2234,36 +2428,44 @@ public struct ClosureExprSyntax : ExprSyntax, Hashable {
 
     public var leftBrace: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftBrace` replaced.
+    /// - param newChild: The new `leftBrace` to replace the node's
+    ///                   current `leftBrace`, if present.
     public func withLeftBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureExprSyntax
 
     public var signature: SwiftSyntax.ClosureSignatureSyntax? { get }
 
+    /// Returns a copy of the receiver with its `signature` replaced.
+    /// - param newChild: The new `signature` to replace the node's
+    ///                   current `signature`, if present.
     public func withSignature(_ newChild: SwiftSyntax.ClosureSignatureSyntax?) -> SwiftSyntax.ClosureExprSyntax
 
-    public var statements: SwiftSyntax.StmtListSyntax { get }
+    public var statements: SwiftSyntax.CodeBlockItemListSyntax { get }
 
-    public func addStmt(_ elt: StmtSyntax) -> SwiftSyntax.ClosureExprSyntax
+    /// Adds the provided `CodeBlockItem` to the node's `statements`
+    /// collection.
+    /// - param element: The new `CodeBlockItem` to add to the node's
+    ///                  `statements` collection.
+    /// - returns: A copy of the receiver with the provided `CodeBlockItem`
+    ///            appended to its `statements` collection.
+    public func addCodeBlockItem(_ element: SwiftSyntax.CodeBlockItemSyntax) -> SwiftSyntax.ClosureExprSyntax
 
-    public func withStatements(_ newChild: SwiftSyntax.StmtListSyntax?) -> SwiftSyntax.ClosureExprSyntax
+    /// Returns a copy of the receiver with its `statements` replaced.
+    /// - param newChild: The new `statements` to replace the node's
+    ///                   current `statements`, if present.
+    public func withStatements(_ newChild: SwiftSyntax.CodeBlockItemListSyntax?) -> SwiftSyntax.ClosureExprSyntax
 
     public var rightBrace: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightBrace` replaced.
+    /// - param newChild: The new `rightBrace` to replace the node's
+    ///                   current `rightBrace`, if present.
     public func withRightBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ClosureExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ClosureExprSyntax, rhs: SwiftSyntax.ClosureExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -2280,13 +2482,16 @@ extension ClosureExprSyntax {
     public init(_ build: (inout SwiftSyntax.ClosureExprSyntaxBuilder) -> Swift.Void)
 }
 
+extension ClosureExprSyntax : BracedSyntax, WithStatementsSyntax {
+}
+
 public struct ClosureExprSyntaxBuilder {
 
     public mutating func useLeftBrace(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useSignature(_ node: SwiftSyntax.ClosureSignatureSyntax)
 
-    public mutating func addStmt(_ elt: StmtSyntax)
+    public mutating func addCodeBlockItem(_ elt: SwiftSyntax.CodeBlockItemSyntax)
 
     public mutating func useRightBrace(_ node: SwiftSyntax.TokenSyntax)
 }
@@ -2442,26 +2647,22 @@ public struct ClosureParamSyntax : Syntax, Hashable {
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureParamSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureParamSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ClosureParamSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ClosureParamSyntax, rhs: SwiftSyntax.ClosureParamSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -2478,6 +2679,9 @@ extension ClosureParamSyntax {
     public init(_ build: (inout SwiftSyntax.ClosureParamSyntaxBuilder) -> Swift.Void)
 }
 
+extension ClosureParamSyntax : WithTrailingCommaSyntax {
+}
+
 public struct ClosureParamSyntaxBuilder {
 
     public mutating func useName(_ node: SwiftSyntax.TokenSyntax)
@@ -2489,38 +2693,43 @@ public struct ClosureSignatureSyntax : Syntax, Hashable {
 
     public var capture: SwiftSyntax.ClosureCaptureSignatureSyntax? { get }
 
+    /// Returns a copy of the receiver with its `capture` replaced.
+    /// - param newChild: The new `capture` to replace the node's
+    ///                   current `capture`, if present.
     public func withCapture(_ newChild: SwiftSyntax.ClosureCaptureSignatureSyntax?) -> SwiftSyntax.ClosureSignatureSyntax
 
     public var input: Syntax? { get }
 
+    /// Returns a copy of the receiver with its `input` replaced.
+    /// - param newChild: The new `input` to replace the node's
+    ///                   current `input`, if present.
     public func withInput(_ newChild: Syntax?) -> SwiftSyntax.ClosureSignatureSyntax
 
     public var throwsTok: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `throwsTok` replaced.
+    /// - param newChild: The new `throwsTok` to replace the node's
+    ///                   current `throwsTok`, if present.
     public func withThrowsTok(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureSignatureSyntax
 
     public var output: SwiftSyntax.ReturnClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `output` replaced.
+    /// - param newChild: The new `output` to replace the node's
+    ///                   current `output`, if present.
     public func withOutput(_ newChild: SwiftSyntax.ReturnClauseSyntax?) -> SwiftSyntax.ClosureSignatureSyntax
 
     public var inTok: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `inTok` replaced.
+    /// - param newChild: The new `inTok` to replace the node's
+    ///                   current `inTok`, if present.
     public func withInTok(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ClosureSignatureSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ClosureSignatureSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ClosureSignatureSyntax, rhs: SwiftSyntax.ClosureSignatureSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -2550,36 +2759,239 @@ public struct ClosureSignatureSyntaxBuilder {
     public mutating func useInTok(_ node: SwiftSyntax.TokenSyntax)
 }
 
-public struct CodeBlockSyntax : Syntax, Hashable {
+/// `CodeBlockItemListSyntax` represents a collection of one or more
+/// `CodeBlockItemSyntax` nodes. CodeBlockItemListSyntax behaves
+/// as a regular Swift collection, and has accessors that return new
+/// versions of the collection with different children.
+public struct CodeBlockItemListSyntax {
 
-    public var openBrace: SwiftSyntax.TokenSyntax { get }
-
-    public func withOpenBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CodeBlockSyntax
-
-    public var statements: SwiftSyntax.StmtListSyntax { get }
-
-    public func addStmt(_ elt: StmtSyntax) -> SwiftSyntax.CodeBlockSyntax
-
-    public func withStatements(_ newChild: SwiftSyntax.StmtListSyntax?) -> SwiftSyntax.CodeBlockSyntax
-
-    public var closeBrace: SwiftSyntax.TokenSyntax { get }
-
-    public func withCloseBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CodeBlockSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
+    /// Creates a new `CodeBlockItemListSyntax` by appending the provided syntax element
+    /// to the children.
     ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
+    /// - Parameter syntax: The element to append.
+    /// - Returns: A new `CodeBlockItemListSyntax` with that element appended to the end.
+    public func appending(_ syntax: SwiftSyntax.CodeBlockItemSyntax) -> SwiftSyntax.CodeBlockItemListSyntax
+
+    /// Creates a new `CodeBlockItemListSyntax` by prepending the provided syntax element
+    /// to the children.
+    ///
+    /// - Parameter syntax: The element to prepend.
+    /// - Returns: A new `CodeBlockItemListSyntax` with that element prepended to the
+    ///            beginning.
+    public func prepending(_ syntax: SwiftSyntax.CodeBlockItemSyntax) -> SwiftSyntax.CodeBlockItemListSyntax
+
+    /// Creates a new `CodeBlockItemListSyntax` by inserting the provided syntax element
+    /// at the provided index in the children.
     ///
     /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    ///   - syntax: The element to insert.
+    ///   - index: The index at which to insert the element in the collection.
+    ///
+    /// - Returns: A new `CodeBlockItemListSyntax` with that element appended to the end.
+    public func inserting(_ syntax: SwiftSyntax.CodeBlockItemSyntax, at index: Int) -> SwiftSyntax.CodeBlockItemListSyntax
+
+    /// Creates a new `CodeBlockItemListSyntax` by removing the syntax element at the
+    /// provided index.
+    ///
+    /// - Parameter index: The index of the element to remove from the collection.
+    /// - Returns: A new `CodeBlockItemListSyntax` with the element at the provided index
+    ///            removed.
+    public func removing(childAt index: Int) -> SwiftSyntax.CodeBlockItemListSyntax
+
+    /// Creates a new `CodeBlockItemListSyntax` by removing the first element.
+    ///
+    /// - Returns: A new `CodeBlockItemListSyntax` with the first element removed.
+    public func removingFirst() -> SwiftSyntax.CodeBlockItemListSyntax
+
+    /// Creates a new `CodeBlockItemListSyntax` by removing the last element.
+    ///
+    /// - Returns: A new `CodeBlockItemListSyntax` with the last element removed.
+    public func removingLast() -> SwiftSyntax.CodeBlockItemListSyntax
+
+    /// Returns an iterator over the elements of this syntax collection.
+    public func makeIterator() -> SwiftSyntax.CodeBlockItemListSyntaxIterator
+}
+
+/// Conformance for `CodeBlockItemListSyntax`` to the Collection protocol.
+extension CodeBlockItemListSyntax : Collection {
+
+    /// The position of the first element in a nonempty collection.
+    ///
+    /// If the collection is empty, `startIndex` is equal to `endIndex`.
+    public var startIndex: Int { get }
+
+    /// The collection's "past the end" position---that is, the position one
+    /// greater than the last valid subscript argument.
+    ///
+    /// When you need a range that includes the last element of a collection, use
+    /// the half-open range operator (`..<`) with `endIndex`. The `..<` operator
+    /// creates a range that doesn't include the upper bound, so it's always
+    /// safe to use with `endIndex`. For example:
+    ///
+    ///     let numbers = [10, 20, 30, 40, 50]
+    ///     if let index = numbers.index(of: 30) {
+    ///         print(numbers[index ..< numbers.endIndex])
+    ///     }
+    ///     // Prints "[30, 40, 50]"
+    ///
+    /// If the collection is empty, `endIndex` is equal to `startIndex`.
+    public var endIndex: Int { get }
+
+    /// Returns the position immediately after the given index.
+    ///
+    /// The successor of an index must be well defined. For an index `i` into a
+    /// collection `c`, calling `c.index(after: i)` returns the same index every
+    /// time.
+    ///
+    /// - Parameter i: A valid index of the collection. `i` must be less than
+    ///   `endIndex`.
+    /// - Returns: The index value immediately after `i`.
+    public func index(after i: Int) -> Int
+
+    /// Accesses the element at the specified position.
+    ///
+    /// The following example accesses an element of an array through its
+    /// subscript to print its value:
+    ///
+    ///     var streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
+    ///     print(streets[1])
+    ///     // Prints "Bryant"
+    ///
+    /// You can subscript a collection with any valid index other than the
+    /// collection's end index. The end index refers to the position one past
+    /// the last element of a collection, so it doesn't correspond with an
+    /// element.
+    ///
+    /// - Parameter position: The position of the element to access. `position`
+    ///   must be a valid index of the collection that is not equal to the
+    ///   `endIndex` property.
+    ///
+    /// - Complexity: O(1)
+    public subscript(index: Int) -> SwiftSyntax.CodeBlockItemSyntax { get }
+}
+
+/// A type that iterates over a `CodeBlockItemListSyntax` using its indices.
+public struct CodeBlockItemListSyntaxIterator : IteratorProtocol {
+
+    /// The type of element traversed by the iterator.
+    public typealias Element = SwiftSyntax.CodeBlockItemSyntax
+
+    /// Advances to the next element and returns it, or `nil` if no next element
+    /// exists.
+    ///
+    /// Repeatedly calling this method returns, in order, all the elements of the
+    /// underlying sequence. As soon as the sequence has run out of elements, all
+    /// subsequent calls return `nil`.
+    ///
+    /// You must not call this method if any other copy of this iterator has been
+    /// advanced with a call to its `next()` method.
+    ///
+    /// The following example shows how an iterator can be used explicitly to
+    /// emulate a `for`-`in` loop. First, retrieve a sequence's iterator, and
+    /// then call the iterator's `next()` method until it returns `nil`.
+    ///
+    ///     let numbers = [2, 3, 5, 7]
+    ///     var numbersIterator = numbers.makeIterator()
+    ///
+    ///     while let num = numbersIterator.next() {
+    ///         print(num)
+    ///     }
+    ///     // Prints "2"
+    ///     // Prints "3"
+    ///     // Prints "5"
+    ///     // Prints "7"
+    ///
+    /// - Returns: The next element in the underlying sequence, if a next element
+    ///   exists; otherwise, `nil`.
+    public mutating func next() -> SwiftSyntax.CodeBlockItemListSyntaxIterator.Element?
+}
+
+/// 
+/// A CodeBlockItem is any Syntax node that appears on its own line inside
+/// a CodeBlock.
+/// 
+public struct CodeBlockItemSyntax : Syntax, Hashable {
+
+    /// The underlying node inside the code block.
+    public var item: Syntax { get }
+
+    /// Returns a copy of the receiver with its `item` replaced.
+    /// - param newChild: The new `item` to replace the node's
+    ///                   current `item`, if present.
+    public func withItem(_ newChild: Syntax?) -> SwiftSyntax.CodeBlockItemSyntax
+
+    /// 
+    /// If present, the trailing semicolon at the end of the item.
+    /// 
+    public var semicolon: SwiftSyntax.TokenSyntax? { get }
+
+    /// Returns a copy of the receiver with its `semicolon` replaced.
+    /// - param newChild: The new `semicolon` to replace the node's
+    ///                   current `semicolon`, if present.
+    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CodeBlockItemSyntax
+
+    /// Determines if two `CodeBlockItemSyntax` nodes are equal to each other.
+    public static func == (lhs: SwiftSyntax.CodeBlockItemSyntax, rhs: SwiftSyntax.CodeBlockItemSyntax) -> Bool
+
+    /// A unique hash value for this node.
+    public var hashValue: Int { get }
+}
+
+extension CodeBlockItemSyntax {
+
+    /// Creates a `CodeBlockItemSyntax` using the provided build function.
+    /// - Parameter:
+    ///   - build: A closure that wil be invoked in order to initialize
+    ///            the fields of the syntax node.
+    ///            This closure is passed a `CodeBlockItemSyntaxBuilder` which you can use to
+    ///            incrementally build the structure of the node.
+    /// - Returns: A `CodeBlockItemSyntax` with all the fields populated in the builder
+    ///            closure.
+    public init(_ build: (inout SwiftSyntax.CodeBlockItemSyntaxBuilder) -> Swift.Void)
+}
+
+public struct CodeBlockItemSyntaxBuilder {
+
+    public mutating func useItem(_ node: Syntax)
+
+    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
+}
+
+public struct CodeBlockSyntax : Syntax, Hashable {
+
+    public var leftBrace: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `leftBrace` replaced.
+    /// - param newChild: The new `leftBrace` to replace the node's
+    ///                   current `leftBrace`, if present.
+    public func withLeftBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CodeBlockSyntax
+
+    public var statements: SwiftSyntax.CodeBlockItemListSyntax { get }
+
+    /// Adds the provided `CodeBlockItem` to the node's `statements`
+    /// collection.
+    /// - param element: The new `CodeBlockItem` to add to the node's
+    ///                  `statements` collection.
+    /// - returns: A copy of the receiver with the provided `CodeBlockItem`
+    ///            appended to its `statements` collection.
+    public func addCodeBlockItem(_ element: SwiftSyntax.CodeBlockItemSyntax) -> SwiftSyntax.CodeBlockSyntax
+
+    /// Returns a copy of the receiver with its `statements` replaced.
+    /// - param newChild: The new `statements` to replace the node's
+    ///                   current `statements`, if present.
+    public func withStatements(_ newChild: SwiftSyntax.CodeBlockItemListSyntax?) -> SwiftSyntax.CodeBlockSyntax
+
+    public var rightBrace: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `rightBrace` replaced.
+    /// - param newChild: The new `rightBrace` to replace the node's
+    ///                   current `rightBrace`, if present.
+    public func withRightBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CodeBlockSyntax
+
+    /// Determines if two `CodeBlockSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.CodeBlockSyntax, rhs: SwiftSyntax.CodeBlockSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -2596,13 +3008,16 @@ extension CodeBlockSyntax {
     public init(_ build: (inout SwiftSyntax.CodeBlockSyntaxBuilder) -> Swift.Void)
 }
 
+extension CodeBlockSyntax : BracedSyntax, WithStatementsSyntax {
+}
+
 public struct CodeBlockSyntaxBuilder {
 
-    public mutating func useOpenBrace(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useLeftBrace(_ node: SwiftSyntax.TokenSyntax)
 
-    public mutating func addStmt(_ elt: StmtSyntax)
+    public mutating func addCodeBlockItem(_ elt: SwiftSyntax.CodeBlockItemSyntax)
 
-    public mutating func useCloseBrace(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useRightBrace(_ node: SwiftSyntax.TokenSyntax)
 }
 
 /// `CompositionTypeElementListSyntax` represents a collection of one or more
@@ -2756,26 +3171,22 @@ public struct CompositionTypeElementSyntax : Syntax, Hashable {
 
     public var type: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `type` replaced.
+    /// - param newChild: The new `type` to replace the node's
+    ///                   current `type`, if present.
     public func withType(_ newChild: TypeSyntax?) -> SwiftSyntax.CompositionTypeElementSyntax
 
     public var ampersand: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `ampersand` replaced.
+    /// - param newChild: The new `ampersand` to replace the node's
+    ///                   current `ampersand`, if present.
     public func withAmpersand(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CompositionTypeElementSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `CompositionTypeElementSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.CompositionTypeElementSyntax, rhs: SwiftSyntax.CompositionTypeElementSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -2803,24 +3214,23 @@ public struct CompositionTypeSyntax : TypeSyntax, Hashable {
 
     public var elements: SwiftSyntax.CompositionTypeElementListSyntax { get }
 
-    public func addCompositionTypeElement(_ elt: SwiftSyntax.CompositionTypeElementSyntax) -> SwiftSyntax.CompositionTypeSyntax
+    /// Adds the provided `CompositionTypeElement` to the node's `elements`
+    /// collection.
+    /// - param element: The new `CompositionTypeElement` to add to the node's
+    ///                  `elements` collection.
+    /// - returns: A copy of the receiver with the provided `CompositionTypeElement`
+    ///            appended to its `elements` collection.
+    public func addCompositionTypeElement(_ element: SwiftSyntax.CompositionTypeElementSyntax) -> SwiftSyntax.CompositionTypeSyntax
 
+    /// Returns a copy of the receiver with its `elements` replaced.
+    /// - param newChild: The new `elements` to replace the node's
+    ///                   current `elements`, if present.
     public func withElements(_ newChild: SwiftSyntax.CompositionTypeElementListSyntax?) -> SwiftSyntax.CompositionTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `CompositionTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.CompositionTypeSyntax, rhs: SwiftSyntax.CompositionTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -2993,26 +3403,22 @@ public struct ConditionElementSyntax : Syntax, Hashable {
 
     public var condition: Syntax { get }
 
+    /// Returns a copy of the receiver with its `condition` replaced.
+    /// - param newChild: The new `condition` to replace the node's
+    ///                   current `condition`, if present.
     public func withCondition(_ newChild: Syntax?) -> SwiftSyntax.ConditionElementSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ConditionElementSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ConditionElementSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ConditionElementSyntax, rhs: SwiftSyntax.ConditionElementSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -3029,6 +3435,9 @@ extension ConditionElementSyntax {
     public init(_ build: (inout SwiftSyntax.ConditionElementSyntaxBuilder) -> Swift.Void)
 }
 
+extension ConditionElementSyntax : WithTrailingCommaSyntax {
+}
+
 public struct ConditionElementSyntaxBuilder {
 
     public mutating func useCondition(_ node: Syntax)
@@ -3040,34 +3449,36 @@ public struct ConformanceRequirementSyntax : Syntax, Hashable {
 
     public var leftTypeIdentifier: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftTypeIdentifier` replaced.
+    /// - param newChild: The new `leftTypeIdentifier` to replace the node's
+    ///                   current `leftTypeIdentifier`, if present.
     public func withLeftTypeIdentifier(_ newChild: TypeSyntax?) -> SwiftSyntax.ConformanceRequirementSyntax
 
     public var colon: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ConformanceRequirementSyntax
 
     public var rightTypeIdentifier: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightTypeIdentifier` replaced.
+    /// - param newChild: The new `rightTypeIdentifier` to replace the node's
+    ///                   current `rightTypeIdentifier`, if present.
     public func withRightTypeIdentifier(_ newChild: TypeSyntax?) -> SwiftSyntax.ConformanceRequirementSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ConformanceRequirementSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ConformanceRequirementSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ConformanceRequirementSyntax, rhs: SwiftSyntax.ConformanceRequirementSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -3082,6 +3493,9 @@ extension ConformanceRequirementSyntax {
     /// - Returns: A `ConformanceRequirementSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.ConformanceRequirementSyntaxBuilder) -> Swift.Void)
+}
+
+extension ConformanceRequirementSyntax : WithTrailingCommaSyntax {
 }
 
 public struct ConformanceRequirementSyntaxBuilder {
@@ -3099,30 +3513,22 @@ public struct ContinueStmtSyntax : StmtSyntax, Hashable {
 
     public var continueKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `continueKeyword` replaced.
+    /// - param newChild: The new `continueKeyword` to replace the node's
+    ///                   current `continueKeyword`, if present.
     public func withContinueKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ContinueStmtSyntax
 
     public var label: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `label` replaced.
+    /// - param newChild: The new `label` to replace the node's
+    ///                   current `label`, if present.
     public func withLabel(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ContinueStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ContinueStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ContinueStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ContinueStmtSyntax, rhs: SwiftSyntax.ContinueStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -3144,8 +3550,21 @@ public struct ContinueStmtSyntaxBuilder {
     public mutating func useContinueKeyword(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useLabel(_ node: SwiftSyntax.TokenSyntax)
+}
 
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
+public protocol DeclGroupSyntax {
+
+    public var attributes: SwiftSyntax.AttributeListSyntax? { get }
+
+    public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> Self
+
+    public var accessLevelModifier: SwiftSyntax.DeclModifierSyntax? { get }
+
+    public func withAccessLevelModifier(_ newChild: SwiftSyntax.DeclModifierSyntax?) -> Self
+
+    public var members: SwiftSyntax.MemberDeclBlockSyntax { get }
+
+    public func withMembers(_ newChild: SwiftSyntax.MemberDeclBlockSyntax?) -> Self
 }
 
 /// `DeclListSyntax` represents a collection of one or more
@@ -3299,28 +3718,30 @@ public struct DeclModifierSyntax : Syntax, Hashable {
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeclModifierSyntax
 
     public var detail: SwiftSyntax.TokenListSyntax? { get }
 
-    public func addToken(_ elt: SwiftSyntax.TokenSyntax) -> SwiftSyntax.DeclModifierSyntax
+    /// Adds the provided `Token` to the node's `detail`
+    /// collection.
+    /// - param element: The new `Token` to add to the node's
+    ///                  `detail` collection.
+    /// - returns: A copy of the receiver with the provided `Token`
+    ///            appended to its `detail` collection.
+    public func addToken(_ element: SwiftSyntax.TokenSyntax) -> SwiftSyntax.DeclModifierSyntax
 
+    /// Returns a copy of the receiver with its `detail` replaced.
+    /// - param newChild: The new `detail` to replace the node's
+    ///                   current `detail`, if present.
     public func withDetail(_ newChild: SwiftSyntax.TokenListSyntax?) -> SwiftSyntax.DeclModifierSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DeclModifierSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DeclModifierSyntax, rhs: SwiftSyntax.DeclModifierSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -3495,26 +3916,22 @@ public struct DeclNameArgumentSyntax : Syntax, Hashable {
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeclNameArgumentSyntax
 
     public var colon: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeclNameArgumentSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DeclNameArgumentSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DeclNameArgumentSyntax, rhs: SwiftSyntax.DeclNameArgumentSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -3542,32 +3959,37 @@ public struct DeclNameArgumentsSyntax : Syntax, Hashable {
 
     public var leftParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeclNameArgumentsSyntax
 
     public var arguments: SwiftSyntax.DeclNameArgumentListSyntax { get }
 
-    public func addDeclNameArgument(_ elt: SwiftSyntax.DeclNameArgumentSyntax) -> SwiftSyntax.DeclNameArgumentsSyntax
+    /// Adds the provided `DeclNameArgument` to the node's `arguments`
+    /// collection.
+    /// - param element: The new `DeclNameArgument` to add to the node's
+    ///                  `arguments` collection.
+    /// - returns: A copy of the receiver with the provided `DeclNameArgument`
+    ///            appended to its `arguments` collection.
+    public func addDeclNameArgument(_ element: SwiftSyntax.DeclNameArgumentSyntax) -> SwiftSyntax.DeclNameArgumentsSyntax
 
+    /// Returns a copy of the receiver with its `arguments` replaced.
+    /// - param newChild: The new `arguments` to replace the node's
+    ///                   current `arguments`, if present.
     public func withArguments(_ newChild: SwiftSyntax.DeclNameArgumentListSyntax?) -> SwiftSyntax.DeclNameArgumentsSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeclNameArgumentsSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DeclNameArgumentsSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DeclNameArgumentsSyntax, rhs: SwiftSyntax.DeclNameArgumentsSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -3582,6 +4004,9 @@ extension DeclNameArgumentsSyntax {
     /// - Returns: A `DeclNameArgumentsSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.DeclNameArgumentsSyntaxBuilder) -> Swift.Void)
+}
+
+extension DeclNameArgumentsSyntax : ParenthesizedSyntax {
 }
 
 public struct DeclNameArgumentsSyntaxBuilder {
@@ -3600,26 +4025,15 @@ public struct DeclarationStmtSyntax : StmtSyntax, Hashable {
 
     public var declaration: DeclSyntax { get }
 
+    /// Returns a copy of the receiver with its `declaration` replaced.
+    /// - param newChild: The new `declaration` to replace the node's
+    ///                   current `declaration`, if present.
     public func withDeclaration(_ newChild: DeclSyntax?) -> SwiftSyntax.DeclarationStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeclarationStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DeclarationStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DeclarationStmtSyntax, rhs: SwiftSyntax.DeclarationStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -3639,38 +4053,28 @@ extension DeclarationStmtSyntax {
 public struct DeclarationStmtSyntaxBuilder {
 
     public mutating func useDeclaration(_ node: DeclSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct DeferStmtSyntax : StmtSyntax, Hashable {
 
     public var deferKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `deferKeyword` replaced.
+    /// - param newChild: The new `deferKeyword` to replace the node's
+    ///                   current `deferKeyword`, if present.
     public func withDeferKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeferStmtSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.DeferStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeferStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DeferStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DeferStmtSyntax, rhs: SwiftSyntax.DeferStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -3687,13 +4091,91 @@ extension DeferStmtSyntax {
     public init(_ build: (inout SwiftSyntax.DeferStmtSyntaxBuilder) -> Swift.Void)
 }
 
+extension DeferStmtSyntax : WithCodeBlockSyntax {
+}
+
 public struct DeferStmtSyntaxBuilder {
 
     public mutating func useDeferKeyword(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useBody(_ node: SwiftSyntax.CodeBlockSyntax)
+}
 
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
+public struct DeinitializerDeclSyntax : DeclSyntax, Hashable {
+
+    public var attributes: SwiftSyntax.AttributeListSyntax? { get }
+
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.DeinitializerDeclSyntax
+
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
+    public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.DeinitializerDeclSyntax
+
+    public var modifiers: SwiftSyntax.ModifierListSyntax? { get }
+
+    /// Adds the provided `Modifier` to the node's `modifiers`
+    /// collection.
+    /// - param element: The new `Modifier` to add to the node's
+    ///                  `modifiers` collection.
+    /// - returns: A copy of the receiver with the provided `Modifier`
+    ///            appended to its `modifiers` collection.
+    public func addModifier(_ element: Syntax) -> SwiftSyntax.DeinitializerDeclSyntax
+
+    /// Returns a copy of the receiver with its `modifiers` replaced.
+    /// - param newChild: The new `modifiers` to replace the node's
+    ///                   current `modifiers`, if present.
+    public func withModifiers(_ newChild: SwiftSyntax.ModifierListSyntax?) -> SwiftSyntax.DeinitializerDeclSyntax
+
+    public var deinitKeyword: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `deinitKeyword` replaced.
+    /// - param newChild: The new `deinitKeyword` to replace the node's
+    ///                   current `deinitKeyword`, if present.
+    public func withDeinitKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeinitializerDeclSyntax
+
+    public var body: SwiftSyntax.CodeBlockSyntax { get }
+
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
+    public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.DeinitializerDeclSyntax
+
+    /// Determines if two `DeinitializerDeclSyntax` nodes are equal to each other.
+    public static func == (lhs: SwiftSyntax.DeinitializerDeclSyntax, rhs: SwiftSyntax.DeinitializerDeclSyntax) -> Bool
+
+    /// A unique hash value for this node.
+    public var hashValue: Int { get }
+}
+
+extension DeinitializerDeclSyntax {
+
+    /// Creates a `DeinitializerDeclSyntax` using the provided build function.
+    /// - Parameter:
+    ///   - build: A closure that wil be invoked in order to initialize
+    ///            the fields of the syntax node.
+    ///            This closure is passed a `DeinitializerDeclSyntaxBuilder` which you can use to
+    ///            incrementally build the structure of the node.
+    /// - Returns: A `DeinitializerDeclSyntax` with all the fields populated in the builder
+    ///            closure.
+    public init(_ build: (inout SwiftSyntax.DeinitializerDeclSyntaxBuilder) -> Swift.Void)
+}
+
+public struct DeinitializerDeclSyntaxBuilder {
+
+    public mutating func addAttribute(_ elt: SwiftSyntax.AttributeSyntax)
+
+    public mutating func addModifier(_ elt: Syntax)
+
+    public mutating func useDeinitKeyword(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useBody(_ node: SwiftSyntax.CodeBlockSyntax)
 }
 
 /// A Diagnostic message that can be emitted regarding some piece of code.
@@ -3946,34 +4428,36 @@ public struct DictionaryElementSyntax : Syntax, Hashable {
 
     public var keyExpression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `keyExpression` replaced.
+    /// - param newChild: The new `keyExpression` to replace the node's
+    ///                   current `keyExpression`, if present.
     public func withKeyExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.DictionaryElementSyntax
 
     public var colon: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DictionaryElementSyntax
 
     public var valueExpression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `valueExpression` replaced.
+    /// - param newChild: The new `valueExpression` to replace the node's
+    ///                   current `valueExpression`, if present.
     public func withValueExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.DictionaryElementSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DictionaryElementSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DictionaryElementSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DictionaryElementSyntax, rhs: SwiftSyntax.DictionaryElementSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -3988,6 +4472,9 @@ extension DictionaryElementSyntax {
     /// - Returns: A `DictionaryElementSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.DictionaryElementSyntaxBuilder) -> Swift.Void)
+}
+
+extension DictionaryElementSyntax : WithTrailingCommaSyntax {
 }
 
 public struct DictionaryElementSyntaxBuilder {
@@ -4005,30 +4492,29 @@ public struct DictionaryExprSyntax : ExprSyntax, Hashable {
 
     public var leftSquare: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftSquare` replaced.
+    /// - param newChild: The new `leftSquare` to replace the node's
+    ///                   current `leftSquare`, if present.
     public func withLeftSquare(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DictionaryExprSyntax
 
     public var content: Syntax { get }
 
+    /// Returns a copy of the receiver with its `content` replaced.
+    /// - param newChild: The new `content` to replace the node's
+    ///                   current `content`, if present.
     public func withContent(_ newChild: Syntax?) -> SwiftSyntax.DictionaryExprSyntax
 
     public var rightSquare: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightSquare` replaced.
+    /// - param newChild: The new `rightSquare` to replace the node's
+    ///                   current `rightSquare`, if present.
     public func withRightSquare(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DictionaryExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DictionaryExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DictionaryExprSyntax, rhs: SwiftSyntax.DictionaryExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4058,38 +4544,43 @@ public struct DictionaryTypeSyntax : TypeSyntax, Hashable {
 
     public var leftSquareBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftSquareBracket` replaced.
+    /// - param newChild: The new `leftSquareBracket` to replace the node's
+    ///                   current `leftSquareBracket`, if present.
     public func withLeftSquareBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DictionaryTypeSyntax
 
     public var keyType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `keyType` replaced.
+    /// - param newChild: The new `keyType` to replace the node's
+    ///                   current `keyType`, if present.
     public func withKeyType(_ newChild: TypeSyntax?) -> SwiftSyntax.DictionaryTypeSyntax
 
     public var colon: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DictionaryTypeSyntax
 
     public var valueType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `valueType` replaced.
+    /// - param newChild: The new `valueType` to replace the node's
+    ///                   current `valueType`, if present.
     public func withValueType(_ newChild: TypeSyntax?) -> SwiftSyntax.DictionaryTypeSyntax
 
     public var rightSquareBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightSquareBracket` replaced.
+    /// - param newChild: The new `rightSquareBracket` to replace the node's
+    ///                   current `rightSquareBracket`, if present.
     public func withRightSquareBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DictionaryTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DictionaryTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DictionaryTypeSyntax, rhs: SwiftSyntax.DictionaryTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4123,22 +4614,15 @@ public struct DiscardAssignmentExprSyntax : ExprSyntax, Hashable {
 
     public var wildcard: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `wildcard` replaced.
+    /// - param newChild: The new `wildcard` to replace the node's
+    ///                   current `wildcard`, if present.
     public func withWildcard(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DiscardAssignmentExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DiscardAssignmentExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DiscardAssignmentExprSyntax, rhs: SwiftSyntax.DiscardAssignmentExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4164,44 +4648,51 @@ public struct DoStmtSyntax : StmtSyntax, Hashable {
 
     public var labelName: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelName` replaced.
+    /// - param newChild: The new `labelName` to replace the node's
+    ///                   current `labelName`, if present.
     public func withLabelName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DoStmtSyntax
 
     public var labelColon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelColon` replaced.
+    /// - param newChild: The new `labelColon` to replace the node's
+    ///                   current `labelColon`, if present.
     public func withLabelColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DoStmtSyntax
 
     public var doKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `doKeyword` replaced.
+    /// - param newChild: The new `doKeyword` to replace the node's
+    ///                   current `doKeyword`, if present.
     public func withDoKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DoStmtSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.DoStmtSyntax
 
     public var catchClauses: SwiftSyntax.CatchClauseListSyntax? { get }
 
-    public func addCatchClause(_ elt: SwiftSyntax.CatchClauseSyntax) -> SwiftSyntax.DoStmtSyntax
+    /// Adds the provided `CatchClause` to the node's `catchClauses`
+    /// collection.
+    /// - param element: The new `CatchClause` to add to the node's
+    ///                  `catchClauses` collection.
+    /// - returns: A copy of the receiver with the provided `CatchClause`
+    ///            appended to its `catchClauses` collection.
+    public func addCatchClause(_ element: SwiftSyntax.CatchClauseSyntax) -> SwiftSyntax.DoStmtSyntax
 
+    /// Returns a copy of the receiver with its `catchClauses` replaced.
+    /// - param newChild: The new `catchClauses` to replace the node's
+    ///                   current `catchClauses`, if present.
     public func withCatchClauses(_ newChild: SwiftSyntax.CatchClauseListSyntax?) -> SwiftSyntax.DoStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DoStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DoStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DoStmtSyntax, rhs: SwiftSyntax.DoStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4218,6 +4709,9 @@ extension DoStmtSyntax {
     public init(_ build: (inout SwiftSyntax.DoStmtSyntaxBuilder) -> Swift.Void)
 }
 
+extension DoStmtSyntax : WithCodeBlockSyntax, LabeledSyntax {
+}
+
 public struct DoStmtSyntaxBuilder {
 
     public mutating func useLabelName(_ node: SwiftSyntax.TokenSyntax)
@@ -4229,38 +4723,35 @@ public struct DoStmtSyntaxBuilder {
     public mutating func useBody(_ node: SwiftSyntax.CodeBlockSyntax)
 
     public mutating func addCatchClause(_ elt: SwiftSyntax.CatchClauseSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct DotSelfExprSyntax : ExprSyntax, Hashable {
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.DotSelfExprSyntax
 
     public var dot: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `dot` replaced.
+    /// - param newChild: The new `dot` to replace the node's
+    ///                   current `dot`, if present.
     public func withDot(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DotSelfExprSyntax
 
     public var selfKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `selfKeyword` replaced.
+    /// - param newChild: The new `selfKeyword` to replace the node's
+    ///                   current `selfKeyword`, if present.
     public func withSelfKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DotSelfExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `DotSelfExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.DotSelfExprSyntax, rhs: SwiftSyntax.DotSelfExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4290,22 +4781,15 @@ public struct EditorPlaceholderExprSyntax : ExprSyntax, Hashable {
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.EditorPlaceholderExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `EditorPlaceholderExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.EditorPlaceholderExprSyntax, rhs: SwiftSyntax.EditorPlaceholderExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4331,30 +4815,22 @@ public struct ElseBlockSyntax : Syntax, Hashable {
 
     public var elseKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `elseKeyword` replaced.
+    /// - param newChild: The new `elseKeyword` to replace the node's
+    ///                   current `elseKeyword`, if present.
     public func withElseKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ElseBlockSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.ElseBlockSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ElseBlockSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ElseBlockSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ElseBlockSyntax, rhs: SwiftSyntax.ElseBlockSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4371,41 +4847,44 @@ extension ElseBlockSyntax {
     public init(_ build: (inout SwiftSyntax.ElseBlockSyntaxBuilder) -> Swift.Void)
 }
 
+extension ElseBlockSyntax : WithCodeBlockSyntax {
+}
+
 public struct ElseBlockSyntaxBuilder {
 
     public mutating func useElseKeyword(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useBody(_ node: SwiftSyntax.CodeBlockSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct ElseDirectiveClauseSyntax : Syntax, Hashable {
 
     public var poundElse: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundElse` replaced.
+    /// - param newChild: The new `poundElse` to replace the node's
+    ///                   current `poundElse`, if present.
     public func withPoundElse(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ElseDirectiveClauseSyntax
 
-    public var body: SwiftSyntax.StmtListSyntax { get }
+    public var statements: SwiftSyntax.CodeBlockItemListSyntax { get }
 
-    public func addStmt(_ elt: StmtSyntax) -> SwiftSyntax.ElseDirectiveClauseSyntax
+    /// Adds the provided `CodeBlockItem` to the node's `statements`
+    /// collection.
+    /// - param element: The new `CodeBlockItem` to add to the node's
+    ///                  `statements` collection.
+    /// - returns: A copy of the receiver with the provided `CodeBlockItem`
+    ///            appended to its `statements` collection.
+    public func addCodeBlockItem(_ element: SwiftSyntax.CodeBlockItemSyntax) -> SwiftSyntax.ElseDirectiveClauseSyntax
 
-    public func withBody(_ newChild: SwiftSyntax.StmtListSyntax?) -> SwiftSyntax.ElseDirectiveClauseSyntax
+    /// Returns a copy of the receiver with its `statements` replaced.
+    /// - param newChild: The new `statements` to replace the node's
+    ///                   current `statements`, if present.
+    public func withStatements(_ newChild: SwiftSyntax.CodeBlockItemListSyntax?) -> SwiftSyntax.ElseDirectiveClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ElseDirectiveClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ElseDirectiveClauseSyntax, rhs: SwiftSyntax.ElseDirectiveClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4422,33 +4901,29 @@ extension ElseDirectiveClauseSyntax {
     public init(_ build: (inout SwiftSyntax.ElseDirectiveClauseSyntaxBuilder) -> Swift.Void)
 }
 
+extension ElseDirectiveClauseSyntax : WithStatementsSyntax {
+}
+
 public struct ElseDirectiveClauseSyntaxBuilder {
 
     public mutating func usePoundElse(_ node: SwiftSyntax.TokenSyntax)
 
-    public mutating func addStmt(_ elt: StmtSyntax)
+    public mutating func addCodeBlockItem(_ elt: SwiftSyntax.CodeBlockItemSyntax)
 }
 
 public struct ElseIfContinuationSyntax : Syntax, Hashable {
 
     public var ifStatement: SwiftSyntax.IfStmtSyntax { get }
 
+    /// Returns a copy of the receiver with its `ifStatement` replaced.
+    /// - param newChild: The new `ifStatement` to replace the node's
+    ///                   current `ifStatement`, if present.
     public func withIfStatement(_ newChild: SwiftSyntax.IfStmtSyntax?) -> SwiftSyntax.ElseIfContinuationSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ElseIfContinuationSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ElseIfContinuationSyntax, rhs: SwiftSyntax.ElseIfContinuationSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4621,32 +5096,37 @@ public struct ElseifDirectiveClauseSyntax : Syntax, Hashable {
 
     public var poundElseif: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundElseif` replaced.
+    /// - param newChild: The new `poundElseif` to replace the node's
+    ///                   current `poundElseif`, if present.
     public func withPoundElseif(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ElseifDirectiveClauseSyntax
 
     public var condition: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `condition` replaced.
+    /// - param newChild: The new `condition` to replace the node's
+    ///                   current `condition`, if present.
     public func withCondition(_ newChild: ExprSyntax?) -> SwiftSyntax.ElseifDirectiveClauseSyntax
 
-    public var body: SwiftSyntax.StmtListSyntax { get }
+    public var statements: SwiftSyntax.CodeBlockItemListSyntax { get }
 
-    public func addStmt(_ elt: StmtSyntax) -> SwiftSyntax.ElseifDirectiveClauseSyntax
+    /// Adds the provided `CodeBlockItem` to the node's `statements`
+    /// collection.
+    /// - param element: The new `CodeBlockItem` to add to the node's
+    ///                  `statements` collection.
+    /// - returns: A copy of the receiver with the provided `CodeBlockItem`
+    ///            appended to its `statements` collection.
+    public func addCodeBlockItem(_ element: SwiftSyntax.CodeBlockItemSyntax) -> SwiftSyntax.ElseifDirectiveClauseSyntax
 
-    public func withBody(_ newChild: SwiftSyntax.StmtListSyntax?) -> SwiftSyntax.ElseifDirectiveClauseSyntax
+    /// Returns a copy of the receiver with its `statements` replaced.
+    /// - param newChild: The new `statements` to replace the node's
+    ///                   current `statements`, if present.
+    public func withStatements(_ newChild: SwiftSyntax.CodeBlockItemListSyntax?) -> SwiftSyntax.ElseifDirectiveClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ElseifDirectiveClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ElseifDirectiveClauseSyntax, rhs: SwiftSyntax.ElseifDirectiveClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4663,47 +5143,52 @@ extension ElseifDirectiveClauseSyntax {
     public init(_ build: (inout SwiftSyntax.ElseifDirectiveClauseSyntaxBuilder) -> Swift.Void)
 }
 
+extension ElseifDirectiveClauseSyntax : WithStatementsSyntax {
+}
+
 public struct ElseifDirectiveClauseSyntaxBuilder {
 
     public mutating func usePoundElseif(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useCondition(_ node: ExprSyntax)
 
-    public mutating func addStmt(_ elt: StmtSyntax)
+    public mutating func addCodeBlockItem(_ elt: SwiftSyntax.CodeBlockItemSyntax)
 }
 
 public struct EnumCasePatternSyntax : PatternSyntax, Hashable {
 
     public var type: TypeSyntax? { get }
 
+    /// Returns a copy of the receiver with its `type` replaced.
+    /// - param newChild: The new `type` to replace the node's
+    ///                   current `type`, if present.
     public func withType(_ newChild: TypeSyntax?) -> SwiftSyntax.EnumCasePatternSyntax
 
     public var period: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `period` replaced.
+    /// - param newChild: The new `period` to replace the node's
+    ///                   current `period`, if present.
     public func withPeriod(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.EnumCasePatternSyntax
 
     public var caseName: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `caseName` replaced.
+    /// - param newChild: The new `caseName` to replace the node's
+    ///                   current `caseName`, if present.
     public func withCaseName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.EnumCasePatternSyntax
 
     public var associatedTuple: SwiftSyntax.TuplePatternSyntax? { get }
 
+    /// Returns a copy of the receiver with its `associatedTuple` replaced.
+    /// - param newChild: The new `associatedTuple` to replace the node's
+    ///                   current `associatedTuple`, if present.
     public func withAssociatedTuple(_ newChild: SwiftSyntax.TuplePatternSyntax?) -> SwiftSyntax.EnumCasePatternSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `EnumCasePatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.EnumCasePatternSyntax, rhs: SwiftSyntax.EnumCasePatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4885,22 +5370,15 @@ public struct ExpressionPatternSyntax : PatternSyntax, Hashable {
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.ExpressionPatternSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ExpressionPatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ExpressionPatternSyntax, rhs: SwiftSyntax.ExpressionPatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4926,34 +5404,36 @@ public struct ExpressionSegmentSyntax : Syntax, Hashable {
 
     public var backslash: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `backslash` replaced.
+    /// - param newChild: The new `backslash` to replace the node's
+    ///                   current `backslash`, if present.
     public func withBackslash(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ExpressionSegmentSyntax
 
     public var leftParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ExpressionSegmentSyntax
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.ExpressionSegmentSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ExpressionSegmentSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ExpressionSegmentSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ExpressionSegmentSyntax, rhs: SwiftSyntax.ExpressionSegmentSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -4968,6 +5448,9 @@ extension ExpressionSegmentSyntax {
     /// - Returns: A `ExpressionSegmentSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.ExpressionSegmentSyntaxBuilder) -> Swift.Void)
+}
+
+extension ExpressionSegmentSyntax : ParenthesizedSyntax {
 }
 
 public struct ExpressionSegmentSyntaxBuilder {
@@ -4985,26 +5468,15 @@ public struct ExpressionStmtSyntax : StmtSyntax, Hashable {
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.ExpressionStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ExpressionStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ExpressionStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ExpressionStmtSyntax, rhs: SwiftSyntax.ExpressionStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5024,56 +5496,71 @@ extension ExpressionStmtSyntax {
 public struct ExpressionStmtSyntaxBuilder {
 
     public mutating func useExpression(_ node: ExprSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct ExtensionDeclSyntax : DeclSyntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.ExtensionDeclSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.ExtensionDeclSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.ExtensionDeclSyntax
 
     public var accessLevelModifier: SwiftSyntax.DeclModifierSyntax? { get }
 
+    /// Returns a copy of the receiver with its `accessLevelModifier` replaced.
+    /// - param newChild: The new `accessLevelModifier` to replace the node's
+    ///                   current `accessLevelModifier`, if present.
     public func withAccessLevelModifier(_ newChild: SwiftSyntax.DeclModifierSyntax?) -> SwiftSyntax.ExtensionDeclSyntax
 
     public var extensionKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `extensionKeyword` replaced.
+    /// - param newChild: The new `extensionKeyword` to replace the node's
+    ///                   current `extensionKeyword`, if present.
     public func withExtensionKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ExtensionDeclSyntax
 
     public var extendedType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `extendedType` replaced.
+    /// - param newChild: The new `extendedType` to replace the node's
+    ///                   current `extendedType`, if present.
     public func withExtendedType(_ newChild: TypeSyntax?) -> SwiftSyntax.ExtensionDeclSyntax
 
     public var inheritanceClause: SwiftSyntax.TypeInheritanceClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `inheritanceClause` replaced.
+    /// - param newChild: The new `inheritanceClause` to replace the node's
+    ///                   current `inheritanceClause`, if present.
     public func withInheritanceClause(_ newChild: SwiftSyntax.TypeInheritanceClauseSyntax?) -> SwiftSyntax.ExtensionDeclSyntax
 
     public var genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericWhereClause` replaced.
+    /// - param newChild: The new `genericWhereClause` to replace the node's
+    ///                   current `genericWhereClause`, if present.
     public func withGenericWhereClause(_ newChild: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.ExtensionDeclSyntax
 
     public var members: SwiftSyntax.MemberDeclBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `members` replaced.
+    /// - param newChild: The new `members` to replace the node's
+    ///                   current `members`, if present.
     public func withMembers(_ newChild: SwiftSyntax.MemberDeclBlockSyntax?) -> SwiftSyntax.ExtensionDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ExtensionDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ExtensionDeclSyntax, rhs: SwiftSyntax.ExtensionDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5088,6 +5575,9 @@ extension ExtensionDeclSyntax {
     /// - Returns: A `ExtensionDeclSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.ExtensionDeclSyntaxBuilder) -> Swift.Void)
+}
+
+extension ExtensionDeclSyntax : DeclGroupSyntax {
 }
 
 public struct ExtensionDeclSyntaxBuilder {
@@ -5111,26 +5601,15 @@ public struct FallthroughStmtSyntax : StmtSyntax, Hashable {
 
     public var fallthroughKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `fallthroughKeyword` replaced.
+    /// - param newChild: The new `fallthroughKeyword` to replace the node's
+    ///                   current `fallthroughKeyword`, if present.
     public func withFallthroughKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FallthroughStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FallthroughStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `FallthroughStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.FallthroughStmtSyntax, rhs: SwiftSyntax.FallthroughStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5150,8 +5629,6 @@ extension FallthroughStmtSyntax {
 public struct FallthroughStmtSyntaxBuilder {
 
     public mutating func useFallthroughKeyword(_ node: SwiftSyntax.TokenSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 /// A FixIt represents a change to source code in order to "correct" a
@@ -5200,22 +5677,15 @@ public struct FloatLiteralExprSyntax : ExprSyntax, Hashable {
 
     public var floatingDigits: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `floatingDigits` replaced.
+    /// - param newChild: The new `floatingDigits` to replace the node's
+    ///                   current `floatingDigits`, if present.
     public func withFloatingDigits(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FloatLiteralExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `FloatLiteralExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.FloatLiteralExprSyntax, rhs: SwiftSyntax.FloatLiteralExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5241,62 +5711,78 @@ public struct ForInStmtSyntax : StmtSyntax, Hashable {
 
     public var labelName: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelName` replaced.
+    /// - param newChild: The new `labelName` to replace the node's
+    ///                   current `labelName`, if present.
     public func withLabelName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
     public var labelColon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelColon` replaced.
+    /// - param newChild: The new `labelColon` to replace the node's
+    ///                   current `labelColon`, if present.
     public func withLabelColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
     public var forKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `forKeyword` replaced.
+    /// - param newChild: The new `forKeyword` to replace the node's
+    ///                   current `forKeyword`, if present.
     public func withForKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
     public var caseKeyword: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `caseKeyword` replaced.
+    /// - param newChild: The new `caseKeyword` to replace the node's
+    ///                   current `caseKeyword`, if present.
     public func withCaseKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
     public var pattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `pattern` replaced.
+    /// - param newChild: The new `pattern` to replace the node's
+    ///                   current `pattern`, if present.
     public func withPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
     public var typeAnnotation: SwiftSyntax.TypeAnnotationSyntax? { get }
 
+    /// Returns a copy of the receiver with its `typeAnnotation` replaced.
+    /// - param newChild: The new `typeAnnotation` to replace the node's
+    ///                   current `typeAnnotation`, if present.
     public func withTypeAnnotation(_ newChild: SwiftSyntax.TypeAnnotationSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
     public var inKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `inKeyword` replaced.
+    /// - param newChild: The new `inKeyword` to replace the node's
+    ///                   current `inKeyword`, if present.
     public func withInKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
     public var sequenceExpr: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `sequenceExpr` replaced.
+    /// - param newChild: The new `sequenceExpr` to replace the node's
+    ///                   current `sequenceExpr`, if present.
     public func withSequenceExpr(_ newChild: ExprSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
     public var whereClause: SwiftSyntax.WhereClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `whereClause` replaced.
+    /// - param newChild: The new `whereClause` to replace the node's
+    ///                   current `whereClause`, if present.
     public func withWhereClause(_ newChild: SwiftSyntax.WhereClauseSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.ForInStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ForInStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ForInStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ForInStmtSyntax, rhs: SwiftSyntax.ForInStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5311,6 +5797,9 @@ extension ForInStmtSyntax {
     /// - Returns: A `ForInStmtSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.ForInStmtSyntaxBuilder) -> Swift.Void)
+}
+
+extension ForInStmtSyntax : WithCodeBlockSyntax, LabeledSyntax {
 }
 
 public struct ForInStmtSyntaxBuilder {
@@ -5334,34 +5823,28 @@ public struct ForInStmtSyntaxBuilder {
     public mutating func useWhereClause(_ node: SwiftSyntax.WhereClauseSyntax)
 
     public mutating func useBody(_ node: SwiftSyntax.CodeBlockSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct ForcedValueExprSyntax : ExprSyntax, Hashable {
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.ForcedValueExprSyntax
 
     public var exclamationMark: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `exclamationMark` replaced.
+    /// - param newChild: The new `exclamationMark` to replace the node's
+    ///                   current `exclamationMark`, if present.
     public func withExclamationMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ForcedValueExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ForcedValueExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ForcedValueExprSyntax, rhs: SwiftSyntax.ForcedValueExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5536,34 +6019,36 @@ public struct FunctionCallArgumentSyntax : Syntax, Hashable {
 
     public var label: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `label` replaced.
+    /// - param newChild: The new `label` to replace the node's
+    ///                   current `label`, if present.
     public func withLabel(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionCallArgumentSyntax
 
     public var colon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionCallArgumentSyntax
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.FunctionCallArgumentSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionCallArgumentSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `FunctionCallArgumentSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.FunctionCallArgumentSyntax, rhs: SwiftSyntax.FunctionCallArgumentSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5578,6 +6063,9 @@ extension FunctionCallArgumentSyntax {
     /// - Returns: A `FunctionCallArgumentSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.FunctionCallArgumentSyntaxBuilder) -> Swift.Void)
+}
+
+extension FunctionCallArgumentSyntax : WithTrailingCommaSyntax {
 }
 
 public struct FunctionCallArgumentSyntaxBuilder {
@@ -5595,40 +6083,51 @@ public struct FunctionCallExprSyntax : ExprSyntax, Hashable {
 
     public var calledExpression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `calledExpression` replaced.
+    /// - param newChild: The new `calledExpression` to replace the node's
+    ///                   current `calledExpression`, if present.
     public func withCalledExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.FunctionCallExprSyntax
 
     public var leftParen: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionCallExprSyntax
 
     public var argumentList: SwiftSyntax.FunctionCallArgumentListSyntax { get }
 
-    public func addFunctionCallArgument(_ elt: SwiftSyntax.FunctionCallArgumentSyntax) -> SwiftSyntax.FunctionCallExprSyntax
+    /// Adds the provided `FunctionCallArgument` to the node's `argumentList`
+    /// collection.
+    /// - param element: The new `FunctionCallArgument` to add to the node's
+    ///                  `argumentList` collection.
+    /// - returns: A copy of the receiver with the provided `FunctionCallArgument`
+    ///            appended to its `argumentList` collection.
+    public func addFunctionCallArgument(_ element: SwiftSyntax.FunctionCallArgumentSyntax) -> SwiftSyntax.FunctionCallExprSyntax
 
+    /// Returns a copy of the receiver with its `argumentList` replaced.
+    /// - param newChild: The new `argumentList` to replace the node's
+    ///                   current `argumentList`, if present.
     public func withArgumentList(_ newChild: SwiftSyntax.FunctionCallArgumentListSyntax?) -> SwiftSyntax.FunctionCallExprSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionCallExprSyntax
 
     public var trailingClosure: SwiftSyntax.ClosureExprSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingClosure` replaced.
+    /// - param newChild: The new `trailingClosure` to replace the node's
+    ///                   current `trailingClosure`, if present.
     public func withTrailingClosure(_ newChild: SwiftSyntax.ClosureExprSyntax?) -> SwiftSyntax.FunctionCallExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `FunctionCallExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.FunctionCallExprSyntax, rhs: SwiftSyntax.FunctionCallExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5662,54 +6161,80 @@ public struct FunctionDeclSyntax : DeclSyntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.FunctionDeclSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.FunctionDeclSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.FunctionDeclSyntax
 
     public var modifiers: SwiftSyntax.ModifierListSyntax? { get }
 
-    public func addModifier(_ elt: Syntax) -> SwiftSyntax.FunctionDeclSyntax
+    /// Adds the provided `Modifier` to the node's `modifiers`
+    /// collection.
+    /// - param element: The new `Modifier` to add to the node's
+    ///                  `modifiers` collection.
+    /// - returns: A copy of the receiver with the provided `Modifier`
+    ///            appended to its `modifiers` collection.
+    public func addModifier(_ element: Syntax) -> SwiftSyntax.FunctionDeclSyntax
 
+    /// Returns a copy of the receiver with its `modifiers` replaced.
+    /// - param newChild: The new `modifiers` to replace the node's
+    ///                   current `modifiers`, if present.
     public func withModifiers(_ newChild: SwiftSyntax.ModifierListSyntax?) -> SwiftSyntax.FunctionDeclSyntax
 
     public var funcKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `funcKeyword` replaced.
+    /// - param newChild: The new `funcKeyword` to replace the node's
+    ///                   current `funcKeyword`, if present.
     public func withFuncKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionDeclSyntax
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionDeclSyntax
 
     public var genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericParameterClause` replaced.
+    /// - param newChild: The new `genericParameterClause` to replace the node's
+    ///                   current `genericParameterClause`, if present.
     public func withGenericParameterClause(_ newChild: SwiftSyntax.GenericParameterClauseSyntax?) -> SwiftSyntax.FunctionDeclSyntax
 
     public var signature: SwiftSyntax.FunctionSignatureSyntax { get }
 
+    /// Returns a copy of the receiver with its `signature` replaced.
+    /// - param newChild: The new `signature` to replace the node's
+    ///                   current `signature`, if present.
     public func withSignature(_ newChild: SwiftSyntax.FunctionSignatureSyntax?) -> SwiftSyntax.FunctionDeclSyntax
 
     public var genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericWhereClause` replaced.
+    /// - param newChild: The new `genericWhereClause` to replace the node's
+    ///                   current `genericWhereClause`, if present.
     public func withGenericWhereClause(_ newChild: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.FunctionDeclSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax? { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.FunctionDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `FunctionDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.FunctionDeclSyntax, rhs: SwiftSyntax.FunctionDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5724,6 +6249,9 @@ extension FunctionDeclSyntax {
     /// - Returns: A `FunctionDeclSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.FunctionDeclSyntaxBuilder) -> Swift.Void)
+}
+
+extension FunctionDeclSyntax : IdentifiedDeclSyntax {
 }
 
 public struct FunctionDeclSyntaxBuilder {
@@ -5896,52 +6424,72 @@ public struct FunctionParameterSyntax : Syntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.FunctionParameterSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.FunctionParameterSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.FunctionParameterSyntax
 
     public var firstName: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `firstName` replaced.
+    /// - param newChild: The new `firstName` to replace the node's
+    ///                   current `firstName`, if present.
     public func withFirstName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionParameterSyntax
 
     public var secondName: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `secondName` replaced.
+    /// - param newChild: The new `secondName` to replace the node's
+    ///                   current `secondName`, if present.
     public func withSecondName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionParameterSyntax
 
     public var colon: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionParameterSyntax
 
     public var typeAnnotation: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `typeAnnotation` replaced.
+    /// - param newChild: The new `typeAnnotation` to replace the node's
+    ///                   current `typeAnnotation`, if present.
     public func withTypeAnnotation(_ newChild: TypeSyntax?) -> SwiftSyntax.FunctionParameterSyntax
 
     public var ellipsis: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `ellipsis` replaced.
+    /// - param newChild: The new `ellipsis` to replace the node's
+    ///                   current `ellipsis`, if present.
     public func withEllipsis(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionParameterSyntax
 
     public var defaultArgument: SwiftSyntax.InitializerClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `defaultArgument` replaced.
+    /// - param newChild: The new `defaultArgument` to replace the node's
+    ///                   current `defaultArgument`, if present.
     public func withDefaultArgument(_ newChild: SwiftSyntax.InitializerClauseSyntax?) -> SwiftSyntax.FunctionParameterSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionParameterSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `FunctionParameterSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.FunctionParameterSyntax, rhs: SwiftSyntax.FunctionParameterSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -5956,6 +6504,9 @@ extension FunctionParameterSyntax {
     /// - Returns: A `FunctionParameterSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.FunctionParameterSyntaxBuilder) -> Swift.Void)
+}
+
+extension FunctionParameterSyntax : WithTrailingCommaSyntax {
 }
 
 public struct FunctionParameterSyntaxBuilder {
@@ -5981,30 +6532,29 @@ public struct FunctionSignatureSyntax : Syntax, Hashable {
 
     public var input: SwiftSyntax.ParameterClauseSyntax { get }
 
+    /// Returns a copy of the receiver with its `input` replaced.
+    /// - param newChild: The new `input` to replace the node's
+    ///                   current `input`, if present.
     public func withInput(_ newChild: SwiftSyntax.ParameterClauseSyntax?) -> SwiftSyntax.FunctionSignatureSyntax
 
     public var throwsOrRethrowsKeyword: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `throwsOrRethrowsKeyword` replaced.
+    /// - param newChild: The new `throwsOrRethrowsKeyword` to replace the node's
+    ///                   current `throwsOrRethrowsKeyword`, if present.
     public func withThrowsOrRethrowsKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionSignatureSyntax
 
     public var output: SwiftSyntax.ReturnClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `output` replaced.
+    /// - param newChild: The new `output` to replace the node's
+    ///                   current `output`, if present.
     public func withOutput(_ newChild: SwiftSyntax.ReturnClauseSyntax?) -> SwiftSyntax.FunctionSignatureSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `FunctionSignatureSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.FunctionSignatureSyntax, rhs: SwiftSyntax.FunctionSignatureSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6034,44 +6584,58 @@ public struct FunctionTypeSyntax : TypeSyntax, Hashable {
 
     public var leftParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionTypeSyntax
 
     public var arguments: SwiftSyntax.TupleTypeElementListSyntax { get }
 
-    public func addTupleTypeElement(_ elt: SwiftSyntax.TupleTypeElementSyntax) -> SwiftSyntax.FunctionTypeSyntax
+    /// Adds the provided `TupleTypeElement` to the node's `arguments`
+    /// collection.
+    /// - param element: The new `TupleTypeElement` to add to the node's
+    ///                  `arguments` collection.
+    /// - returns: A copy of the receiver with the provided `TupleTypeElement`
+    ///            appended to its `arguments` collection.
+    public func addTupleTypeElement(_ element: SwiftSyntax.TupleTypeElementSyntax) -> SwiftSyntax.FunctionTypeSyntax
 
+    /// Returns a copy of the receiver with its `arguments` replaced.
+    /// - param newChild: The new `arguments` to replace the node's
+    ///                   current `arguments`, if present.
     public func withArguments(_ newChild: SwiftSyntax.TupleTypeElementListSyntax?) -> SwiftSyntax.FunctionTypeSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionTypeSyntax
 
     public var throwsOrRethrowsKeyword: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `throwsOrRethrowsKeyword` replaced.
+    /// - param newChild: The new `throwsOrRethrowsKeyword` to replace the node's
+    ///                   current `throwsOrRethrowsKeyword`, if present.
     public func withThrowsOrRethrowsKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionTypeSyntax
 
     public var arrow: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `arrow` replaced.
+    /// - param newChild: The new `arrow` to replace the node's
+    ///                   current `arrow`, if present.
     public func withArrow(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FunctionTypeSyntax
 
     public var returnType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `returnType` replaced.
+    /// - param newChild: The new `returnType` to replace the node's
+    ///                   current `returnType`, if present.
     public func withReturnType(_ newChild: TypeSyntax?) -> SwiftSyntax.FunctionTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `FunctionTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.FunctionTypeSyntax, rhs: SwiftSyntax.FunctionTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6086,6 +6650,9 @@ extension FunctionTypeSyntax {
     /// - Returns: A `FunctionTypeSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.FunctionTypeSyntaxBuilder) -> Swift.Void)
+}
+
+extension FunctionTypeSyntax : ParenthesizedSyntax {
 }
 
 public struct FunctionTypeSyntaxBuilder {
@@ -6107,32 +6674,37 @@ public struct GenericArgumentClauseSyntax : Syntax, Hashable {
 
     public var leftAngleBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftAngleBracket` replaced.
+    /// - param newChild: The new `leftAngleBracket` to replace the node's
+    ///                   current `leftAngleBracket`, if present.
     public func withLeftAngleBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GenericArgumentClauseSyntax
 
     public var arguments: SwiftSyntax.GenericArgumentListSyntax { get }
 
-    public func addGenericArgument(_ elt: SwiftSyntax.GenericArgumentSyntax) -> SwiftSyntax.GenericArgumentClauseSyntax
+    /// Adds the provided `GenericArgument` to the node's `arguments`
+    /// collection.
+    /// - param element: The new `GenericArgument` to add to the node's
+    ///                  `arguments` collection.
+    /// - returns: A copy of the receiver with the provided `GenericArgument`
+    ///            appended to its `arguments` collection.
+    public func addGenericArgument(_ element: SwiftSyntax.GenericArgumentSyntax) -> SwiftSyntax.GenericArgumentClauseSyntax
 
+    /// Returns a copy of the receiver with its `arguments` replaced.
+    /// - param newChild: The new `arguments` to replace the node's
+    ///                   current `arguments`, if present.
     public func withArguments(_ newChild: SwiftSyntax.GenericArgumentListSyntax?) -> SwiftSyntax.GenericArgumentClauseSyntax
 
     public var rightAngleBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightAngleBracket` replaced.
+    /// - param newChild: The new `rightAngleBracket` to replace the node's
+    ///                   current `rightAngleBracket`, if present.
     public func withRightAngleBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GenericArgumentClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `GenericArgumentClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.GenericArgumentClauseSyntax, rhs: SwiftSyntax.GenericArgumentClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6309,26 +6881,22 @@ public struct GenericArgumentSyntax : Syntax, Hashable {
 
     public var argumentType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `argumentType` replaced.
+    /// - param newChild: The new `argumentType` to replace the node's
+    ///                   current `argumentType`, if present.
     public func withArgumentType(_ newChild: TypeSyntax?) -> SwiftSyntax.GenericArgumentSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GenericArgumentSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `GenericArgumentSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.GenericArgumentSyntax, rhs: SwiftSyntax.GenericArgumentSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6345,6 +6913,9 @@ extension GenericArgumentSyntax {
     public init(_ build: (inout SwiftSyntax.GenericArgumentSyntaxBuilder) -> Swift.Void)
 }
 
+extension GenericArgumentSyntax : WithTrailingCommaSyntax {
+}
+
 public struct GenericArgumentSyntaxBuilder {
 
     public mutating func useArgumentType(_ node: TypeSyntax)
@@ -6356,32 +6927,37 @@ public struct GenericParameterClauseSyntax : Syntax, Hashable {
 
     public var leftAngleBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftAngleBracket` replaced.
+    /// - param newChild: The new `leftAngleBracket` to replace the node's
+    ///                   current `leftAngleBracket`, if present.
     public func withLeftAngleBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GenericParameterClauseSyntax
 
     public var genericParameterList: SwiftSyntax.GenericParameterListSyntax { get }
 
-    public func addGenericParameter(_ elt: SwiftSyntax.GenericParameterSyntax) -> SwiftSyntax.GenericParameterClauseSyntax
+    /// Adds the provided `GenericParameter` to the node's `genericParameterList`
+    /// collection.
+    /// - param element: The new `GenericParameter` to add to the node's
+    ///                  `genericParameterList` collection.
+    /// - returns: A copy of the receiver with the provided `GenericParameter`
+    ///            appended to its `genericParameterList` collection.
+    public func addGenericParameter(_ element: SwiftSyntax.GenericParameterSyntax) -> SwiftSyntax.GenericParameterClauseSyntax
 
+    /// Returns a copy of the receiver with its `genericParameterList` replaced.
+    /// - param newChild: The new `genericParameterList` to replace the node's
+    ///                   current `genericParameterList`, if present.
     public func withGenericParameterList(_ newChild: SwiftSyntax.GenericParameterListSyntax?) -> SwiftSyntax.GenericParameterClauseSyntax
 
     public var rightAngleBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightAngleBracket` replaced.
+    /// - param newChild: The new `rightAngleBracket` to replace the node's
+    ///                   current `rightAngleBracket`, if present.
     public func withRightAngleBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GenericParameterClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `GenericParameterClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.GenericParameterClauseSyntax, rhs: SwiftSyntax.GenericParameterClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6558,40 +7134,51 @@ public struct GenericParameterSyntax : Syntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.GenericParameterSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.GenericParameterSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.GenericParameterSyntax
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GenericParameterSyntax
 
     public var colon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GenericParameterSyntax
 
     public var inheritedType: TypeSyntax? { get }
 
+    /// Returns a copy of the receiver with its `inheritedType` replaced.
+    /// - param newChild: The new `inheritedType` to replace the node's
+    ///                   current `inheritedType`, if present.
     public func withInheritedType(_ newChild: TypeSyntax?) -> SwiftSyntax.GenericParameterSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GenericParameterSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `GenericParameterSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.GenericParameterSyntax, rhs: SwiftSyntax.GenericParameterSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6606,6 +7193,9 @@ extension GenericParameterSyntax {
     /// - Returns: A `GenericParameterSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.GenericParameterSyntaxBuilder) -> Swift.Void)
+}
+
+extension GenericParameterSyntax : WithTrailingCommaSyntax {
 }
 
 public struct GenericParameterSyntaxBuilder {
@@ -6772,28 +7362,30 @@ public struct GenericWhereClauseSyntax : Syntax, Hashable {
 
     public var whereKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `whereKeyword` replaced.
+    /// - param newChild: The new `whereKeyword` to replace the node's
+    ///                   current `whereKeyword`, if present.
     public func withWhereKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GenericWhereClauseSyntax
 
     public var requirementList: SwiftSyntax.GenericRequirementListSyntax { get }
 
-    public func addGenericRequirement(_ elt: Syntax) -> SwiftSyntax.GenericWhereClauseSyntax
+    /// Adds the provided `GenericRequirement` to the node's `requirementList`
+    /// collection.
+    /// - param element: The new `GenericRequirement` to add to the node's
+    ///                  `requirementList` collection.
+    /// - returns: A copy of the receiver with the provided `GenericRequirement`
+    ///            appended to its `requirementList` collection.
+    public func addGenericRequirement(_ element: Syntax) -> SwiftSyntax.GenericWhereClauseSyntax
 
+    /// Returns a copy of the receiver with its `requirementList` replaced.
+    /// - param newChild: The new `requirementList` to replace the node's
+    ///                   current `requirementList`, if present.
     public func withRequirementList(_ newChild: SwiftSyntax.GenericRequirementListSyntax?) -> SwiftSyntax.GenericWhereClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `GenericWhereClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.GenericWhereClauseSyntax, rhs: SwiftSyntax.GenericWhereClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6821,40 +7413,44 @@ public struct GuardStmtSyntax : StmtSyntax, Hashable {
 
     public var guardKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `guardKeyword` replaced.
+    /// - param newChild: The new `guardKeyword` to replace the node's
+    ///                   current `guardKeyword`, if present.
     public func withGuardKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GuardStmtSyntax
 
     public var conditions: SwiftSyntax.ConditionElementListSyntax { get }
 
-    public func addConditionElement(_ elt: SwiftSyntax.ConditionElementSyntax) -> SwiftSyntax.GuardStmtSyntax
+    /// Adds the provided `ConditionElement` to the node's `conditions`
+    /// collection.
+    /// - param element: The new `ConditionElement` to add to the node's
+    ///                  `conditions` collection.
+    /// - returns: A copy of the receiver with the provided `ConditionElement`
+    ///            appended to its `conditions` collection.
+    public func addConditionElement(_ element: SwiftSyntax.ConditionElementSyntax) -> SwiftSyntax.GuardStmtSyntax
 
+    /// Returns a copy of the receiver with its `conditions` replaced.
+    /// - param newChild: The new `conditions` to replace the node's
+    ///                   current `conditions`, if present.
     public func withConditions(_ newChild: SwiftSyntax.ConditionElementListSyntax?) -> SwiftSyntax.GuardStmtSyntax
 
     public var elseKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `elseKeyword` replaced.
+    /// - param newChild: The new `elseKeyword` to replace the node's
+    ///                   current `elseKeyword`, if present.
     public func withElseKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GuardStmtSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.GuardStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GuardStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `GuardStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.GuardStmtSyntax, rhs: SwiftSyntax.GuardStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6871,6 +7467,9 @@ extension GuardStmtSyntax {
     public init(_ build: (inout SwiftSyntax.GuardStmtSyntaxBuilder) -> Swift.Void)
 }
 
+extension GuardStmtSyntax : WithCodeBlockSyntax {
+}
+
 public struct GuardStmtSyntaxBuilder {
 
     public mutating func useGuardKeyword(_ node: SwiftSyntax.TokenSyntax)
@@ -6880,34 +7479,35 @@ public struct GuardStmtSyntaxBuilder {
     public mutating func useElseKeyword(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useBody(_ node: SwiftSyntax.CodeBlockSyntax)
+}
 
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
+public protocol IdentifiedDeclSyntax {
+
+    public var identifier: SwiftSyntax.TokenSyntax { get }
+
+    public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> Self
 }
 
 public struct IdentifierExprSyntax : ExprSyntax, Hashable {
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IdentifierExprSyntax
 
     public var declNameArguments: SwiftSyntax.DeclNameArgumentsSyntax? { get }
 
+    /// Returns a copy of the receiver with its `declNameArguments` replaced.
+    /// - param newChild: The new `declNameArguments` to replace the node's
+    ///                   current `declNameArguments`, if present.
     public func withDeclNameArguments(_ newChild: SwiftSyntax.DeclNameArgumentsSyntax?) -> SwiftSyntax.IdentifierExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `IdentifierExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.IdentifierExprSyntax, rhs: SwiftSyntax.IdentifierExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6935,22 +7535,15 @@ public struct IdentifierPatternSyntax : PatternSyntax, Hashable {
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IdentifierPatternSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `IdentifierPatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.IdentifierPatternSyntax, rhs: SwiftSyntax.IdentifierPatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -6976,46 +7569,66 @@ public struct IfConfigDeclSyntax : DeclSyntax, Hashable {
 
     public var poundIf: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundIf` replaced.
+    /// - param newChild: The new `poundIf` to replace the node's
+    ///                   current `poundIf`, if present.
     public func withPoundIf(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IfConfigDeclSyntax
 
     public var condition: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `condition` replaced.
+    /// - param newChild: The new `condition` to replace the node's
+    ///                   current `condition`, if present.
     public func withCondition(_ newChild: ExprSyntax?) -> SwiftSyntax.IfConfigDeclSyntax
 
-    public var body: SwiftSyntax.StmtListSyntax { get }
+    public var statements: SwiftSyntax.CodeBlockItemListSyntax { get }
 
-    public func addStmt(_ elt: StmtSyntax) -> SwiftSyntax.IfConfigDeclSyntax
+    /// Adds the provided `CodeBlockItem` to the node's `statements`
+    /// collection.
+    /// - param element: The new `CodeBlockItem` to add to the node's
+    ///                  `statements` collection.
+    /// - returns: A copy of the receiver with the provided `CodeBlockItem`
+    ///            appended to its `statements` collection.
+    public func addCodeBlockItem(_ element: SwiftSyntax.CodeBlockItemSyntax) -> SwiftSyntax.IfConfigDeclSyntax
 
-    public func withBody(_ newChild: SwiftSyntax.StmtListSyntax?) -> SwiftSyntax.IfConfigDeclSyntax
+    /// Returns a copy of the receiver with its `statements` replaced.
+    /// - param newChild: The new `statements` to replace the node's
+    ///                   current `statements`, if present.
+    public func withStatements(_ newChild: SwiftSyntax.CodeBlockItemListSyntax?) -> SwiftSyntax.IfConfigDeclSyntax
 
     public var elseifDirectiveClauses: SwiftSyntax.ElseifDirectiveClauseListSyntax? { get }
 
-    public func addElseifDirectiveClause(_ elt: SwiftSyntax.ElseifDirectiveClauseSyntax) -> SwiftSyntax.IfConfigDeclSyntax
+    /// Adds the provided `ElseifDirectiveClause` to the node's `elseifDirectiveClauses`
+    /// collection.
+    /// - param element: The new `ElseifDirectiveClause` to add to the node's
+    ///                  `elseifDirectiveClauses` collection.
+    /// - returns: A copy of the receiver with the provided `ElseifDirectiveClause`
+    ///            appended to its `elseifDirectiveClauses` collection.
+    public func addElseifDirectiveClause(_ element: SwiftSyntax.ElseifDirectiveClauseSyntax) -> SwiftSyntax.IfConfigDeclSyntax
 
+    /// Returns a copy of the receiver with its `elseifDirectiveClauses` replaced.
+    /// - param newChild: The new `elseifDirectiveClauses` to replace the node's
+    ///                   current `elseifDirectiveClauses`, if present.
     public func withElseifDirectiveClauses(_ newChild: SwiftSyntax.ElseifDirectiveClauseListSyntax?) -> SwiftSyntax.IfConfigDeclSyntax
 
     public var elseClause: SwiftSyntax.ElseDirectiveClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `elseClause` replaced.
+    /// - param newChild: The new `elseClause` to replace the node's
+    ///                   current `elseClause`, if present.
     public func withElseClause(_ newChild: SwiftSyntax.ElseDirectiveClauseSyntax?) -> SwiftSyntax.IfConfigDeclSyntax
 
     public var poundEndif: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundEndif` replaced.
+    /// - param newChild: The new `poundEndif` to replace the node's
+    ///                   current `poundEndif`, if present.
     public func withPoundEndif(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IfConfigDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `IfConfigDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.IfConfigDeclSyntax, rhs: SwiftSyntax.IfConfigDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7032,13 +7645,16 @@ extension IfConfigDeclSyntax {
     public init(_ build: (inout SwiftSyntax.IfConfigDeclSyntaxBuilder) -> Swift.Void)
 }
 
+extension IfConfigDeclSyntax : WithStatementsSyntax {
+}
+
 public struct IfConfigDeclSyntaxBuilder {
 
     public mutating func usePoundIf(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useCondition(_ node: ExprSyntax)
 
-    public mutating func addStmt(_ elt: StmtSyntax)
+    public mutating func addCodeBlockItem(_ elt: SwiftSyntax.CodeBlockItemSyntax)
 
     public mutating func addElseifDirectiveClause(_ elt: SwiftSyntax.ElseifDirectiveClauseSyntax)
 
@@ -7051,52 +7667,65 @@ public struct IfStmtSyntax : StmtSyntax, Hashable {
 
     public var labelName: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelName` replaced.
+    /// - param newChild: The new `labelName` to replace the node's
+    ///                   current `labelName`, if present.
     public func withLabelName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IfStmtSyntax
 
     public var labelColon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelColon` replaced.
+    /// - param newChild: The new `labelColon` to replace the node's
+    ///                   current `labelColon`, if present.
     public func withLabelColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IfStmtSyntax
 
     public var ifKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `ifKeyword` replaced.
+    /// - param newChild: The new `ifKeyword` to replace the node's
+    ///                   current `ifKeyword`, if present.
     public func withIfKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IfStmtSyntax
 
     public var conditions: SwiftSyntax.ConditionElementListSyntax { get }
 
-    public func addConditionElement(_ elt: SwiftSyntax.ConditionElementSyntax) -> SwiftSyntax.IfStmtSyntax
+    /// Adds the provided `ConditionElement` to the node's `conditions`
+    /// collection.
+    /// - param element: The new `ConditionElement` to add to the node's
+    ///                  `conditions` collection.
+    /// - returns: A copy of the receiver with the provided `ConditionElement`
+    ///            appended to its `conditions` collection.
+    public func addConditionElement(_ element: SwiftSyntax.ConditionElementSyntax) -> SwiftSyntax.IfStmtSyntax
 
+    /// Returns a copy of the receiver with its `conditions` replaced.
+    /// - param newChild: The new `conditions` to replace the node's
+    ///                   current `conditions`, if present.
     public func withConditions(_ newChild: SwiftSyntax.ConditionElementListSyntax?) -> SwiftSyntax.IfStmtSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.IfStmtSyntax
 
     public var elseKeyword: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `elseKeyword` replaced.
+    /// - param newChild: The new `elseKeyword` to replace the node's
+    ///                   current `elseKeyword`, if present.
     public func withElseKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IfStmtSyntax
 
     public var elseBody: Syntax? { get }
 
+    /// Returns a copy of the receiver with its `elseBody` replaced.
+    /// - param newChild: The new `elseBody` to replace the node's
+    ///                   current `elseBody`, if present.
     public func withElseBody(_ newChild: Syntax?) -> SwiftSyntax.IfStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IfStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `IfStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.IfStmtSyntax, rhs: SwiftSyntax.IfStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7111,6 +7740,9 @@ extension IfStmtSyntax {
     /// - Returns: A `IfStmtSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.IfStmtSyntaxBuilder) -> Swift.Void)
+}
+
+extension IfStmtSyntax : WithCodeBlockSyntax, LabeledSyntax {
 }
 
 public struct IfStmtSyntaxBuilder {
@@ -7128,38 +7760,35 @@ public struct IfStmtSyntaxBuilder {
     public mutating func useElseKeyword(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useElseBody(_ node: Syntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct ImplicitMemberExprSyntax : ExprSyntax, Hashable {
 
     public var dot: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `dot` replaced.
+    /// - param newChild: The new `dot` to replace the node's
+    ///                   current `dot`, if present.
     public func withDot(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ImplicitMemberExprSyntax
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ImplicitMemberExprSyntax
 
     public var declNameArguments: SwiftSyntax.DeclNameArgumentsSyntax? { get }
 
+    /// Returns a copy of the receiver with its `declNameArguments` replaced.
+    /// - param newChild: The new `declNameArguments` to replace the node's
+    ///                   current `declNameArguments`, if present.
     public func withDeclNameArguments(_ newChild: SwiftSyntax.DeclNameArgumentsSyntax?) -> SwiftSyntax.ImplicitMemberExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ImplicitMemberExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ImplicitMemberExprSyntax, rhs: SwiftSyntax.ImplicitMemberExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7189,26 +7818,22 @@ public struct ImplicitlyUnwrappedOptionalTypeSyntax : TypeSyntax, Hashable {
 
     public var wrappedType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `wrappedType` replaced.
+    /// - param newChild: The new `wrappedType` to replace the node's
+    ///                   current `wrappedType`, if present.
     public func withWrappedType(_ newChild: TypeSyntax?) -> SwiftSyntax.ImplicitlyUnwrappedOptionalTypeSyntax
 
     public var exclamationMark: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `exclamationMark` replaced.
+    /// - param newChild: The new `exclamationMark` to replace the node's
+    ///                   current `exclamationMark`, if present.
     public func withExclamationMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ImplicitlyUnwrappedOptionalTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ImplicitlyUnwrappedOptionalTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ImplicitlyUnwrappedOptionalTypeSyntax, rhs: SwiftSyntax.ImplicitlyUnwrappedOptionalTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7236,38 +7861,52 @@ public struct ImportDeclSyntax : DeclSyntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.ImportDeclSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.ImportDeclSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.ImportDeclSyntax
 
     public var importTok: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `importTok` replaced.
+    /// - param newChild: The new `importTok` to replace the node's
+    ///                   current `importTok`, if present.
     public func withImportTok(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ImportDeclSyntax
 
     public var importKind: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `importKind` replaced.
+    /// - param newChild: The new `importKind` to replace the node's
+    ///                   current `importKind`, if present.
     public func withImportKind(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ImportDeclSyntax
 
     public var path: SwiftSyntax.AccessPathSyntax { get }
 
-    public func addAccessPathComponent(_ elt: SwiftSyntax.AccessPathComponentSyntax) -> SwiftSyntax.ImportDeclSyntax
+    /// Adds the provided `AccessPathComponent` to the node's `path`
+    /// collection.
+    /// - param element: The new `AccessPathComponent` to add to the node's
+    ///                  `path` collection.
+    /// - returns: A copy of the receiver with the provided `AccessPathComponent`
+    ///            appended to its `path` collection.
+    public func addAccessPathComponent(_ element: SwiftSyntax.AccessPathComponentSyntax) -> SwiftSyntax.ImportDeclSyntax
 
+    /// Returns a copy of the receiver with its `path` replaced.
+    /// - param newChild: The new `path` to replace the node's
+    ///                   current `path`, if present.
     public func withPath(_ newChild: SwiftSyntax.AccessPathSyntax?) -> SwiftSyntax.ImportDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ImportDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ImportDeclSyntax, rhs: SwiftSyntax.ImportDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7299,26 +7938,22 @@ public struct InOutExprSyntax : ExprSyntax, Hashable {
 
     public var ampersand: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `ampersand` replaced.
+    /// - param newChild: The new `ampersand` to replace the node's
+    ///                   current `ampersand`, if present.
     public func withAmpersand(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.InOutExprSyntax
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.InOutExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `InOutExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.InOutExprSyntax, rhs: SwiftSyntax.InOutExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7493,26 +8128,22 @@ public struct InheritedTypeSyntax : Syntax, Hashable {
 
     public var typeName: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `typeName` replaced.
+    /// - param newChild: The new `typeName` to replace the node's
+    ///                   current `typeName`, if present.
     public func withTypeName(_ newChild: TypeSyntax?) -> SwiftSyntax.InheritedTypeSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.InheritedTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `InheritedTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.InheritedTypeSyntax, rhs: SwiftSyntax.InheritedTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7529,6 +8160,9 @@ extension InheritedTypeSyntax {
     public init(_ build: (inout SwiftSyntax.InheritedTypeSyntaxBuilder) -> Swift.Void)
 }
 
+extension InheritedTypeSyntax : WithTrailingCommaSyntax {
+}
+
 public struct InheritedTypeSyntaxBuilder {
 
     public mutating func useTypeName(_ node: TypeSyntax)
@@ -7540,26 +8174,22 @@ public struct InitializerClauseSyntax : Syntax, Hashable {
 
     public var equal: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `equal` replaced.
+    /// - param newChild: The new `equal` to replace the node's
+    ///                   current `equal`, if present.
     public func withEqual(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.InitializerClauseSyntax
 
     public var value: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `value` replaced.
+    /// - param newChild: The new `value` to replace the node's
+    ///                   current `value`, if present.
     public func withValue(_ newChild: ExprSyntax?) -> SwiftSyntax.InitializerClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `InitializerClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.InitializerClauseSyntax, rhs: SwiftSyntax.InitializerClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7583,26 +8213,141 @@ public struct InitializerClauseSyntaxBuilder {
     public mutating func useValue(_ node: ExprSyntax)
 }
 
+public struct InitializerDeclSyntax : DeclSyntax, Hashable {
+
+    public var attributes: SwiftSyntax.AttributeListSyntax? { get }
+
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.InitializerDeclSyntax
+
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
+    public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    public var modifiers: SwiftSyntax.ModifierListSyntax? { get }
+
+    /// Adds the provided `Modifier` to the node's `modifiers`
+    /// collection.
+    /// - param element: The new `Modifier` to add to the node's
+    ///                  `modifiers` collection.
+    /// - returns: A copy of the receiver with the provided `Modifier`
+    ///            appended to its `modifiers` collection.
+    public func addModifier(_ element: Syntax) -> SwiftSyntax.InitializerDeclSyntax
+
+    /// Returns a copy of the receiver with its `modifiers` replaced.
+    /// - param newChild: The new `modifiers` to replace the node's
+    ///                   current `modifiers`, if present.
+    public func withModifiers(_ newChild: SwiftSyntax.ModifierListSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    public var initKeyword: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `initKeyword` replaced.
+    /// - param newChild: The new `initKeyword` to replace the node's
+    ///                   current `initKeyword`, if present.
+    public func withInitKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    public var optionalMark: SwiftSyntax.TokenSyntax? { get }
+
+    /// Returns a copy of the receiver with its `optionalMark` replaced.
+    /// - param newChild: The new `optionalMark` to replace the node's
+    ///                   current `optionalMark`, if present.
+    public func withOptionalMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    public var genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax? { get }
+
+    /// Returns a copy of the receiver with its `genericParameterClause` replaced.
+    /// - param newChild: The new `genericParameterClause` to replace the node's
+    ///                   current `genericParameterClause`, if present.
+    public func withGenericParameterClause(_ newChild: SwiftSyntax.GenericParameterClauseSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    public var parameters: SwiftSyntax.ParameterClauseSyntax { get }
+
+    /// Returns a copy of the receiver with its `parameters` replaced.
+    /// - param newChild: The new `parameters` to replace the node's
+    ///                   current `parameters`, if present.
+    public func withParameters(_ newChild: SwiftSyntax.ParameterClauseSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    public var throwsOrRethrowsKeyword: SwiftSyntax.TokenSyntax? { get }
+
+    /// Returns a copy of the receiver with its `throwsOrRethrowsKeyword` replaced.
+    /// - param newChild: The new `throwsOrRethrowsKeyword` to replace the node's
+    ///                   current `throwsOrRethrowsKeyword`, if present.
+    public func withThrowsOrRethrowsKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    public var genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax? { get }
+
+    /// Returns a copy of the receiver with its `genericWhereClause` replaced.
+    /// - param newChild: The new `genericWhereClause` to replace the node's
+    ///                   current `genericWhereClause`, if present.
+    public func withGenericWhereClause(_ newChild: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    public var body: SwiftSyntax.CodeBlockSyntax? { get }
+
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
+    public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    /// Determines if two `InitializerDeclSyntax` nodes are equal to each other.
+    public static func == (lhs: SwiftSyntax.InitializerDeclSyntax, rhs: SwiftSyntax.InitializerDeclSyntax) -> Bool
+
+    /// A unique hash value for this node.
+    public var hashValue: Int { get }
+}
+
+extension InitializerDeclSyntax {
+
+    /// Creates a `InitializerDeclSyntax` using the provided build function.
+    /// - Parameter:
+    ///   - build: A closure that wil be invoked in order to initialize
+    ///            the fields of the syntax node.
+    ///            This closure is passed a `InitializerDeclSyntaxBuilder` which you can use to
+    ///            incrementally build the structure of the node.
+    /// - Returns: A `InitializerDeclSyntax` with all the fields populated in the builder
+    ///            closure.
+    public init(_ build: (inout SwiftSyntax.InitializerDeclSyntaxBuilder) -> Swift.Void)
+}
+
+public struct InitializerDeclSyntaxBuilder {
+
+    public mutating func addAttribute(_ elt: SwiftSyntax.AttributeSyntax)
+
+    public mutating func addModifier(_ elt: Syntax)
+
+    public mutating func useInitKeyword(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useOptionalMark(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useGenericParameterClause(_ node: SwiftSyntax.GenericParameterClauseSyntax)
+
+    public mutating func useParameters(_ node: SwiftSyntax.ParameterClauseSyntax)
+
+    public mutating func useThrowsOrRethrowsKeyword(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useGenericWhereClause(_ node: SwiftSyntax.GenericWhereClauseSyntax)
+
+    public mutating func useBody(_ node: SwiftSyntax.CodeBlockSyntax)
+}
+
 public struct IntegerLiteralExprSyntax : ExprSyntax, Hashable {
 
     public var digits: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `digits` replaced.
+    /// - param newChild: The new `digits` to replace the node's
+    ///                   current `digits`, if present.
     public func withDigits(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IntegerLiteralExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `IntegerLiteralExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.IntegerLiteralExprSyntax, rhs: SwiftSyntax.IntegerLiteralExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7628,26 +8373,22 @@ public struct IsExprSyntax : ExprSyntax, Hashable {
 
     public var isTok: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `isTok` replaced.
+    /// - param newChild: The new `isTok` to replace the node's
+    ///                   current `isTok`, if present.
     public func withIsTok(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IsExprSyntax
 
     public var typeName: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `typeName` replaced.
+    /// - param newChild: The new `typeName` to replace the node's
+    ///                   current `typeName`, if present.
     public func withTypeName(_ newChild: TypeSyntax?) -> SwiftSyntax.IsExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `IsExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.IsExprSyntax, rhs: SwiftSyntax.IsExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7675,26 +8416,22 @@ public struct IsTypePatternSyntax : PatternSyntax, Hashable {
 
     public var isKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `isKeyword` replaced.
+    /// - param newChild: The new `isKeyword` to replace the node's
+    ///                   current `isKeyword`, if present.
     public func withIsKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IsTypePatternSyntax
 
     public var type: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `type` replaced.
+    /// - param newChild: The new `type` to replace the node's
+    ///                   current `type`, if present.
     public func withType(_ newChild: TypeSyntax?) -> SwiftSyntax.IsTypePatternSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `IsTypePatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.IsTypePatternSyntax, rhs: SwiftSyntax.IsTypePatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7743,26 +8480,22 @@ public struct KeyPathExprSyntax : ExprSyntax, Hashable {
 
     public var backslash: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `backslash` replaced.
+    /// - param newChild: The new `backslash` to replace the node's
+    ///                   current `backslash`, if present.
     public func withBackslash(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.KeyPathExprSyntax
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.KeyPathExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `KeyPathExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.KeyPathExprSyntax, rhs: SwiftSyntax.KeyPathExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7786,38 +8519,51 @@ public struct KeyPathExprSyntaxBuilder {
     public mutating func useExpression(_ node: ExprSyntax)
 }
 
+public protocol LabeledSyntax {
+
+    public var labelName: SwiftSyntax.TokenSyntax? { get }
+
+    public func withLabelName(_ newChild: SwiftSyntax.TokenSyntax?) -> Self
+
+    public var labelColon: SwiftSyntax.TokenSyntax? { get }
+
+    public func withLabelColon(_ newChild: SwiftSyntax.TokenSyntax?) -> Self
+}
+
 public struct MatchingPatternConditionSyntax : Syntax, Hashable {
 
     public var caseKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `caseKeyword` replaced.
+    /// - param newChild: The new `caseKeyword` to replace the node's
+    ///                   current `caseKeyword`, if present.
     public func withCaseKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.MatchingPatternConditionSyntax
 
     public var pattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `pattern` replaced.
+    /// - param newChild: The new `pattern` to replace the node's
+    ///                   current `pattern`, if present.
     public func withPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.MatchingPatternConditionSyntax
 
     public var typeAnnotation: SwiftSyntax.TypeAnnotationSyntax? { get }
 
+    /// Returns a copy of the receiver with its `typeAnnotation` replaced.
+    /// - param newChild: The new `typeAnnotation` to replace the node's
+    ///                   current `typeAnnotation`, if present.
     public func withTypeAnnotation(_ newChild: SwiftSyntax.TypeAnnotationSyntax?) -> SwiftSyntax.MatchingPatternConditionSyntax
 
     public var initializer: SwiftSyntax.InitializerClauseSyntax { get }
 
+    /// Returns a copy of the receiver with its `initializer` replaced.
+    /// - param newChild: The new `initializer` to replace the node's
+    ///                   current `initializer`, if present.
     public func withInitializer(_ newChild: SwiftSyntax.InitializerClauseSyntax?) -> SwiftSyntax.MatchingPatternConditionSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `MatchingPatternConditionSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.MatchingPatternConditionSyntax, rhs: SwiftSyntax.MatchingPatternConditionSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7849,34 +8595,36 @@ public struct MemberAccessExprSyntax : ExprSyntax, Hashable {
 
     public var base: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `base` replaced.
+    /// - param newChild: The new `base` to replace the node's
+    ///                   current `base`, if present.
     public func withBase(_ newChild: ExprSyntax?) -> SwiftSyntax.MemberAccessExprSyntax
 
     public var dot: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `dot` replaced.
+    /// - param newChild: The new `dot` to replace the node's
+    ///                   current `dot`, if present.
     public func withDot(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.MemberAccessExprSyntax
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.MemberAccessExprSyntax
 
     public var declNameArguments: SwiftSyntax.DeclNameArgumentsSyntax? { get }
 
+    /// Returns a copy of the receiver with its `declNameArguments` replaced.
+    /// - param newChild: The new `declNameArguments` to replace the node's
+    ///                   current `declNameArguments`, if present.
     public func withDeclNameArguments(_ newChild: SwiftSyntax.DeclNameArgumentsSyntax?) -> SwiftSyntax.MemberAccessExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `MemberAccessExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.MemberAccessExprSyntax, rhs: SwiftSyntax.MemberAccessExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7908,32 +8656,37 @@ public struct MemberDeclBlockSyntax : Syntax, Hashable {
 
     public var leftBrace: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftBrace` replaced.
+    /// - param newChild: The new `leftBrace` to replace the node's
+    ///                   current `leftBrace`, if present.
     public func withLeftBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.MemberDeclBlockSyntax
 
     public var members: SwiftSyntax.DeclListSyntax { get }
 
-    public func addDecl(_ elt: DeclSyntax) -> SwiftSyntax.MemberDeclBlockSyntax
+    /// Adds the provided `Decl` to the node's `members`
+    /// collection.
+    /// - param element: The new `Decl` to add to the node's
+    ///                  `members` collection.
+    /// - returns: A copy of the receiver with the provided `Decl`
+    ///            appended to its `members` collection.
+    public func addDecl(_ element: DeclSyntax) -> SwiftSyntax.MemberDeclBlockSyntax
 
+    /// Returns a copy of the receiver with its `members` replaced.
+    /// - param newChild: The new `members` to replace the node's
+    ///                   current `members`, if present.
     public func withMembers(_ newChild: SwiftSyntax.DeclListSyntax?) -> SwiftSyntax.MemberDeclBlockSyntax
 
     public var rightBrace: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightBrace` replaced.
+    /// - param newChild: The new `rightBrace` to replace the node's
+    ///                   current `rightBrace`, if present.
     public func withRightBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.MemberDeclBlockSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `MemberDeclBlockSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.MemberDeclBlockSyntax, rhs: SwiftSyntax.MemberDeclBlockSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -7950,6 +8703,9 @@ extension MemberDeclBlockSyntax {
     public init(_ build: (inout SwiftSyntax.MemberDeclBlockSyntaxBuilder) -> Swift.Void)
 }
 
+extension MemberDeclBlockSyntax : BracedSyntax {
+}
+
 public struct MemberDeclBlockSyntaxBuilder {
 
     public mutating func useLeftBrace(_ node: SwiftSyntax.TokenSyntax)
@@ -7963,34 +8719,36 @@ public struct MemberTypeIdentifierSyntax : TypeSyntax, Hashable {
 
     public var baseType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `baseType` replaced.
+    /// - param newChild: The new `baseType` to replace the node's
+    ///                   current `baseType`, if present.
     public func withBaseType(_ newChild: TypeSyntax?) -> SwiftSyntax.MemberTypeIdentifierSyntax
 
     public var period: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `period` replaced.
+    /// - param newChild: The new `period` to replace the node's
+    ///                   current `period`, if present.
     public func withPeriod(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.MemberTypeIdentifierSyntax
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.MemberTypeIdentifierSyntax
 
     public var genericArgumentClause: SwiftSyntax.GenericArgumentClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericArgumentClause` replaced.
+    /// - param newChild: The new `genericArgumentClause` to replace the node's
+    ///                   current `genericArgumentClause`, if present.
     public func withGenericArgumentClause(_ newChild: SwiftSyntax.GenericArgumentClauseSyntax?) -> SwiftSyntax.MemberTypeIdentifierSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `MemberTypeIdentifierSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.MemberTypeIdentifierSyntax, rhs: SwiftSyntax.MemberTypeIdentifierSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8022,30 +8780,29 @@ public struct MetatypeTypeSyntax : TypeSyntax, Hashable {
 
     public var baseType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `baseType` replaced.
+    /// - param newChild: The new `baseType` to replace the node's
+    ///                   current `baseType`, if present.
     public func withBaseType(_ newChild: TypeSyntax?) -> SwiftSyntax.MetatypeTypeSyntax
 
     public var period: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `period` replaced.
+    /// - param newChild: The new `period` to replace the node's
+    ///                   current `period`, if present.
     public func withPeriod(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.MetatypeTypeSyntax
 
     public var typeOrProtocol: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `typeOrProtocol` replaced.
+    /// - param newChild: The new `typeOrProtocol` to replace the node's
+    ///                   current `typeOrProtocol`, if present.
     public func withTypeOrProtocol(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.MetatypeTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `MetatypeTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.MetatypeTypeSyntax, rhs: SwiftSyntax.MetatypeTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8222,22 +8979,15 @@ public struct NilLiteralExprSyntax : ExprSyntax, Hashable {
 
     public var nilKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `nilKeyword` replaced.
+    /// - param newChild: The new `nilKeyword` to replace the node's
+    ///                   current `nilKeyword`, if present.
     public func withNilKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.NilLiteralExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `NilLiteralExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.NilLiteralExprSyntax, rhs: SwiftSyntax.NilLiteralExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8280,36 +9030,44 @@ public struct ObjcKeyPathExprSyntax : ExprSyntax, Hashable {
 
     public var keyPath: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `keyPath` replaced.
+    /// - param newChild: The new `keyPath` to replace the node's
+    ///                   current `keyPath`, if present.
     public func withKeyPath(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ObjcKeyPathExprSyntax
 
     public var leftParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ObjcKeyPathExprSyntax
 
     public var name: SwiftSyntax.ObjcNameSyntax { get }
 
-    public func addObjcNamePiece(_ elt: SwiftSyntax.ObjcNamePieceSyntax) -> SwiftSyntax.ObjcKeyPathExprSyntax
+    /// Adds the provided `ObjcNamePiece` to the node's `name`
+    /// collection.
+    /// - param element: The new `ObjcNamePiece` to add to the node's
+    ///                  `name` collection.
+    /// - returns: A copy of the receiver with the provided `ObjcNamePiece`
+    ///            appended to its `name` collection.
+    public func addObjcNamePiece(_ element: SwiftSyntax.ObjcNamePieceSyntax) -> SwiftSyntax.ObjcKeyPathExprSyntax
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.ObjcNameSyntax?) -> SwiftSyntax.ObjcKeyPathExprSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ObjcKeyPathExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ObjcKeyPathExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ObjcKeyPathExprSyntax, rhs: SwiftSyntax.ObjcKeyPathExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8324,6 +9082,9 @@ extension ObjcKeyPathExprSyntax {
     /// - Returns: A `ObjcKeyPathExprSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.ObjcKeyPathExprSyntaxBuilder) -> Swift.Void)
+}
+
+extension ObjcKeyPathExprSyntax : ParenthesizedSyntax {
 }
 
 public struct ObjcKeyPathExprSyntaxBuilder {
@@ -8341,26 +9102,22 @@ public struct ObjcNamePieceSyntax : Syntax, Hashable {
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ObjcNamePieceSyntax
 
     public var dot: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `dot` replaced.
+    /// - param newChild: The new `dot` to replace the node's
+    ///                   current `dot`, if present.
     public func withDot(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ObjcNamePieceSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ObjcNamePieceSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ObjcNamePieceSyntax, rhs: SwiftSyntax.ObjcNamePieceSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8535,36 +9292,44 @@ public struct ObjectLiteralExprSyntax : ExprSyntax, Hashable {
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ObjectLiteralExprSyntax
 
     public var leftParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ObjectLiteralExprSyntax
 
     public var arguments: SwiftSyntax.FunctionCallArgumentListSyntax { get }
 
-    public func addFunctionCallArgument(_ elt: SwiftSyntax.FunctionCallArgumentSyntax) -> SwiftSyntax.ObjectLiteralExprSyntax
+    /// Adds the provided `FunctionCallArgument` to the node's `arguments`
+    /// collection.
+    /// - param element: The new `FunctionCallArgument` to add to the node's
+    ///                  `arguments` collection.
+    /// - returns: A copy of the receiver with the provided `FunctionCallArgument`
+    ///            appended to its `arguments` collection.
+    public func addFunctionCallArgument(_ element: SwiftSyntax.FunctionCallArgumentSyntax) -> SwiftSyntax.ObjectLiteralExprSyntax
 
+    /// Returns a copy of the receiver with its `arguments` replaced.
+    /// - param newChild: The new `arguments` to replace the node's
+    ///                   current `arguments`, if present.
     public func withArguments(_ newChild: SwiftSyntax.FunctionCallArgumentListSyntax?) -> SwiftSyntax.ObjectLiteralExprSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ObjectLiteralExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ObjectLiteralExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ObjectLiteralExprSyntax, rhs: SwiftSyntax.ObjectLiteralExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8579,6 +9344,9 @@ extension ObjectLiteralExprSyntax {
     /// - Returns: A `ObjectLiteralExprSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.ObjectLiteralExprSyntaxBuilder) -> Swift.Void)
+}
+
+extension ObjectLiteralExprSyntax : ParenthesizedSyntax {
 }
 
 public struct ObjectLiteralExprSyntaxBuilder {
@@ -8596,34 +9364,36 @@ public struct OptionalBindingConditionSyntax : Syntax, Hashable {
 
     public var letOrVarKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `letOrVarKeyword` replaced.
+    /// - param newChild: The new `letOrVarKeyword` to replace the node's
+    ///                   current `letOrVarKeyword`, if present.
     public func withLetOrVarKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.OptionalBindingConditionSyntax
 
     public var pattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `pattern` replaced.
+    /// - param newChild: The new `pattern` to replace the node's
+    ///                   current `pattern`, if present.
     public func withPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.OptionalBindingConditionSyntax
 
     public var typeAnnotation: SwiftSyntax.TypeAnnotationSyntax? { get }
 
+    /// Returns a copy of the receiver with its `typeAnnotation` replaced.
+    /// - param newChild: The new `typeAnnotation` to replace the node's
+    ///                   current `typeAnnotation`, if present.
     public func withTypeAnnotation(_ newChild: SwiftSyntax.TypeAnnotationSyntax?) -> SwiftSyntax.OptionalBindingConditionSyntax
 
     public var initializer: SwiftSyntax.InitializerClauseSyntax { get }
 
+    /// Returns a copy of the receiver with its `initializer` replaced.
+    /// - param newChild: The new `initializer` to replace the node's
+    ///                   current `initializer`, if present.
     public func withInitializer(_ newChild: SwiftSyntax.InitializerClauseSyntax?) -> SwiftSyntax.OptionalBindingConditionSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `OptionalBindingConditionSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.OptionalBindingConditionSyntax, rhs: SwiftSyntax.OptionalBindingConditionSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8655,26 +9425,22 @@ public struct OptionalChainingExprSyntax : ExprSyntax, Hashable {
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.OptionalChainingExprSyntax
 
     public var quetionMark: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `quetionMark` replaced.
+    /// - param newChild: The new `quetionMark` to replace the node's
+    ///                   current `quetionMark`, if present.
     public func withQuetionMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.OptionalChainingExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `OptionalChainingExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.OptionalChainingExprSyntax, rhs: SwiftSyntax.OptionalChainingExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8702,26 +9468,22 @@ public struct OptionalPatternSyntax : PatternSyntax, Hashable {
 
     public var subPattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `subPattern` replaced.
+    /// - param newChild: The new `subPattern` to replace the node's
+    ///                   current `subPattern`, if present.
     public func withSubPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.OptionalPatternSyntax
 
     public var questionMark: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `questionMark` replaced.
+    /// - param newChild: The new `questionMark` to replace the node's
+    ///                   current `questionMark`, if present.
     public func withQuestionMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.OptionalPatternSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `OptionalPatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.OptionalPatternSyntax, rhs: SwiftSyntax.OptionalPatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8749,26 +9511,22 @@ public struct OptionalTypeSyntax : TypeSyntax, Hashable {
 
     public var wrappedType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `wrappedType` replaced.
+    /// - param newChild: The new `wrappedType` to replace the node's
+    ///                   current `wrappedType`, if present.
     public func withWrappedType(_ newChild: TypeSyntax?) -> SwiftSyntax.OptionalTypeSyntax
 
     public var questionMark: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `questionMark` replaced.
+    /// - param newChild: The new `questionMark` to replace the node's
+    ///                   current `questionMark`, if present.
     public func withQuestionMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.OptionalTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `OptionalTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.OptionalTypeSyntax, rhs: SwiftSyntax.OptionalTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8796,32 +9554,37 @@ public struct ParameterClauseSyntax : Syntax, Hashable {
 
     public var leftParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ParameterClauseSyntax
 
     public var parameterList: SwiftSyntax.FunctionParameterListSyntax { get }
 
-    public func addFunctionParameter(_ elt: SwiftSyntax.FunctionParameterSyntax) -> SwiftSyntax.ParameterClauseSyntax
+    /// Adds the provided `FunctionParameter` to the node's `parameterList`
+    /// collection.
+    /// - param element: The new `FunctionParameter` to add to the node's
+    ///                  `parameterList` collection.
+    /// - returns: A copy of the receiver with the provided `FunctionParameter`
+    ///            appended to its `parameterList` collection.
+    public func addFunctionParameter(_ element: SwiftSyntax.FunctionParameterSyntax) -> SwiftSyntax.ParameterClauseSyntax
 
+    /// Returns a copy of the receiver with its `parameterList` replaced.
+    /// - param newChild: The new `parameterList` to replace the node's
+    ///                   current `parameterList`, if present.
     public func withParameterList(_ newChild: SwiftSyntax.FunctionParameterListSyntax?) -> SwiftSyntax.ParameterClauseSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ParameterClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ParameterClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ParameterClauseSyntax, rhs: SwiftSyntax.ParameterClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -8838,6 +9601,9 @@ extension ParameterClauseSyntax {
     public init(_ build: (inout SwiftSyntax.ParameterClauseSyntaxBuilder) -> Swift.Void)
 }
 
+extension ParameterClauseSyntax : ParenthesizedSyntax {
+}
+
 public struct ParameterClauseSyntaxBuilder {
 
     public mutating func useLeftParen(_ node: SwiftSyntax.TokenSyntax)
@@ -8845,6 +9611,17 @@ public struct ParameterClauseSyntaxBuilder {
     public mutating func addFunctionParameter(_ elt: SwiftSyntax.FunctionParameterSyntax)
 
     public mutating func useRightParen(_ node: SwiftSyntax.TokenSyntax)
+}
+
+public protocol ParenthesizedSyntax {
+
+    public var leftParen: SwiftSyntax.TokenSyntax { get }
+
+    public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> Self
+
+    public var rightParen: SwiftSyntax.TokenSyntax { get }
+
+    public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> Self
 }
 
 /// A list of possible errors that could be encountered while parsing a
@@ -9007,38 +9784,43 @@ public struct PatternBindingSyntax : Syntax, Hashable {
 
     public var pattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `pattern` replaced.
+    /// - param newChild: The new `pattern` to replace the node's
+    ///                   current `pattern`, if present.
     public func withPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.PatternBindingSyntax
 
     public var typeAnnotation: SwiftSyntax.TypeAnnotationSyntax? { get }
 
+    /// Returns a copy of the receiver with its `typeAnnotation` replaced.
+    /// - param newChild: The new `typeAnnotation` to replace the node's
+    ///                   current `typeAnnotation`, if present.
     public func withTypeAnnotation(_ newChild: SwiftSyntax.TypeAnnotationSyntax?) -> SwiftSyntax.PatternBindingSyntax
 
     public var initializer: SwiftSyntax.InitializerClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `initializer` replaced.
+    /// - param newChild: The new `initializer` to replace the node's
+    ///                   current `initializer`, if present.
     public func withInitializer(_ newChild: SwiftSyntax.InitializerClauseSyntax?) -> SwiftSyntax.PatternBindingSyntax
 
     public var accessor: SwiftSyntax.AccessorBlockSyntax? { get }
 
+    /// Returns a copy of the receiver with its `accessor` replaced.
+    /// - param newChild: The new `accessor` to replace the node's
+    ///                   current `accessor`, if present.
     public func withAccessor(_ newChild: SwiftSyntax.AccessorBlockSyntax?) -> SwiftSyntax.PatternBindingSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PatternBindingSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `PatternBindingSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.PatternBindingSyntax, rhs: SwiftSyntax.PatternBindingSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9053,6 +9835,9 @@ extension PatternBindingSyntax {
     /// - Returns: A `PatternBindingSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.PatternBindingSyntaxBuilder) -> Swift.Void)
+}
+
+extension PatternBindingSyntax : WithTrailingCommaSyntax {
 }
 
 public struct PatternBindingSyntaxBuilder {
@@ -9075,26 +9860,22 @@ public struct PostfixUnaryExprSyntax : ExprSyntax, Hashable {
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.PostfixUnaryExprSyntax
 
     public var operatorToken: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `operatorToken` replaced.
+    /// - param newChild: The new `operatorToken` to replace the node's
+    ///                   current `operatorToken`, if present.
     public func withOperatorToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PostfixUnaryExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `PostfixUnaryExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.PostfixUnaryExprSyntax, rhs: SwiftSyntax.PostfixUnaryExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9122,22 +9903,15 @@ public struct PoundColumnExprSyntax : ExprSyntax, Hashable {
 
     public var poundColumn: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundColumn` replaced.
+    /// - param newChild: The new `poundColumn` to replace the node's
+    ///                   current `poundColumn`, if present.
     public func withPoundColumn(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundColumnExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `PoundColumnExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.PoundColumnExprSyntax, rhs: SwiftSyntax.PoundColumnExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9163,22 +9937,15 @@ public struct PoundDsohandleExprSyntax : ExprSyntax, Hashable {
 
     public var poundDsohandle: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundDsohandle` replaced.
+    /// - param newChild: The new `poundDsohandle` to replace the node's
+    ///                   current `poundDsohandle`, if present.
     public func withPoundDsohandle(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundDsohandleExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `PoundDsohandleExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.PoundDsohandleExprSyntax, rhs: SwiftSyntax.PoundDsohandleExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9200,26 +9967,83 @@ public struct PoundDsohandleExprSyntaxBuilder {
     public mutating func usePoundDsohandle(_ node: SwiftSyntax.TokenSyntax)
 }
 
+public struct PoundErrorDeclSyntax : DeclSyntax, Hashable {
+
+    public var poundError: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `poundError` replaced.
+    /// - param newChild: The new `poundError` to replace the node's
+    ///                   current `poundError`, if present.
+    public func withPoundError(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundErrorDeclSyntax
+
+    public var leftParen: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
+    public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundErrorDeclSyntax
+
+    public var message: SwiftSyntax.StringLiteralExprSyntax { get }
+
+    /// Returns a copy of the receiver with its `message` replaced.
+    /// - param newChild: The new `message` to replace the node's
+    ///                   current `message`, if present.
+    public func withMessage(_ newChild: SwiftSyntax.StringLiteralExprSyntax?) -> SwiftSyntax.PoundErrorDeclSyntax
+
+    public var rightParen: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
+    public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundErrorDeclSyntax
+
+    /// Determines if two `PoundErrorDeclSyntax` nodes are equal to each other.
+    public static func == (lhs: SwiftSyntax.PoundErrorDeclSyntax, rhs: SwiftSyntax.PoundErrorDeclSyntax) -> Bool
+
+    /// A unique hash value for this node.
+    public var hashValue: Int { get }
+}
+
+extension PoundErrorDeclSyntax {
+
+    /// Creates a `PoundErrorDeclSyntax` using the provided build function.
+    /// - Parameter:
+    ///   - build: A closure that wil be invoked in order to initialize
+    ///            the fields of the syntax node.
+    ///            This closure is passed a `PoundErrorDeclSyntaxBuilder` which you can use to
+    ///            incrementally build the structure of the node.
+    /// - Returns: A `PoundErrorDeclSyntax` with all the fields populated in the builder
+    ///            closure.
+    public init(_ build: (inout SwiftSyntax.PoundErrorDeclSyntaxBuilder) -> Swift.Void)
+}
+
+extension PoundErrorDeclSyntax : ParenthesizedSyntax {
+}
+
+public struct PoundErrorDeclSyntaxBuilder {
+
+    public mutating func usePoundError(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useLeftParen(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useMessage(_ node: SwiftSyntax.StringLiteralExprSyntax)
+
+    public mutating func useRightParen(_ node: SwiftSyntax.TokenSyntax)
+}
+
 public struct PoundFileExprSyntax : ExprSyntax, Hashable {
 
     public var poundFile: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundFile` replaced.
+    /// - param newChild: The new `poundFile` to replace the node's
+    ///                   current `poundFile`, if present.
     public func withPoundFile(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundFileExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `PoundFileExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.PoundFileExprSyntax, rhs: SwiftSyntax.PoundFileExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9245,22 +10069,15 @@ public struct PoundFunctionExprSyntax : ExprSyntax, Hashable {
 
     public var poundFunction: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundFunction` replaced.
+    /// - param newChild: The new `poundFunction` to replace the node's
+    ///                   current `poundFunction`, if present.
     public func withPoundFunction(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundFunctionExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `PoundFunctionExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.PoundFunctionExprSyntax, rhs: SwiftSyntax.PoundFunctionExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9286,22 +10103,15 @@ public struct PoundLineExprSyntax : ExprSyntax, Hashable {
 
     public var poundLine: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `poundLine` replaced.
+    /// - param newChild: The new `poundLine` to replace the node's
+    ///                   current `poundLine`, if present.
     public func withPoundLine(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundLineExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `PoundLineExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.PoundLineExprSyntax, rhs: SwiftSyntax.PoundLineExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9323,30 +10133,90 @@ public struct PoundLineExprSyntaxBuilder {
     public mutating func usePoundLine(_ node: SwiftSyntax.TokenSyntax)
 }
 
+public struct PoundWarningDeclSyntax : DeclSyntax, Hashable {
+
+    public var poundWarning: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `poundWarning` replaced.
+    /// - param newChild: The new `poundWarning` to replace the node's
+    ///                   current `poundWarning`, if present.
+    public func withPoundWarning(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundWarningDeclSyntax
+
+    public var leftParen: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
+    public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundWarningDeclSyntax
+
+    public var message: SwiftSyntax.StringLiteralExprSyntax { get }
+
+    /// Returns a copy of the receiver with its `message` replaced.
+    /// - param newChild: The new `message` to replace the node's
+    ///                   current `message`, if present.
+    public func withMessage(_ newChild: SwiftSyntax.StringLiteralExprSyntax?) -> SwiftSyntax.PoundWarningDeclSyntax
+
+    public var rightParen: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
+    public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PoundWarningDeclSyntax
+
+    /// Determines if two `PoundWarningDeclSyntax` nodes are equal to each other.
+    public static func == (lhs: SwiftSyntax.PoundWarningDeclSyntax, rhs: SwiftSyntax.PoundWarningDeclSyntax) -> Bool
+
+    /// A unique hash value for this node.
+    public var hashValue: Int { get }
+}
+
+extension PoundWarningDeclSyntax {
+
+    /// Creates a `PoundWarningDeclSyntax` using the provided build function.
+    /// - Parameter:
+    ///   - build: A closure that wil be invoked in order to initialize
+    ///            the fields of the syntax node.
+    ///            This closure is passed a `PoundWarningDeclSyntaxBuilder` which you can use to
+    ///            incrementally build the structure of the node.
+    /// - Returns: A `PoundWarningDeclSyntax` with all the fields populated in the builder
+    ///            closure.
+    public init(_ build: (inout SwiftSyntax.PoundWarningDeclSyntaxBuilder) -> Swift.Void)
+}
+
+extension PoundWarningDeclSyntax : ParenthesizedSyntax {
+}
+
+public struct PoundWarningDeclSyntaxBuilder {
+
+    public mutating func usePoundWarning(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useLeftParen(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useMessage(_ node: SwiftSyntax.StringLiteralExprSyntax)
+
+    public mutating func useRightParen(_ node: SwiftSyntax.TokenSyntax)
+}
+
 public struct PrefixOperatorExprSyntax : ExprSyntax, Hashable {
 
     public var operatorToken: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `operatorToken` replaced.
+    /// - param newChild: The new `operatorToken` to replace the node's
+    ///                   current `operatorToken`, if present.
     public func withOperatorToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.PrefixOperatorExprSyntax
 
     public var postfixExpression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `postfixExpression` replaced.
+    /// - param newChild: The new `postfixExpression` to replace the node's
+    ///                   current `postfixExpression`, if present.
     public func withPostfixExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.PrefixOperatorExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `PrefixOperatorExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.PrefixOperatorExprSyntax, rhs: SwiftSyntax.PrefixOperatorExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9391,48 +10261,65 @@ public struct ProtocolDeclSyntax : DeclSyntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.ProtocolDeclSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.ProtocolDeclSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.ProtocolDeclSyntax
 
     public var accessLevelModifier: SwiftSyntax.DeclModifierSyntax? { get }
 
+    /// Returns a copy of the receiver with its `accessLevelModifier` replaced.
+    /// - param newChild: The new `accessLevelModifier` to replace the node's
+    ///                   current `accessLevelModifier`, if present.
     public func withAccessLevelModifier(_ newChild: SwiftSyntax.DeclModifierSyntax?) -> SwiftSyntax.ProtocolDeclSyntax
 
     public var protocolKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `protocolKeyword` replaced.
+    /// - param newChild: The new `protocolKeyword` to replace the node's
+    ///                   current `protocolKeyword`, if present.
     public func withProtocolKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ProtocolDeclSyntax
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ProtocolDeclSyntax
 
     public var inheritanceClause: SwiftSyntax.TypeInheritanceClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `inheritanceClause` replaced.
+    /// - param newChild: The new `inheritanceClause` to replace the node's
+    ///                   current `inheritanceClause`, if present.
     public func withInheritanceClause(_ newChild: SwiftSyntax.TypeInheritanceClauseSyntax?) -> SwiftSyntax.ProtocolDeclSyntax
 
     public var genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericWhereClause` replaced.
+    /// - param newChild: The new `genericWhereClause` to replace the node's
+    ///                   current `genericWhereClause`, if present.
     public func withGenericWhereClause(_ newChild: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.ProtocolDeclSyntax
 
     public var members: SwiftSyntax.MemberDeclBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `members` replaced.
+    /// - param newChild: The new `members` to replace the node's
+    ///                   current `members`, if present.
     public func withMembers(_ newChild: SwiftSyntax.MemberDeclBlockSyntax?) -> SwiftSyntax.ProtocolDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ProtocolDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ProtocolDeclSyntax, rhs: SwiftSyntax.ProtocolDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9447,6 +10334,9 @@ extension ProtocolDeclSyntax {
     /// - Returns: A `ProtocolDeclSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.ProtocolDeclSyntaxBuilder) -> Swift.Void)
+}
+
+extension ProtocolDeclSyntax : DeclGroupSyntax, IdentifiedDeclSyntax {
 }
 
 public struct ProtocolDeclSyntaxBuilder {
@@ -9470,46 +10360,50 @@ public struct RepeatWhileStmtSyntax : StmtSyntax, Hashable {
 
     public var labelName: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelName` replaced.
+    /// - param newChild: The new `labelName` to replace the node's
+    ///                   current `labelName`, if present.
     public func withLabelName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.RepeatWhileStmtSyntax
 
     public var labelColon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelColon` replaced.
+    /// - param newChild: The new `labelColon` to replace the node's
+    ///                   current `labelColon`, if present.
     public func withLabelColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.RepeatWhileStmtSyntax
 
     public var repeatKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `repeatKeyword` replaced.
+    /// - param newChild: The new `repeatKeyword` to replace the node's
+    ///                   current `repeatKeyword`, if present.
     public func withRepeatKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.RepeatWhileStmtSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.RepeatWhileStmtSyntax
 
     public var whileKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `whileKeyword` replaced.
+    /// - param newChild: The new `whileKeyword` to replace the node's
+    ///                   current `whileKeyword`, if present.
     public func withWhileKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.RepeatWhileStmtSyntax
 
     public var condition: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `condition` replaced.
+    /// - param newChild: The new `condition` to replace the node's
+    ///                   current `condition`, if present.
     public func withCondition(_ newChild: ExprSyntax?) -> SwiftSyntax.RepeatWhileStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.RepeatWhileStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `RepeatWhileStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.RepeatWhileStmtSyntax, rhs: SwiftSyntax.RepeatWhileStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9526,6 +10420,9 @@ extension RepeatWhileStmtSyntax {
     public init(_ build: (inout SwiftSyntax.RepeatWhileStmtSyntaxBuilder) -> Swift.Void)
 }
 
+extension RepeatWhileStmtSyntax : WithCodeBlockSyntax, LabeledSyntax {
+}
+
 public struct RepeatWhileStmtSyntaxBuilder {
 
     public mutating func useLabelName(_ node: SwiftSyntax.TokenSyntax)
@@ -9539,34 +10436,28 @@ public struct RepeatWhileStmtSyntaxBuilder {
     public mutating func useWhileKeyword(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useCondition(_ node: ExprSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct ReturnClauseSyntax : Syntax, Hashable {
 
     public var arrow: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `arrow` replaced.
+    /// - param newChild: The new `arrow` to replace the node's
+    ///                   current `arrow`, if present.
     public func withArrow(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ReturnClauseSyntax
 
     public var returnType: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `returnType` replaced.
+    /// - param newChild: The new `returnType` to replace the node's
+    ///                   current `returnType`, if present.
     public func withReturnType(_ newChild: TypeSyntax?) -> SwiftSyntax.ReturnClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ReturnClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ReturnClauseSyntax, rhs: SwiftSyntax.ReturnClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9594,30 +10485,22 @@ public struct ReturnStmtSyntax : StmtSyntax, Hashable {
 
     public var returnKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `returnKeyword` replaced.
+    /// - param newChild: The new `returnKeyword` to replace the node's
+    ///                   current `returnKeyword`, if present.
     public func withReturnKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ReturnStmtSyntax
 
     public var expression: ExprSyntax? { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.ReturnStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ReturnStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ReturnStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ReturnStmtSyntax, rhs: SwiftSyntax.ReturnStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9639,42 +10522,42 @@ public struct ReturnStmtSyntaxBuilder {
     public mutating func useReturnKeyword(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useExpression(_ node: ExprSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct SameTypeRequirementSyntax : Syntax, Hashable {
 
     public var leftTypeIdentifier: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftTypeIdentifier` replaced.
+    /// - param newChild: The new `leftTypeIdentifier` to replace the node's
+    ///                   current `leftTypeIdentifier`, if present.
     public func withLeftTypeIdentifier(_ newChild: TypeSyntax?) -> SwiftSyntax.SameTypeRequirementSyntax
 
     public var equalityToken: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `equalityToken` replaced.
+    /// - param newChild: The new `equalityToken` to replace the node's
+    ///                   current `equalityToken`, if present.
     public func withEqualityToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SameTypeRequirementSyntax
 
     public var rightTypeIdentifier: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightTypeIdentifier` replaced.
+    /// - param newChild: The new `rightTypeIdentifier` to replace the node's
+    ///                   current `rightTypeIdentifier`, if present.
     public func withRightTypeIdentifier(_ newChild: TypeSyntax?) -> SwiftSyntax.SameTypeRequirementSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SameTypeRequirementSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SameTypeRequirementSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SameTypeRequirementSyntax, rhs: SwiftSyntax.SameTypeRequirementSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9689,6 +10572,9 @@ extension SameTypeRequirementSyntax {
     /// - Returns: A `SameTypeRequirementSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.SameTypeRequirementSyntaxBuilder) -> Swift.Void)
+}
+
+extension SameTypeRequirementSyntax : WithTrailingCommaSyntax {
 }
 
 public struct SameTypeRequirementSyntaxBuilder {
@@ -9706,24 +10592,23 @@ public struct SequenceExprSyntax : ExprSyntax, Hashable {
 
     public var elements: SwiftSyntax.ExprListSyntax { get }
 
-    public func addExpression(_ elt: ExprSyntax) -> SwiftSyntax.SequenceExprSyntax
+    /// Adds the provided `Expression` to the node's `elements`
+    /// collection.
+    /// - param element: The new `Expression` to add to the node's
+    ///                  `elements` collection.
+    /// - returns: A copy of the receiver with the provided `Expression`
+    ///            appended to its `elements` collection.
+    public func addExpression(_ element: ExprSyntax) -> SwiftSyntax.SequenceExprSyntax
 
+    /// Returns a copy of the receiver with its `elements` replaced.
+    /// - param newChild: The new `elements` to replace the node's
+    ///                   current `elements`, if present.
     public func withElements(_ newChild: SwiftSyntax.ExprListSyntax?) -> SwiftSyntax.SequenceExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SequenceExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SequenceExprSyntax, rhs: SwiftSyntax.SequenceExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9749,26 +10634,22 @@ public struct SimpleTypeIdentifierSyntax : TypeSyntax, Hashable {
 
     public var name: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SimpleTypeIdentifierSyntax
 
     public var genericArgumentClause: SwiftSyntax.GenericArgumentClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericArgumentClause` replaced.
+    /// - param newChild: The new `genericArgumentClause` to replace the node's
+    ///                   current `genericArgumentClause`, if present.
     public func withGenericArgumentClause(_ newChild: SwiftSyntax.GenericArgumentClauseSyntax?) -> SwiftSyntax.SimpleTypeIdentifierSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SimpleTypeIdentifierSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SimpleTypeIdentifierSyntax, rhs: SwiftSyntax.SimpleTypeIdentifierSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9794,30 +10675,32 @@ public struct SimpleTypeIdentifierSyntaxBuilder {
 
 public struct SourceFileSyntax : Syntax, Hashable {
 
-    public var topLevelDecls: SwiftSyntax.DeclListSyntax { get }
+    public var statements: SwiftSyntax.CodeBlockItemListSyntax { get }
 
-    public func addDecl(_ elt: DeclSyntax) -> SwiftSyntax.SourceFileSyntax
+    /// Adds the provided `CodeBlockItem` to the node's `statements`
+    /// collection.
+    /// - param element: The new `CodeBlockItem` to add to the node's
+    ///                  `statements` collection.
+    /// - returns: A copy of the receiver with the provided `CodeBlockItem`
+    ///            appended to its `statements` collection.
+    public func addCodeBlockItem(_ element: SwiftSyntax.CodeBlockItemSyntax) -> SwiftSyntax.SourceFileSyntax
 
-    public func withTopLevelDecls(_ newChild: SwiftSyntax.DeclListSyntax?) -> SwiftSyntax.SourceFileSyntax
+    /// Returns a copy of the receiver with its `statements` replaced.
+    /// - param newChild: The new `statements` to replace the node's
+    ///                   current `statements`, if present.
+    public func withStatements(_ newChild: SwiftSyntax.CodeBlockItemListSyntax?) -> SwiftSyntax.SourceFileSyntax
 
     public var eofToken: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `eofToken` replaced.
+    /// - param newChild: The new `eofToken` to replace the node's
+    ///                   current `eofToken`, if present.
     public func withEOFToken(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SourceFileSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SourceFileSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SourceFileSyntax, rhs: SwiftSyntax.SourceFileSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -9834,9 +10717,12 @@ extension SourceFileSyntax {
     public init(_ build: (inout SwiftSyntax.SourceFileSyntaxBuilder) -> Swift.Void)
 }
 
+extension SourceFileSyntax : WithStatementsSyntax {
+}
+
 public struct SourceFileSyntaxBuilder {
 
-    public mutating func addDecl(_ elt: DeclSyntax)
+    public mutating func addCodeBlockItem(_ elt: SwiftSyntax.CodeBlockItemSyntax)
 
     public mutating func useEOFToken(_ node: SwiftSyntax.TokenSyntax)
 }
@@ -9885,151 +10771,47 @@ public struct SourceRange : Swift.Codable {
     public init(start: SwiftSyntax.SourceLocation, end: SwiftSyntax.SourceLocation)
 }
 
-/// `StmtListSyntax` represents a collection of one or more
-/// `StmtSyntax` nodes. StmtListSyntax behaves
-/// as a regular Swift collection, and has accessors that return new
-/// versions of the collection with different children.
-public struct StmtListSyntax {
+public struct SpecializeExprSyntax : ExprSyntax, Hashable {
 
-    /// Creates a new `StmtListSyntax` by appending the provided syntax element
-    /// to the children.
-    ///
-    /// - Parameter syntax: The element to append.
-    /// - Returns: A new `StmtListSyntax` with that element appended to the end.
-    public func appending(_ syntax: StmtSyntax) -> SwiftSyntax.StmtListSyntax
+    public var expression: ExprSyntax { get }
 
-    /// Creates a new `StmtListSyntax` by prepending the provided syntax element
-    /// to the children.
-    ///
-    /// - Parameter syntax: The element to prepend.
-    /// - Returns: A new `StmtListSyntax` with that element prepended to the
-    ///            beginning.
-    public func prepending(_ syntax: StmtSyntax) -> SwiftSyntax.StmtListSyntax
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
+    public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.SpecializeExprSyntax
 
-    /// Creates a new `StmtListSyntax` by inserting the provided syntax element
-    /// at the provided index in the children.
-    ///
-    /// - Parameters:
-    ///   - syntax: The element to insert.
-    ///   - index: The index at which to insert the element in the collection.
-    ///
-    /// - Returns: A new `StmtListSyntax` with that element appended to the end.
-    public func inserting(_ syntax: StmtSyntax, at index: Int) -> SwiftSyntax.StmtListSyntax
+    public var genericArgumentClause: SwiftSyntax.GenericArgumentClauseSyntax { get }
 
-    /// Creates a new `StmtListSyntax` by removing the syntax element at the
-    /// provided index.
-    ///
-    /// - Parameter index: The index of the element to remove from the collection.
-    /// - Returns: A new `StmtListSyntax` with the element at the provided index
-    ///            removed.
-    public func removing(childAt index: Int) -> SwiftSyntax.StmtListSyntax
+    /// Returns a copy of the receiver with its `genericArgumentClause` replaced.
+    /// - param newChild: The new `genericArgumentClause` to replace the node's
+    ///                   current `genericArgumentClause`, if present.
+    public func withGenericArgumentClause(_ newChild: SwiftSyntax.GenericArgumentClauseSyntax?) -> SwiftSyntax.SpecializeExprSyntax
 
-    /// Creates a new `StmtListSyntax` by removing the first element.
-    ///
-    /// - Returns: A new `StmtListSyntax` with the first element removed.
-    public func removingFirst() -> SwiftSyntax.StmtListSyntax
+    /// Determines if two `SpecializeExprSyntax` nodes are equal to each other.
+    public static func == (lhs: SwiftSyntax.SpecializeExprSyntax, rhs: SwiftSyntax.SpecializeExprSyntax) -> Bool
 
-    /// Creates a new `StmtListSyntax` by removing the last element.
-    ///
-    /// - Returns: A new `StmtListSyntax` with the last element removed.
-    public func removingLast() -> SwiftSyntax.StmtListSyntax
-
-    /// Returns an iterator over the elements of this syntax collection.
-    public func makeIterator() -> SwiftSyntax.StmtListSyntaxIterator
+    /// A unique hash value for this node.
+    public var hashValue: Int { get }
 }
 
-/// Conformance for `StmtListSyntax`` to the Collection protocol.
-extension StmtListSyntax : Collection {
+extension SpecializeExprSyntax {
 
-    /// The position of the first element in a nonempty collection.
-    ///
-    /// If the collection is empty, `startIndex` is equal to `endIndex`.
-    public var startIndex: Int { get }
-
-    /// The collection's "past the end" position---that is, the position one
-    /// greater than the last valid subscript argument.
-    ///
-    /// When you need a range that includes the last element of a collection, use
-    /// the half-open range operator (`..<`) with `endIndex`. The `..<` operator
-    /// creates a range that doesn't include the upper bound, so it's always
-    /// safe to use with `endIndex`. For example:
-    ///
-    ///     let numbers = [10, 20, 30, 40, 50]
-    ///     if let index = numbers.index(of: 30) {
-    ///         print(numbers[index ..< numbers.endIndex])
-    ///     }
-    ///     // Prints "[30, 40, 50]"
-    ///
-    /// If the collection is empty, `endIndex` is equal to `startIndex`.
-    public var endIndex: Int { get }
-
-    /// Returns the position immediately after the given index.
-    ///
-    /// The successor of an index must be well defined. For an index `i` into a
-    /// collection `c`, calling `c.index(after: i)` returns the same index every
-    /// time.
-    ///
-    /// - Parameter i: A valid index of the collection. `i` must be less than
-    ///   `endIndex`.
-    /// - Returns: The index value immediately after `i`.
-    public func index(after i: Int) -> Int
-
-    /// Accesses the element at the specified position.
-    ///
-    /// The following example accesses an element of an array through its
-    /// subscript to print its value:
-    ///
-    ///     var streets = ["Adams", "Bryant", "Channing", "Douglas", "Evarts"]
-    ///     print(streets[1])
-    ///     // Prints "Bryant"
-    ///
-    /// You can subscript a collection with any valid index other than the
-    /// collection's end index. The end index refers to the position one past
-    /// the last element of a collection, so it doesn't correspond with an
-    /// element.
-    ///
-    /// - Parameter position: The position of the element to access. `position`
-    ///   must be a valid index of the collection that is not equal to the
-    ///   `endIndex` property.
-    ///
-    /// - Complexity: O(1)
-    public subscript(index: Int) -> StmtSyntax { get }
+    /// Creates a `SpecializeExprSyntax` using the provided build function.
+    /// - Parameter:
+    ///   - build: A closure that wil be invoked in order to initialize
+    ///            the fields of the syntax node.
+    ///            This closure is passed a `SpecializeExprSyntaxBuilder` which you can use to
+    ///            incrementally build the structure of the node.
+    /// - Returns: A `SpecializeExprSyntax` with all the fields populated in the builder
+    ///            closure.
+    public init(_ build: (inout SwiftSyntax.SpecializeExprSyntaxBuilder) -> Swift.Void)
 }
 
-/// A type that iterates over a `StmtListSyntax` using its indices.
-public struct StmtListSyntaxIterator : IteratorProtocol {
+public struct SpecializeExprSyntaxBuilder {
 
-    /// The type of element traversed by the iterator.
-    public typealias Element = StmtSyntax
+    public mutating func useExpression(_ node: ExprSyntax)
 
-    /// Advances to the next element and returns it, or `nil` if no next element
-    /// exists.
-    ///
-    /// Repeatedly calling this method returns, in order, all the elements of the
-    /// underlying sequence. As soon as the sequence has run out of elements, all
-    /// subsequent calls return `nil`.
-    ///
-    /// You must not call this method if any other copy of this iterator has been
-    /// advanced with a call to its `next()` method.
-    ///
-    /// The following example shows how an iterator can be used explicitly to
-    /// emulate a `for`-`in` loop. First, retrieve a sequence's iterator, and
-    /// then call the iterator's `next()` method until it returns `nil`.
-    ///
-    ///     let numbers = [2, 3, 5, 7]
-    ///     var numbersIterator = numbers.makeIterator()
-    ///
-    ///     while let num = numbersIterator.next() {
-    ///         print(num)
-    ///     }
-    ///     // Prints "2"
-    ///     // Prints "3"
-    ///     // Prints "5"
-    ///     // Prints "7"
-    ///
-    /// - Returns: The next element in the underlying sequence, if a next element
-    ///   exists; otherwise, `nil`.
-    public mutating func next() -> SwiftSyntax.StmtListSyntaxIterator.Element?
+    public mutating func useGenericArgumentClause(_ node: SwiftSyntax.GenericArgumentClauseSyntax)
 }
 
 public protocol StmtSyntax : Syntax {
@@ -10039,32 +10821,37 @@ public struct StringInterpolationExprSyntax : ExprSyntax, Hashable {
 
     public var openQuote: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `openQuote` replaced.
+    /// - param newChild: The new `openQuote` to replace the node's
+    ///                   current `openQuote`, if present.
     public func withOpenQuote(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.StringInterpolationExprSyntax
 
     public var segments: SwiftSyntax.StringInterpolationSegmentsSyntax { get }
 
-    public func addSegment(_ elt: Syntax) -> SwiftSyntax.StringInterpolationExprSyntax
+    /// Adds the provided `Segment` to the node's `segments`
+    /// collection.
+    /// - param element: The new `Segment` to add to the node's
+    ///                  `segments` collection.
+    /// - returns: A copy of the receiver with the provided `Segment`
+    ///            appended to its `segments` collection.
+    public func addSegment(_ element: Syntax) -> SwiftSyntax.StringInterpolationExprSyntax
 
+    /// Returns a copy of the receiver with its `segments` replaced.
+    /// - param newChild: The new `segments` to replace the node's
+    ///                   current `segments`, if present.
     public func withSegments(_ newChild: SwiftSyntax.StringInterpolationSegmentsSyntax?) -> SwiftSyntax.StringInterpolationExprSyntax
 
     public var closeQuote: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `closeQuote` replaced.
+    /// - param newChild: The new `closeQuote` to replace the node's
+    ///                   current `closeQuote`, if present.
     public func withCloseQuote(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.StringInterpolationExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `StringInterpolationExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.StringInterpolationExprSyntax, rhs: SwiftSyntax.StringInterpolationExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10241,22 +11028,15 @@ public struct StringLiteralExprSyntax : ExprSyntax, Hashable {
 
     public var stringLiteral: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `stringLiteral` replaced.
+    /// - param newChild: The new `stringLiteral` to replace the node's
+    ///                   current `stringLiteral`, if present.
     public func withStringLiteral(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.StringLiteralExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `StringLiteralExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.StringLiteralExprSyntax, rhs: SwiftSyntax.StringLiteralExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10282,22 +11062,15 @@ public struct StringSegmentSyntax : Syntax, Hashable {
 
     public var content: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `content` replaced.
+    /// - param newChild: The new `content` to replace the node's
+    ///                   current `content`, if present.
     public func withContent(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.StringSegmentSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `StringSegmentSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.StringSegmentSyntax, rhs: SwiftSyntax.StringSegmentSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10323,52 +11096,72 @@ public struct StructDeclSyntax : DeclSyntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.StructDeclSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.StructDeclSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.StructDeclSyntax
 
     public var accessLevelModifier: SwiftSyntax.DeclModifierSyntax? { get }
 
+    /// Returns a copy of the receiver with its `accessLevelModifier` replaced.
+    /// - param newChild: The new `accessLevelModifier` to replace the node's
+    ///                   current `accessLevelModifier`, if present.
     public func withAccessLevelModifier(_ newChild: SwiftSyntax.DeclModifierSyntax?) -> SwiftSyntax.StructDeclSyntax
 
     public var structKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `structKeyword` replaced.
+    /// - param newChild: The new `structKeyword` to replace the node's
+    ///                   current `structKeyword`, if present.
     public func withStructKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.StructDeclSyntax
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.StructDeclSyntax
 
     public var genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericParameterClause` replaced.
+    /// - param newChild: The new `genericParameterClause` to replace the node's
+    ///                   current `genericParameterClause`, if present.
     public func withGenericParameterClause(_ newChild: SwiftSyntax.GenericParameterClauseSyntax?) -> SwiftSyntax.StructDeclSyntax
 
     public var inheritanceClause: SwiftSyntax.TypeInheritanceClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `inheritanceClause` replaced.
+    /// - param newChild: The new `inheritanceClause` to replace the node's
+    ///                   current `inheritanceClause`, if present.
     public func withInheritanceClause(_ newChild: SwiftSyntax.TypeInheritanceClauseSyntax?) -> SwiftSyntax.StructDeclSyntax
 
     public var genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericWhereClause` replaced.
+    /// - param newChild: The new `genericWhereClause` to replace the node's
+    ///                   current `genericWhereClause`, if present.
     public func withGenericWhereClause(_ newChild: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.StructDeclSyntax
 
     public var members: SwiftSyntax.MemberDeclBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `members` replaced.
+    /// - param newChild: The new `members` to replace the node's
+    ///                   current `members`, if present.
     public func withMembers(_ newChild: SwiftSyntax.MemberDeclBlockSyntax?) -> SwiftSyntax.StructDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `StructDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.StructDeclSyntax, rhs: SwiftSyntax.StructDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10383,6 +11176,9 @@ extension StructDeclSyntax {
     /// - Returns: A `StructDeclSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.StructDeclSyntaxBuilder) -> Swift.Void)
+}
+
+extension StructDeclSyntax : DeclGroupSyntax, IdentifiedDeclSyntax {
 }
 
 public struct StructDeclSyntaxBuilder {
@@ -10404,44 +11200,168 @@ public struct StructDeclSyntaxBuilder {
     public mutating func useMembers(_ node: SwiftSyntax.MemberDeclBlockSyntax)
 }
 
+public struct SubscriptDeclSyntax : DeclSyntax, Hashable {
+
+    public var attributes: SwiftSyntax.AttributeListSyntax? { get }
+
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.SubscriptDeclSyntax
+
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
+    public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.SubscriptDeclSyntax
+
+    public var modifiers: SwiftSyntax.ModifierListSyntax? { get }
+
+    /// Adds the provided `Modifier` to the node's `modifiers`
+    /// collection.
+    /// - param element: The new `Modifier` to add to the node's
+    ///                  `modifiers` collection.
+    /// - returns: A copy of the receiver with the provided `Modifier`
+    ///            appended to its `modifiers` collection.
+    public func addModifier(_ element: Syntax) -> SwiftSyntax.SubscriptDeclSyntax
+
+    /// Returns a copy of the receiver with its `modifiers` replaced.
+    /// - param newChild: The new `modifiers` to replace the node's
+    ///                   current `modifiers`, if present.
+    public func withModifiers(_ newChild: SwiftSyntax.ModifierListSyntax?) -> SwiftSyntax.SubscriptDeclSyntax
+
+    public var subscriptKeyword: SwiftSyntax.TokenSyntax { get }
+
+    /// Returns a copy of the receiver with its `subscriptKeyword` replaced.
+    /// - param newChild: The new `subscriptKeyword` to replace the node's
+    ///                   current `subscriptKeyword`, if present.
+    public func withSubscriptKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SubscriptDeclSyntax
+
+    public var genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax? { get }
+
+    /// Returns a copy of the receiver with its `genericParameterClause` replaced.
+    /// - param newChild: The new `genericParameterClause` to replace the node's
+    ///                   current `genericParameterClause`, if present.
+    public func withGenericParameterClause(_ newChild: SwiftSyntax.GenericParameterClauseSyntax?) -> SwiftSyntax.SubscriptDeclSyntax
+
+    public var indices: SwiftSyntax.ParameterClauseSyntax { get }
+
+    /// Returns a copy of the receiver with its `indices` replaced.
+    /// - param newChild: The new `indices` to replace the node's
+    ///                   current `indices`, if present.
+    public func withIndices(_ newChild: SwiftSyntax.ParameterClauseSyntax?) -> SwiftSyntax.SubscriptDeclSyntax
+
+    public var result: SwiftSyntax.ReturnClauseSyntax { get }
+
+    /// Returns a copy of the receiver with its `result` replaced.
+    /// - param newChild: The new `result` to replace the node's
+    ///                   current `result`, if present.
+    public func withResult(_ newChild: SwiftSyntax.ReturnClauseSyntax?) -> SwiftSyntax.SubscriptDeclSyntax
+
+    public var genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax? { get }
+
+    /// Returns a copy of the receiver with its `genericWhereClause` replaced.
+    /// - param newChild: The new `genericWhereClause` to replace the node's
+    ///                   current `genericWhereClause`, if present.
+    public func withGenericWhereClause(_ newChild: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.SubscriptDeclSyntax
+
+    public var accessor: SwiftSyntax.AccessorBlockSyntax? { get }
+
+    /// Returns a copy of the receiver with its `accessor` replaced.
+    /// - param newChild: The new `accessor` to replace the node's
+    ///                   current `accessor`, if present.
+    public func withAccessor(_ newChild: SwiftSyntax.AccessorBlockSyntax?) -> SwiftSyntax.SubscriptDeclSyntax
+
+    /// Determines if two `SubscriptDeclSyntax` nodes are equal to each other.
+    public static func == (lhs: SwiftSyntax.SubscriptDeclSyntax, rhs: SwiftSyntax.SubscriptDeclSyntax) -> Bool
+
+    /// A unique hash value for this node.
+    public var hashValue: Int { get }
+}
+
+extension SubscriptDeclSyntax {
+
+    /// Creates a `SubscriptDeclSyntax` using the provided build function.
+    /// - Parameter:
+    ///   - build: A closure that wil be invoked in order to initialize
+    ///            the fields of the syntax node.
+    ///            This closure is passed a `SubscriptDeclSyntaxBuilder` which you can use to
+    ///            incrementally build the structure of the node.
+    /// - Returns: A `SubscriptDeclSyntax` with all the fields populated in the builder
+    ///            closure.
+    public init(_ build: (inout SwiftSyntax.SubscriptDeclSyntaxBuilder) -> Swift.Void)
+}
+
+public struct SubscriptDeclSyntaxBuilder {
+
+    public mutating func addAttribute(_ elt: SwiftSyntax.AttributeSyntax)
+
+    public mutating func addModifier(_ elt: Syntax)
+
+    public mutating func useSubscriptKeyword(_ node: SwiftSyntax.TokenSyntax)
+
+    public mutating func useGenericParameterClause(_ node: SwiftSyntax.GenericParameterClauseSyntax)
+
+    public mutating func useIndices(_ node: SwiftSyntax.ParameterClauseSyntax)
+
+    public mutating func useResult(_ node: SwiftSyntax.ReturnClauseSyntax)
+
+    public mutating func useGenericWhereClause(_ node: SwiftSyntax.GenericWhereClauseSyntax)
+
+    public mutating func useAccessor(_ node: SwiftSyntax.AccessorBlockSyntax)
+}
+
 public struct SubscriptExprSyntax : ExprSyntax, Hashable {
 
     public var calledExpression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `calledExpression` replaced.
+    /// - param newChild: The new `calledExpression` to replace the node's
+    ///                   current `calledExpression`, if present.
     public func withCalledExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.SubscriptExprSyntax
 
     public var leftBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftBracket` replaced.
+    /// - param newChild: The new `leftBracket` to replace the node's
+    ///                   current `leftBracket`, if present.
     public func withLeftBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SubscriptExprSyntax
 
     public var argumentList: SwiftSyntax.FunctionCallArgumentListSyntax { get }
 
-    public func addFunctionCallArgument(_ elt: SwiftSyntax.FunctionCallArgumentSyntax) -> SwiftSyntax.SubscriptExprSyntax
+    /// Adds the provided `FunctionCallArgument` to the node's `argumentList`
+    /// collection.
+    /// - param element: The new `FunctionCallArgument` to add to the node's
+    ///                  `argumentList` collection.
+    /// - returns: A copy of the receiver with the provided `FunctionCallArgument`
+    ///            appended to its `argumentList` collection.
+    public func addFunctionCallArgument(_ element: SwiftSyntax.FunctionCallArgumentSyntax) -> SwiftSyntax.SubscriptExprSyntax
 
+    /// Returns a copy of the receiver with its `argumentList` replaced.
+    /// - param newChild: The new `argumentList` to replace the node's
+    ///                   current `argumentList`, if present.
     public func withArgumentList(_ newChild: SwiftSyntax.FunctionCallArgumentListSyntax?) -> SwiftSyntax.SubscriptExprSyntax
 
     public var rightBracket: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightBracket` replaced.
+    /// - param newChild: The new `rightBracket` to replace the node's
+    ///                   current `rightBracket`, if present.
     public func withRightBracket(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SubscriptExprSyntax
 
     public var trailingClosure: SwiftSyntax.ClosureExprSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingClosure` replaced.
+    /// - param newChild: The new `trailingClosure` to replace the node's
+    ///                   current `trailingClosure`, if present.
     public func withTrailingClosure(_ newChild: SwiftSyntax.ClosureExprSyntax?) -> SwiftSyntax.SubscriptExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SubscriptExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SubscriptExprSyntax, rhs: SwiftSyntax.SubscriptExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10475,22 +11395,15 @@ public struct SuperRefExprSyntax : ExprSyntax, Hashable {
 
     public var superKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `superKeyword` replaced.
+    /// - param newChild: The new `superKeyword` to replace the node's
+    ///                   current `superKeyword`, if present.
     public func withSuperKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SuperRefExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SuperRefExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SuperRefExprSyntax, rhs: SwiftSyntax.SuperRefExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10516,32 +11429,37 @@ public struct SwitchCaseLabelSyntax : Syntax, Hashable {
 
     public var caseKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `caseKeyword` replaced.
+    /// - param newChild: The new `caseKeyword` to replace the node's
+    ///                   current `caseKeyword`, if present.
     public func withCaseKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchCaseLabelSyntax
 
     public var caseItems: SwiftSyntax.CaseItemListSyntax { get }
 
-    public func addCaseItem(_ elt: SwiftSyntax.CaseItemSyntax) -> SwiftSyntax.SwitchCaseLabelSyntax
+    /// Adds the provided `CaseItem` to the node's `caseItems`
+    /// collection.
+    /// - param element: The new `CaseItem` to add to the node's
+    ///                  `caseItems` collection.
+    /// - returns: A copy of the receiver with the provided `CaseItem`
+    ///            appended to its `caseItems` collection.
+    public func addCaseItem(_ element: SwiftSyntax.CaseItemSyntax) -> SwiftSyntax.SwitchCaseLabelSyntax
 
+    /// Returns a copy of the receiver with its `caseItems` replaced.
+    /// - param newChild: The new `caseItems` to replace the node's
+    ///                   current `caseItems`, if present.
     public func withCaseItems(_ newChild: SwiftSyntax.CaseItemListSyntax?) -> SwiftSyntax.SwitchCaseLabelSyntax
 
     public var colon: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchCaseLabelSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SwitchCaseLabelSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SwitchCaseLabelSyntax, rhs: SwiftSyntax.SwitchCaseLabelSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10718,28 +11636,30 @@ public struct SwitchCaseSyntax : Syntax, Hashable {
 
     public var label: Syntax { get }
 
+    /// Returns a copy of the receiver with its `label` replaced.
+    /// - param newChild: The new `label` to replace the node's
+    ///                   current `label`, if present.
     public func withLabel(_ newChild: Syntax?) -> SwiftSyntax.SwitchCaseSyntax
 
-    public var body: SwiftSyntax.StmtListSyntax { get }
+    public var statements: SwiftSyntax.CodeBlockItemListSyntax { get }
 
-    public func addStmt(_ elt: StmtSyntax) -> SwiftSyntax.SwitchCaseSyntax
+    /// Adds the provided `CodeBlockItem` to the node's `statements`
+    /// collection.
+    /// - param element: The new `CodeBlockItem` to add to the node's
+    ///                  `statements` collection.
+    /// - returns: A copy of the receiver with the provided `CodeBlockItem`
+    ///            appended to its `statements` collection.
+    public func addCodeBlockItem(_ element: SwiftSyntax.CodeBlockItemSyntax) -> SwiftSyntax.SwitchCaseSyntax
 
-    public func withBody(_ newChild: SwiftSyntax.StmtListSyntax?) -> SwiftSyntax.SwitchCaseSyntax
+    /// Returns a copy of the receiver with its `statements` replaced.
+    /// - param newChild: The new `statements` to replace the node's
+    ///                   current `statements`, if present.
+    public func withStatements(_ newChild: SwiftSyntax.CodeBlockItemListSyntax?) -> SwiftSyntax.SwitchCaseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SwitchCaseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SwitchCaseSyntax, rhs: SwiftSyntax.SwitchCaseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10756,37 +11676,36 @@ extension SwitchCaseSyntax {
     public init(_ build: (inout SwiftSyntax.SwitchCaseSyntaxBuilder) -> Swift.Void)
 }
 
+extension SwitchCaseSyntax : WithStatementsSyntax {
+}
+
 public struct SwitchCaseSyntaxBuilder {
 
     public mutating func useLabel(_ node: Syntax)
 
-    public mutating func addStmt(_ elt: StmtSyntax)
+    public mutating func addCodeBlockItem(_ elt: SwiftSyntax.CodeBlockItemSyntax)
 }
 
 public struct SwitchDefaultLabelSyntax : Syntax, Hashable {
 
     public var defaultKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `defaultKeyword` replaced.
+    /// - param newChild: The new `defaultKeyword` to replace the node's
+    ///                   current `defaultKeyword`, if present.
     public func withDefaultKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchDefaultLabelSyntax
 
     public var colon: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchDefaultLabelSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SwitchDefaultLabelSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SwitchDefaultLabelSyntax, rhs: SwiftSyntax.SwitchDefaultLabelSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10814,52 +11733,65 @@ public struct SwitchStmtSyntax : StmtSyntax, Hashable {
 
     public var labelName: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelName` replaced.
+    /// - param newChild: The new `labelName` to replace the node's
+    ///                   current `labelName`, if present.
     public func withLabelName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchStmtSyntax
 
     public var labelColon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelColon` replaced.
+    /// - param newChild: The new `labelColon` to replace the node's
+    ///                   current `labelColon`, if present.
     public func withLabelColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchStmtSyntax
 
     public var switchKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `switchKeyword` replaced.
+    /// - param newChild: The new `switchKeyword` to replace the node's
+    ///                   current `switchKeyword`, if present.
     public func withSwitchKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchStmtSyntax
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.SwitchStmtSyntax
 
-    public var openBrace: SwiftSyntax.TokenSyntax { get }
+    public var leftBrace: SwiftSyntax.TokenSyntax { get }
 
-    public func withOpenBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchStmtSyntax
+    /// Returns a copy of the receiver with its `leftBrace` replaced.
+    /// - param newChild: The new `leftBrace` to replace the node's
+    ///                   current `leftBrace`, if present.
+    public func withLeftBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchStmtSyntax
 
     public var cases: SwiftSyntax.SwitchCaseListSyntax { get }
 
-    public func addSwitchCase(_ elt: SwiftSyntax.SwitchCaseSyntax) -> SwiftSyntax.SwitchStmtSyntax
+    /// Adds the provided `SwitchCase` to the node's `cases`
+    /// collection.
+    /// - param element: The new `SwitchCase` to add to the node's
+    ///                  `cases` collection.
+    /// - returns: A copy of the receiver with the provided `SwitchCase`
+    ///            appended to its `cases` collection.
+    public func addSwitchCase(_ element: SwiftSyntax.SwitchCaseSyntax) -> SwiftSyntax.SwitchStmtSyntax
 
+    /// Returns a copy of the receiver with its `cases` replaced.
+    /// - param newChild: The new `cases` to replace the node's
+    ///                   current `cases`, if present.
     public func withCases(_ newChild: SwiftSyntax.SwitchCaseListSyntax?) -> SwiftSyntax.SwitchStmtSyntax
 
-    public var closeBrace: SwiftSyntax.TokenSyntax { get }
+    public var rightBrace: SwiftSyntax.TokenSyntax { get }
 
-    public func withCloseBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchStmtSyntax
+    /// Returns a copy of the receiver with its `rightBrace` replaced.
+    /// - param newChild: The new `rightBrace` to replace the node's
+    ///                   current `rightBrace`, if present.
+    public func withRightBrace(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SwitchStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SwitchStmtSyntax, rhs: SwiftSyntax.SwitchStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -10876,6 +11808,9 @@ extension SwitchStmtSyntax {
     public init(_ build: (inout SwiftSyntax.SwitchStmtSyntaxBuilder) -> Swift.Void)
 }
 
+extension SwitchStmtSyntax : BracedSyntax, LabeledSyntax {
+}
+
 public struct SwitchStmtSyntaxBuilder {
 
     public mutating func useLabelName(_ node: SwiftSyntax.TokenSyntax)
@@ -10886,39 +11821,33 @@ public struct SwitchStmtSyntaxBuilder {
 
     public mutating func useExpression(_ node: ExprSyntax)
 
-    public mutating func useOpenBrace(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useLeftBrace(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func addSwitchCase(_ elt: SwiftSyntax.SwitchCaseSyntax)
 
-    public mutating func useCloseBrace(_ node: SwiftSyntax.TokenSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useRightBrace(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct SymbolicReferenceExprSyntax : ExprSyntax, Hashable {
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SymbolicReferenceExprSyntax
 
     public var genericArgumentClause: SwiftSyntax.GenericArgumentClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericArgumentClause` replaced.
+    /// - param newChild: The new `genericArgumentClause` to replace the node's
+    ///                   current `genericArgumentClause`, if present.
     public func withGenericArgumentClause(_ newChild: SwiftSyntax.GenericArgumentClauseSyntax?) -> SwiftSyntax.SymbolicReferenceExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `SymbolicReferenceExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.SymbolicReferenceExprSyntax, rhs: SwiftSyntax.SymbolicReferenceExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -11079,6 +12008,18 @@ public enum SyntaxFactory {
 
     public static func makeBlankUnknownPattern() -> SwiftSyntax.UnknownPatternSyntax
 
+    public static func makeCodeBlockItem(item: Syntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CodeBlockItemSyntax
+
+    public static func makeBlankCodeBlockItem() -> SwiftSyntax.CodeBlockItemSyntax
+
+    public static func makeCodeBlockItemList(_ elements: [SwiftSyntax.CodeBlockItemSyntax]) -> SwiftSyntax.CodeBlockItemListSyntax
+
+    public static func makeBlankCodeBlockItemList() -> SwiftSyntax.CodeBlockItemListSyntax
+
+    public static func makeCodeBlock(leftBrace: SwiftSyntax.TokenSyntax, statements: SwiftSyntax.CodeBlockItemListSyntax, rightBrace: SwiftSyntax.TokenSyntax) -> SwiftSyntax.CodeBlockSyntax
+
+    public static func makeBlankCodeBlock() -> SwiftSyntax.CodeBlockSyntax
+
     public static func makeInOutExpr(ampersand: SwiftSyntax.TokenSyntax, expression: ExprSyntax) -> SwiftSyntax.InOutExprSyntax
 
     public static func makeBlankInOutExpr() -> SwiftSyntax.InOutExprSyntax
@@ -11179,6 +12120,10 @@ public enum SyntaxFactory {
 
     public static func makeBlankBinaryOperatorExpr() -> SwiftSyntax.BinaryOperatorExprSyntax
 
+    public static func makeArrowExpr(throwsToken: SwiftSyntax.TokenSyntax?, arrowToken: SwiftSyntax.TokenSyntax) -> SwiftSyntax.ArrowExprSyntax
+
+    public static func makeBlankArrowExpr() -> SwiftSyntax.ArrowExprSyntax
+
     public static func makeFloatLiteralExpr(floatingDigits: SwiftSyntax.TokenSyntax) -> SwiftSyntax.FloatLiteralExprSyntax
 
     public static func makeBlankFloatLiteralExpr() -> SwiftSyntax.FloatLiteralExprSyntax
@@ -11275,7 +12220,7 @@ public enum SyntaxFactory {
 
     public static func makeBlankClosureSignature() -> SwiftSyntax.ClosureSignatureSyntax
 
-    public static func makeClosureExpr(leftBrace: SwiftSyntax.TokenSyntax, signature: SwiftSyntax.ClosureSignatureSyntax?, statements: SwiftSyntax.StmtListSyntax, rightBrace: SwiftSyntax.TokenSyntax) -> SwiftSyntax.ClosureExprSyntax
+    public static func makeClosureExpr(leftBrace: SwiftSyntax.TokenSyntax, signature: SwiftSyntax.ClosureSignatureSyntax?, statements: SwiftSyntax.CodeBlockItemListSyntax, rightBrace: SwiftSyntax.TokenSyntax) -> SwiftSyntax.ClosureExprSyntax
 
     public static func makeBlankClosureExpr() -> SwiftSyntax.ClosureExprSyntax
 
@@ -11302,6 +12247,10 @@ public enum SyntaxFactory {
     public static func makePostfixUnaryExpr(expression: ExprSyntax, operatorToken: SwiftSyntax.TokenSyntax) -> SwiftSyntax.PostfixUnaryExprSyntax
 
     public static func makeBlankPostfixUnaryExpr() -> SwiftSyntax.PostfixUnaryExprSyntax
+
+    public static func makeSpecializeExpr(expression: ExprSyntax, genericArgumentClause: SwiftSyntax.GenericArgumentClauseSyntax) -> SwiftSyntax.SpecializeExprSyntax
+
+    public static func makeBlankSpecializeExpr() -> SwiftSyntax.SpecializeExprSyntax
 
     public static func makeStringSegment(content: SwiftSyntax.TokenSyntax) -> SwiftSyntax.StringSegmentSyntax
 
@@ -11343,9 +12292,13 @@ public enum SyntaxFactory {
 
     public static func makeBlankTypeInitializerClause() -> SwiftSyntax.TypeInitializerClauseSyntax
 
-    public static func makeTypealiasDecl(attributes: SwiftSyntax.AttributeListSyntax?, accessLevelModifier: SwiftSyntax.DeclModifierSyntax?, typealiasKeyword: SwiftSyntax.TokenSyntax, identifier: SwiftSyntax.TokenSyntax, genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax?, initializer: SwiftSyntax.TypeInitializerClauseSyntax?) -> SwiftSyntax.TypealiasDeclSyntax
+    public static func makeTypealiasDecl(attributes: SwiftSyntax.AttributeListSyntax?, accessLevelModifier: SwiftSyntax.DeclModifierSyntax?, typealiasKeyword: SwiftSyntax.TokenSyntax, identifier: SwiftSyntax.TokenSyntax, genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax?, initializer: SwiftSyntax.TypeInitializerClauseSyntax?, genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.TypealiasDeclSyntax
 
     public static func makeBlankTypealiasDecl() -> SwiftSyntax.TypealiasDeclSyntax
+
+    public static func makeAssociatedtypeDecl(attributes: SwiftSyntax.AttributeListSyntax?, accessLevelModifier: SwiftSyntax.DeclModifierSyntax?, associatedtypeKeyword: SwiftSyntax.TokenSyntax, identifier: SwiftSyntax.TokenSyntax, inheritanceClause: SwiftSyntax.TypeInheritanceClauseSyntax?, initializer: SwiftSyntax.TypeInitializerClauseSyntax?, genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.AssociatedtypeDeclSyntax
+
+    public static func makeBlankAssociatedtypeDecl() -> SwiftSyntax.AssociatedtypeDeclSyntax
 
     public static func makeFunctionParameterList(_ elements: [SwiftSyntax.FunctionParameterSyntax]) -> SwiftSyntax.FunctionParameterListSyntax
 
@@ -11363,13 +12316,21 @@ public enum SyntaxFactory {
 
     public static func makeBlankFunctionSignature() -> SwiftSyntax.FunctionSignatureSyntax
 
-    public static func makeElseifDirectiveClause(poundElseif: SwiftSyntax.TokenSyntax, condition: ExprSyntax, body: SwiftSyntax.StmtListSyntax) -> SwiftSyntax.ElseifDirectiveClauseSyntax
+    public static func makeElseifDirectiveClause(poundElseif: SwiftSyntax.TokenSyntax, condition: ExprSyntax, statements: SwiftSyntax.CodeBlockItemListSyntax) -> SwiftSyntax.ElseifDirectiveClauseSyntax
 
     public static func makeBlankElseifDirectiveClause() -> SwiftSyntax.ElseifDirectiveClauseSyntax
 
-    public static func makeIfConfigDecl(poundIf: SwiftSyntax.TokenSyntax, condition: ExprSyntax, body: SwiftSyntax.StmtListSyntax, elseifDirectiveClauses: SwiftSyntax.ElseifDirectiveClauseListSyntax?, elseClause: SwiftSyntax.ElseDirectiveClauseSyntax?, poundEndif: SwiftSyntax.TokenSyntax) -> SwiftSyntax.IfConfigDeclSyntax
+    public static func makeIfConfigDecl(poundIf: SwiftSyntax.TokenSyntax, condition: ExprSyntax, statements: SwiftSyntax.CodeBlockItemListSyntax, elseifDirectiveClauses: SwiftSyntax.ElseifDirectiveClauseListSyntax?, elseClause: SwiftSyntax.ElseDirectiveClauseSyntax?, poundEndif: SwiftSyntax.TokenSyntax) -> SwiftSyntax.IfConfigDeclSyntax
 
     public static func makeBlankIfConfigDecl() -> SwiftSyntax.IfConfigDeclSyntax
+
+    public static func makePoundErrorDecl(poundError: SwiftSyntax.TokenSyntax, leftParen: SwiftSyntax.TokenSyntax, message: SwiftSyntax.StringLiteralExprSyntax, rightParen: SwiftSyntax.TokenSyntax) -> SwiftSyntax.PoundErrorDeclSyntax
+
+    public static func makeBlankPoundErrorDecl() -> SwiftSyntax.PoundErrorDeclSyntax
+
+    public static func makePoundWarningDecl(poundWarning: SwiftSyntax.TokenSyntax, leftParen: SwiftSyntax.TokenSyntax, message: SwiftSyntax.StringLiteralExprSyntax, rightParen: SwiftSyntax.TokenSyntax) -> SwiftSyntax.PoundWarningDeclSyntax
+
+    public static func makeBlankPoundWarningDecl() -> SwiftSyntax.PoundWarningDeclSyntax
 
     public static func makeDeclModifier(name: SwiftSyntax.TokenSyntax, detail: SwiftSyntax.TokenListSyntax?) -> SwiftSyntax.DeclModifierSyntax
 
@@ -11411,13 +12372,9 @@ public enum SyntaxFactory {
 
     public static func makeBlankDeclList() -> SwiftSyntax.DeclListSyntax
 
-    public static func makeSourceFile(topLevelDecls: SwiftSyntax.DeclListSyntax, eofToken: SwiftSyntax.TokenSyntax) -> SwiftSyntax.SourceFileSyntax
+    public static func makeSourceFile(statements: SwiftSyntax.CodeBlockItemListSyntax, eofToken: SwiftSyntax.TokenSyntax) -> SwiftSyntax.SourceFileSyntax
 
     public static func makeBlankSourceFile() -> SwiftSyntax.SourceFileSyntax
-
-    public static func makeTopLevelCodeDecl(body: SwiftSyntax.StmtListSyntax) -> SwiftSyntax.TopLevelCodeDeclSyntax
-
-    public static func makeBlankTopLevelCodeDecl() -> SwiftSyntax.TopLevelCodeDeclSyntax
 
     public static func makeInitializerClause(equal: SwiftSyntax.TokenSyntax, value: ExprSyntax) -> SwiftSyntax.InitializerClauseSyntax
 
@@ -11435,15 +12392,27 @@ public enum SyntaxFactory {
 
     public static func makeBlankFunctionDecl() -> SwiftSyntax.FunctionDeclSyntax
 
+    public static func makeInitializerDecl(attributes: SwiftSyntax.AttributeListSyntax?, modifiers: SwiftSyntax.ModifierListSyntax?, initKeyword: SwiftSyntax.TokenSyntax, optionalMark: SwiftSyntax.TokenSyntax?, genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax?, parameters: SwiftSyntax.ParameterClauseSyntax, throwsOrRethrowsKeyword: SwiftSyntax.TokenSyntax?, genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax?, body: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.InitializerDeclSyntax
+
+    public static func makeBlankInitializerDecl() -> SwiftSyntax.InitializerDeclSyntax
+
+    public static func makeDeinitializerDecl(attributes: SwiftSyntax.AttributeListSyntax?, modifiers: SwiftSyntax.ModifierListSyntax?, deinitKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax) -> SwiftSyntax.DeinitializerDeclSyntax
+
+    public static func makeBlankDeinitializerDecl() -> SwiftSyntax.DeinitializerDeclSyntax
+
+    public static func makeSubscriptDecl(attributes: SwiftSyntax.AttributeListSyntax?, modifiers: SwiftSyntax.ModifierListSyntax?, subscriptKeyword: SwiftSyntax.TokenSyntax, genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax?, indices: SwiftSyntax.ParameterClauseSyntax, result: SwiftSyntax.ReturnClauseSyntax, genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax?, accessor: SwiftSyntax.AccessorBlockSyntax?) -> SwiftSyntax.SubscriptDeclSyntax
+
+    public static func makeBlankSubscriptDecl() -> SwiftSyntax.SubscriptDeclSyntax
+
     public static func makeElseifDirectiveClauseList(_ elements: [SwiftSyntax.ElseifDirectiveClauseSyntax]) -> SwiftSyntax.ElseifDirectiveClauseListSyntax
 
     public static func makeBlankElseifDirectiveClauseList() -> SwiftSyntax.ElseifDirectiveClauseListSyntax
 
-    public static func makeElseDirectiveClause(poundElse: SwiftSyntax.TokenSyntax, body: SwiftSyntax.StmtListSyntax) -> SwiftSyntax.ElseDirectiveClauseSyntax
+    public static func makeElseDirectiveClause(poundElse: SwiftSyntax.TokenSyntax, statements: SwiftSyntax.CodeBlockItemListSyntax) -> SwiftSyntax.ElseDirectiveClauseSyntax
 
     public static func makeBlankElseDirectiveClause() -> SwiftSyntax.ElseDirectiveClauseSyntax
 
-    public static func makeAccessLevelModifier(name: SwiftSyntax.TokenSyntax, openParen: SwiftSyntax.TokenSyntax?, modifier: SwiftSyntax.TokenSyntax?, closeParen: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessLevelModifierSyntax
+    public static func makeAccessLevelModifier(name: SwiftSyntax.TokenSyntax, leftParen: SwiftSyntax.TokenSyntax?, modifier: SwiftSyntax.TokenSyntax?, rightParen: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.AccessLevelModifierSyntax
 
     public static func makeBlankAccessLevelModifier() -> SwiftSyntax.AccessLevelModifierSyntax
 
@@ -11499,19 +12468,19 @@ public enum SyntaxFactory {
 
     public static func makeBlankAttributeList() -> SwiftSyntax.AttributeListSyntax
 
-    public static func makeContinueStmt(continueKeyword: SwiftSyntax.TokenSyntax, label: SwiftSyntax.TokenSyntax?, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ContinueStmtSyntax
+    public static func makeContinueStmt(continueKeyword: SwiftSyntax.TokenSyntax, label: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ContinueStmtSyntax
 
     public static func makeBlankContinueStmt() -> SwiftSyntax.ContinueStmtSyntax
 
-    public static func makeWhileStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, whileKeyword: SwiftSyntax.TokenSyntax, conditions: SwiftSyntax.ConditionElementListSyntax, body: SwiftSyntax.CodeBlockSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.WhileStmtSyntax
+    public static func makeWhileStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, whileKeyword: SwiftSyntax.TokenSyntax, conditions: SwiftSyntax.ConditionElementListSyntax, body: SwiftSyntax.CodeBlockSyntax) -> SwiftSyntax.WhileStmtSyntax
 
     public static func makeBlankWhileStmt() -> SwiftSyntax.WhileStmtSyntax
 
-    public static func makeDeferStmt(deferKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeferStmtSyntax
+    public static func makeDeferStmt(deferKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax) -> SwiftSyntax.DeferStmtSyntax
 
     public static func makeBlankDeferStmt() -> SwiftSyntax.DeferStmtSyntax
 
-    public static func makeExpressionStmt(expression: ExprSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ExpressionStmtSyntax
+    public static func makeExpressionStmt(expression: ExprSyntax) -> SwiftSyntax.ExpressionStmtSyntax
 
     public static func makeBlankExpressionStmt() -> SwiftSyntax.ExpressionStmtSyntax
 
@@ -11519,11 +12488,11 @@ public enum SyntaxFactory {
 
     public static func makeBlankSwitchCaseList() -> SwiftSyntax.SwitchCaseListSyntax
 
-    public static func makeRepeatWhileStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, repeatKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax, whileKeyword: SwiftSyntax.TokenSyntax, condition: ExprSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.RepeatWhileStmtSyntax
+    public static func makeRepeatWhileStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, repeatKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax, whileKeyword: SwiftSyntax.TokenSyntax, condition: ExprSyntax) -> SwiftSyntax.RepeatWhileStmtSyntax
 
     public static func makeBlankRepeatWhileStmt() -> SwiftSyntax.RepeatWhileStmtSyntax
 
-    public static func makeGuardStmt(guardKeyword: SwiftSyntax.TokenSyntax, conditions: SwiftSyntax.ConditionElementListSyntax, elseKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.GuardStmtSyntax
+    public static func makeGuardStmt(guardKeyword: SwiftSyntax.TokenSyntax, conditions: SwiftSyntax.ConditionElementListSyntax, elseKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax) -> SwiftSyntax.GuardStmtSyntax
 
     public static func makeBlankGuardStmt() -> SwiftSyntax.GuardStmtSyntax
 
@@ -11531,11 +12500,11 @@ public enum SyntaxFactory {
 
     public static func makeBlankWhereClause() -> SwiftSyntax.WhereClauseSyntax
 
-    public static func makeForInStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, forKeyword: SwiftSyntax.TokenSyntax, caseKeyword: SwiftSyntax.TokenSyntax?, pattern: PatternSyntax, typeAnnotation: SwiftSyntax.TypeAnnotationSyntax?, inKeyword: SwiftSyntax.TokenSyntax, sequenceExpr: ExprSyntax, whereClause: SwiftSyntax.WhereClauseSyntax?, body: SwiftSyntax.CodeBlockSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ForInStmtSyntax
+    public static func makeForInStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, forKeyword: SwiftSyntax.TokenSyntax, caseKeyword: SwiftSyntax.TokenSyntax?, pattern: PatternSyntax, typeAnnotation: SwiftSyntax.TypeAnnotationSyntax?, inKeyword: SwiftSyntax.TokenSyntax, sequenceExpr: ExprSyntax, whereClause: SwiftSyntax.WhereClauseSyntax?, body: SwiftSyntax.CodeBlockSyntax) -> SwiftSyntax.ForInStmtSyntax
 
     public static func makeBlankForInStmt() -> SwiftSyntax.ForInStmtSyntax
 
-    public static func makeSwitchStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, switchKeyword: SwiftSyntax.TokenSyntax, expression: ExprSyntax, openBrace: SwiftSyntax.TokenSyntax, cases: SwiftSyntax.SwitchCaseListSyntax, closeBrace: SwiftSyntax.TokenSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.SwitchStmtSyntax
+    public static func makeSwitchStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, switchKeyword: SwiftSyntax.TokenSyntax, expression: ExprSyntax, leftBrace: SwiftSyntax.TokenSyntax, cases: SwiftSyntax.SwitchCaseListSyntax, rightBrace: SwiftSyntax.TokenSyntax) -> SwiftSyntax.SwitchStmtSyntax
 
     public static func makeBlankSwitchStmt() -> SwiftSyntax.SwitchStmtSyntax
 
@@ -11543,25 +12512,21 @@ public enum SyntaxFactory {
 
     public static func makeBlankCatchClauseList() -> SwiftSyntax.CatchClauseListSyntax
 
-    public static func makeDoStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, doKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax, catchClauses: SwiftSyntax.CatchClauseListSyntax?, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DoStmtSyntax
+    public static func makeDoStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, doKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax, catchClauses: SwiftSyntax.CatchClauseListSyntax?) -> SwiftSyntax.DoStmtSyntax
 
     public static func makeBlankDoStmt() -> SwiftSyntax.DoStmtSyntax
 
-    public static func makeReturnStmt(returnKeyword: SwiftSyntax.TokenSyntax, expression: ExprSyntax?, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ReturnStmtSyntax
+    public static func makeReturnStmt(returnKeyword: SwiftSyntax.TokenSyntax, expression: ExprSyntax?) -> SwiftSyntax.ReturnStmtSyntax
 
     public static func makeBlankReturnStmt() -> SwiftSyntax.ReturnStmtSyntax
 
-    public static func makeFallthroughStmt(fallthroughKeyword: SwiftSyntax.TokenSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.FallthroughStmtSyntax
+    public static func makeFallthroughStmt(fallthroughKeyword: SwiftSyntax.TokenSyntax) -> SwiftSyntax.FallthroughStmtSyntax
 
     public static func makeBlankFallthroughStmt() -> SwiftSyntax.FallthroughStmtSyntax
 
-    public static func makeBreakStmt(breakKeyword: SwiftSyntax.TokenSyntax, label: SwiftSyntax.TokenSyntax?, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.BreakStmtSyntax
+    public static func makeBreakStmt(breakKeyword: SwiftSyntax.TokenSyntax, label: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.BreakStmtSyntax
 
     public static func makeBlankBreakStmt() -> SwiftSyntax.BreakStmtSyntax
-
-    public static func makeCodeBlock(openBrace: SwiftSyntax.TokenSyntax, statements: SwiftSyntax.StmtListSyntax, closeBrace: SwiftSyntax.TokenSyntax) -> SwiftSyntax.CodeBlockSyntax
-
-    public static func makeBlankCodeBlock() -> SwiftSyntax.CodeBlockSyntax
 
     public static func makeCaseItemList(_ elements: [SwiftSyntax.CaseItemSyntax]) -> SwiftSyntax.CaseItemListSyntax
 
@@ -11587,15 +12552,15 @@ public enum SyntaxFactory {
 
     public static func makeBlankConditionElementList() -> SwiftSyntax.ConditionElementListSyntax
 
-    public static func makeDeclarationStmt(declaration: DeclSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.DeclarationStmtSyntax
+    public static func makeDeclarationStmt(declaration: DeclSyntax) -> SwiftSyntax.DeclarationStmtSyntax
 
     public static func makeBlankDeclarationStmt() -> SwiftSyntax.DeclarationStmtSyntax
 
-    public static func makeThrowStmt(throwKeyword: SwiftSyntax.TokenSyntax, expression: ExprSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ThrowStmtSyntax
+    public static func makeThrowStmt(throwKeyword: SwiftSyntax.TokenSyntax, expression: ExprSyntax) -> SwiftSyntax.ThrowStmtSyntax
 
     public static func makeBlankThrowStmt() -> SwiftSyntax.ThrowStmtSyntax
 
-    public static func makeIfStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, ifKeyword: SwiftSyntax.TokenSyntax, conditions: SwiftSyntax.ConditionElementListSyntax, body: SwiftSyntax.CodeBlockSyntax, elseKeyword: SwiftSyntax.TokenSyntax?, elseBody: Syntax?, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.IfStmtSyntax
+    public static func makeIfStmt(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, ifKeyword: SwiftSyntax.TokenSyntax, conditions: SwiftSyntax.ConditionElementListSyntax, body: SwiftSyntax.CodeBlockSyntax, elseKeyword: SwiftSyntax.TokenSyntax?, elseBody: Syntax?) -> SwiftSyntax.IfStmtSyntax
 
     public static func makeBlankIfStmt() -> SwiftSyntax.IfStmtSyntax
 
@@ -11603,15 +12568,11 @@ public enum SyntaxFactory {
 
     public static func makeBlankElseIfContinuation() -> SwiftSyntax.ElseIfContinuationSyntax
 
-    public static func makeElseBlock(elseKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax, semicolon: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ElseBlockSyntax
+    public static func makeElseBlock(elseKeyword: SwiftSyntax.TokenSyntax, body: SwiftSyntax.CodeBlockSyntax) -> SwiftSyntax.ElseBlockSyntax
 
     public static func makeBlankElseBlock() -> SwiftSyntax.ElseBlockSyntax
 
-    public static func makeStmtList(_ elements: [StmtSyntax]) -> SwiftSyntax.StmtListSyntax
-
-    public static func makeBlankStmtList() -> SwiftSyntax.StmtListSyntax
-
-    public static func makeSwitchCase(label: Syntax, body: SwiftSyntax.StmtListSyntax) -> SwiftSyntax.SwitchCaseSyntax
+    public static func makeSwitchCase(label: Syntax, statements: SwiftSyntax.CodeBlockItemListSyntax) -> SwiftSyntax.SwitchCaseSyntax
 
     public static func makeBlankSwitchCase() -> SwiftSyntax.SwitchCaseSyntax
 
@@ -11619,7 +12580,7 @@ public enum SyntaxFactory {
 
     public static func makeBlankSwitchDefaultLabel() -> SwiftSyntax.SwitchDefaultLabelSyntax
 
-    public static func makeCaseItem(pattern: PatternSyntax, whereClause: SwiftSyntax.WhereClauseSyntax?, comma: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CaseItemSyntax
+    public static func makeCaseItem(pattern: PatternSyntax, whereClause: SwiftSyntax.WhereClauseSyntax?, trailingComma: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.CaseItemSyntax
 
     public static func makeBlankCaseItem() -> SwiftSyntax.CaseItemSyntax
 
@@ -11755,7 +12716,7 @@ public enum SyntaxFactory {
 
     public static func makeBlankAsTypePattern() -> SwiftSyntax.AsTypePatternSyntax
 
-    public static func makeTuplePattern(openParen: SwiftSyntax.TokenSyntax, elements: SwiftSyntax.TuplePatternElementListSyntax, closeParen: SwiftSyntax.TokenSyntax) -> SwiftSyntax.TuplePatternSyntax
+    public static func makeTuplePattern(leftParen: SwiftSyntax.TokenSyntax, elements: SwiftSyntax.TuplePatternElementListSyntax, rightParen: SwiftSyntax.TokenSyntax) -> SwiftSyntax.TuplePatternSyntax
 
     public static func makeBlankTuplePattern() -> SwiftSyntax.TuplePatternSyntax
 
@@ -11763,7 +12724,7 @@ public enum SyntaxFactory {
 
     public static func makeBlankWildcardPattern() -> SwiftSyntax.WildcardPatternSyntax
 
-    public static func makeTuplePatternElement(labelName: SwiftSyntax.TokenSyntax?, colon: SwiftSyntax.TokenSyntax?, pattern: PatternSyntax, comma: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternElementSyntax
+    public static func makeTuplePatternElement(labelName: SwiftSyntax.TokenSyntax?, labelColon: SwiftSyntax.TokenSyntax?, pattern: PatternSyntax, trailingComma: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternElementSyntax
 
     public static func makeBlankTuplePatternElement() -> SwiftSyntax.TuplePatternElementSyntax
 
@@ -12023,7 +12984,7 @@ public enum SyntaxFactory {
 
     public static func makeStringLiteralExpr(_ text: String, leadingTrivia: SwiftSyntax.Trivia = default, trailingTrivia: SwiftSyntax.Trivia = default) -> SwiftSyntax.StringLiteralExprSyntax
 
-    public static func makeVariableExpr(_ text: String, leadingTrivia: SwiftSyntax.Trivia = default, trailingTrivia: SwiftSyntax.Trivia = default) -> SwiftSyntax.SymbolicReferenceExprSyntax
+    public static func makeVariableExpr(_ text: String, leadingTrivia: SwiftSyntax.Trivia = default, trailingTrivia: SwiftSyntax.Trivia = default) -> SwiftSyntax.IdentifierExprSyntax
 }
 
 open class SyntaxRewriter {
@@ -12039,6 +13000,10 @@ open class SyntaxRewriter {
     open func visit(_ node: SwiftSyntax.UnknownTypeSyntax) -> TypeSyntax
 
     open func visit(_ node: SwiftSyntax.UnknownPatternSyntax) -> PatternSyntax
+
+    open func visit(_ node: SwiftSyntax.CodeBlockItemSyntax) -> Syntax
+
+    open func visit(_ node: SwiftSyntax.CodeBlockSyntax) -> Syntax
 
     open func visit(_ node: SwiftSyntax.InOutExprSyntax) -> ExprSyntax
 
@@ -12075,6 +13040,8 @@ open class SyntaxRewriter {
     open func visit(_ node: SwiftSyntax.PrefixOperatorExprSyntax) -> ExprSyntax
 
     open func visit(_ node: SwiftSyntax.BinaryOperatorExprSyntax) -> ExprSyntax
+
+    open func visit(_ node: SwiftSyntax.ArrowExprSyntax) -> ExprSyntax
 
     open func visit(_ node: SwiftSyntax.FloatLiteralExprSyntax) -> ExprSyntax
 
@@ -12134,6 +13101,8 @@ open class SyntaxRewriter {
 
     open func visit(_ node: SwiftSyntax.PostfixUnaryExprSyntax) -> ExprSyntax
 
+    open func visit(_ node: SwiftSyntax.SpecializeExprSyntax) -> ExprSyntax
+
     open func visit(_ node: SwiftSyntax.StringSegmentSyntax) -> Syntax
 
     open func visit(_ node: SwiftSyntax.ExpressionSegmentSyntax) -> Syntax
@@ -12154,6 +13123,8 @@ open class SyntaxRewriter {
 
     open func visit(_ node: SwiftSyntax.TypealiasDeclSyntax) -> DeclSyntax
 
+    open func visit(_ node: SwiftSyntax.AssociatedtypeDeclSyntax) -> DeclSyntax
+
     open func visit(_ node: SwiftSyntax.ParameterClauseSyntax) -> Syntax
 
     open func visit(_ node: SwiftSyntax.ReturnClauseSyntax) -> Syntax
@@ -12163,6 +13134,10 @@ open class SyntaxRewriter {
     open func visit(_ node: SwiftSyntax.ElseifDirectiveClauseSyntax) -> Syntax
 
     open func visit(_ node: SwiftSyntax.IfConfigDeclSyntax) -> DeclSyntax
+
+    open func visit(_ node: SwiftSyntax.PoundErrorDeclSyntax) -> DeclSyntax
+
+    open func visit(_ node: SwiftSyntax.PoundWarningDeclSyntax) -> DeclSyntax
 
     open func visit(_ node: SwiftSyntax.DeclModifierSyntax) -> Syntax
 
@@ -12182,13 +13157,17 @@ open class SyntaxRewriter {
 
     open func visit(_ node: SwiftSyntax.SourceFileSyntax) -> Syntax
 
-    open func visit(_ node: SwiftSyntax.TopLevelCodeDeclSyntax) -> DeclSyntax
-
     open func visit(_ node: SwiftSyntax.InitializerClauseSyntax) -> Syntax
 
     open func visit(_ node: SwiftSyntax.FunctionParameterSyntax) -> Syntax
 
     open func visit(_ node: SwiftSyntax.FunctionDeclSyntax) -> DeclSyntax
+
+    open func visit(_ node: SwiftSyntax.InitializerDeclSyntax) -> DeclSyntax
+
+    open func visit(_ node: SwiftSyntax.DeinitializerDeclSyntax) -> DeclSyntax
+
+    open func visit(_ node: SwiftSyntax.SubscriptDeclSyntax) -> DeclSyntax
 
     open func visit(_ node: SwiftSyntax.ElseDirectiveClauseSyntax) -> Syntax
 
@@ -12235,8 +13214,6 @@ open class SyntaxRewriter {
     open func visit(_ node: SwiftSyntax.FallthroughStmtSyntax) -> StmtSyntax
 
     open func visit(_ node: SwiftSyntax.BreakStmtSyntax) -> StmtSyntax
-
-    open func visit(_ node: SwiftSyntax.CodeBlockSyntax) -> Syntax
 
     open func visit(_ node: SwiftSyntax.ConditionElementSyntax) -> Syntax
 
@@ -12330,6 +13307,14 @@ open class SyntaxRewriter {
 
     open func visit(_ token: SwiftSyntax.TokenSyntax) -> Syntax
 
+    /// The function called before visiting the node and its descendents.
+    ///   - node: the node we are about to visit.
+    open func visitPre(_ node: Syntax)
+
+    /// The function called after visting the node and its descendents.
+    ///   - node: the node we just finished visiting.
+    open func visitPost(_ node: Syntax)
+
     public func visit(_ node: Syntax) -> Syntax
 }
 
@@ -12346,6 +13331,10 @@ open class SyntaxVisitor {
     open func visit(_ node: SwiftSyntax.UnknownTypeSyntax)
 
     open func visit(_ node: SwiftSyntax.UnknownPatternSyntax)
+
+    open func visit(_ node: SwiftSyntax.CodeBlockItemSyntax)
+
+    open func visit(_ node: SwiftSyntax.CodeBlockSyntax)
 
     open func visit(_ node: SwiftSyntax.InOutExprSyntax)
 
@@ -12382,6 +13371,8 @@ open class SyntaxVisitor {
     open func visit(_ node: SwiftSyntax.PrefixOperatorExprSyntax)
 
     open func visit(_ node: SwiftSyntax.BinaryOperatorExprSyntax)
+
+    open func visit(_ node: SwiftSyntax.ArrowExprSyntax)
 
     open func visit(_ node: SwiftSyntax.FloatLiteralExprSyntax)
 
@@ -12441,6 +13432,8 @@ open class SyntaxVisitor {
 
     open func visit(_ node: SwiftSyntax.PostfixUnaryExprSyntax)
 
+    open func visit(_ node: SwiftSyntax.SpecializeExprSyntax)
+
     open func visit(_ node: SwiftSyntax.StringSegmentSyntax)
 
     open func visit(_ node: SwiftSyntax.ExpressionSegmentSyntax)
@@ -12461,6 +13454,8 @@ open class SyntaxVisitor {
 
     open func visit(_ node: SwiftSyntax.TypealiasDeclSyntax)
 
+    open func visit(_ node: SwiftSyntax.AssociatedtypeDeclSyntax)
+
     open func visit(_ node: SwiftSyntax.ParameterClauseSyntax)
 
     open func visit(_ node: SwiftSyntax.ReturnClauseSyntax)
@@ -12470,6 +13465,10 @@ open class SyntaxVisitor {
     open func visit(_ node: SwiftSyntax.ElseifDirectiveClauseSyntax)
 
     open func visit(_ node: SwiftSyntax.IfConfigDeclSyntax)
+
+    open func visit(_ node: SwiftSyntax.PoundErrorDeclSyntax)
+
+    open func visit(_ node: SwiftSyntax.PoundWarningDeclSyntax)
 
     open func visit(_ node: SwiftSyntax.DeclModifierSyntax)
 
@@ -12489,13 +13488,17 @@ open class SyntaxVisitor {
 
     open func visit(_ node: SwiftSyntax.SourceFileSyntax)
 
-    open func visit(_ node: SwiftSyntax.TopLevelCodeDeclSyntax)
-
     open func visit(_ node: SwiftSyntax.InitializerClauseSyntax)
 
     open func visit(_ node: SwiftSyntax.FunctionParameterSyntax)
 
     open func visit(_ node: SwiftSyntax.FunctionDeclSyntax)
+
+    open func visit(_ node: SwiftSyntax.InitializerDeclSyntax)
+
+    open func visit(_ node: SwiftSyntax.DeinitializerDeclSyntax)
+
+    open func visit(_ node: SwiftSyntax.SubscriptDeclSyntax)
 
     open func visit(_ node: SwiftSyntax.ElseDirectiveClauseSyntax)
 
@@ -12542,8 +13545,6 @@ open class SyntaxVisitor {
     open func visit(_ node: SwiftSyntax.FallthroughStmtSyntax)
 
     open func visit(_ node: SwiftSyntax.BreakStmtSyntax)
-
-    open func visit(_ node: SwiftSyntax.CodeBlockSyntax)
 
     open func visit(_ node: SwiftSyntax.ConditionElementSyntax)
 
@@ -12637,6 +13638,14 @@ open class SyntaxVisitor {
 
     open func visit(_ token: SwiftSyntax.TokenSyntax)
 
+    /// The function called before visiting the node and its descendents.
+    ///   - node: the node we are about to visit.
+    open func visitPre(_ node: Syntax)
+
+    /// The function called after visting the node and its descendents.
+    ///   - node: the node we just finished visiting.
+    open func visitPost(_ node: Syntax)
+
     public func visit(_ node: Syntax)
 }
 
@@ -12644,38 +13653,43 @@ public struct TernaryExprSyntax : ExprSyntax, Hashable {
 
     public var conditionExpression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `conditionExpression` replaced.
+    /// - param newChild: The new `conditionExpression` to replace the node's
+    ///                   current `conditionExpression`, if present.
     public func withConditionExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.TernaryExprSyntax
 
     public var questionMark: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `questionMark` replaced.
+    /// - param newChild: The new `questionMark` to replace the node's
+    ///                   current `questionMark`, if present.
     public func withQuestionMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TernaryExprSyntax
 
     public var firstChoice: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `firstChoice` replaced.
+    /// - param newChild: The new `firstChoice` to replace the node's
+    ///                   current `firstChoice`, if present.
     public func withFirstChoice(_ newChild: ExprSyntax?) -> SwiftSyntax.TernaryExprSyntax
 
     public var colonMark: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colonMark` replaced.
+    /// - param newChild: The new `colonMark` to replace the node's
+    ///                   current `colonMark`, if present.
     public func withColonMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TernaryExprSyntax
 
     public var secondChoice: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `secondChoice` replaced.
+    /// - param newChild: The new `secondChoice` to replace the node's
+    ///                   current `secondChoice`, if present.
     public func withSecondChoice(_ newChild: ExprSyntax?) -> SwiftSyntax.TernaryExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TernaryExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TernaryExprSyntax, rhs: SwiftSyntax.TernaryExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -12709,30 +13723,22 @@ public struct ThrowStmtSyntax : StmtSyntax, Hashable {
 
     public var throwKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `throwKeyword` replaced.
+    /// - param newChild: The new `throwKeyword` to replace the node's
+    ///                   current `throwKeyword`, if present.
     public func withThrowKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ThrowStmtSyntax
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.ThrowStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ThrowStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ThrowStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ThrowStmtSyntax, rhs: SwiftSyntax.ThrowStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -12754,8 +13760,6 @@ public struct ThrowStmtSyntaxBuilder {
     public mutating func useThrowKeyword(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useExpression(_ node: ExprSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 /// Enumerates the kinds of tokens in the Swift language.
@@ -13217,49 +14221,6 @@ public struct TokenSyntax : Hashable {
     public var hashValue: Int { get }
 }
 
-public struct TopLevelCodeDeclSyntax : DeclSyntax, Hashable {
-
-    public var body: SwiftSyntax.StmtListSyntax { get }
-
-    public func addStmt(_ elt: StmtSyntax) -> SwiftSyntax.TopLevelCodeDeclSyntax
-
-    public func withBody(_ newChild: SwiftSyntax.StmtListSyntax?) -> SwiftSyntax.TopLevelCodeDeclSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
-    public static func == (lhs: SwiftSyntax.TopLevelCodeDeclSyntax, rhs: SwiftSyntax.TopLevelCodeDeclSyntax) -> Bool
-
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
-    public var hashValue: Int { get }
-}
-
-extension TopLevelCodeDeclSyntax {
-
-    /// Creates a `TopLevelCodeDeclSyntax` using the provided build function.
-    /// - Parameter:
-    ///   - build: A closure that wil be invoked in order to initialize
-    ///            the fields of the syntax node.
-    ///            This closure is passed a `TopLevelCodeDeclSyntaxBuilder` which you can use to
-    ///            incrementally build the structure of the node.
-    /// - Returns: A `TopLevelCodeDeclSyntax` with all the fields populated in the builder
-    ///            closure.
-    public init(_ build: (inout SwiftSyntax.TopLevelCodeDeclSyntaxBuilder) -> Swift.Void)
-}
-
-public struct TopLevelCodeDeclSyntaxBuilder {
-
-    public mutating func addStmt(_ elt: StmtSyntax)
-}
-
 /// A collection of leading or trailing trivia. This is the main data structure
 /// for thinking about trivia.
 public struct Trivia : Swift.Codable {
@@ -13481,30 +14442,29 @@ public struct TryExprSyntax : ExprSyntax, Hashable {
 
     public var tryKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `tryKeyword` replaced.
+    /// - param newChild: The new `tryKeyword` to replace the node's
+    ///                   current `tryKeyword`, if present.
     public func withTryKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TryExprSyntax
 
     public var questionOrExclamationMark: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `questionOrExclamationMark` replaced.
+    /// - param newChild: The new `questionOrExclamationMark` to replace the node's
+    ///                   current `questionOrExclamationMark`, if present.
     public func withQuestionOrExclamationMark(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TryExprSyntax
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.TryExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TryExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TryExprSyntax, rhs: SwiftSyntax.TryExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -13681,34 +14641,36 @@ public struct TupleElementSyntax : Syntax, Hashable {
 
     public var label: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `label` replaced.
+    /// - param newChild: The new `label` to replace the node's
+    ///                   current `label`, if present.
     public func withLabel(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleElementSyntax
 
     public var colon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleElementSyntax
 
     public var expression: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `expression` replaced.
+    /// - param newChild: The new `expression` to replace the node's
+    ///                   current `expression`, if present.
     public func withExpression(_ newChild: ExprSyntax?) -> SwiftSyntax.TupleElementSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleElementSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TupleElementSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TupleElementSyntax, rhs: SwiftSyntax.TupleElementSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -13723,6 +14685,9 @@ extension TupleElementSyntax {
     /// - Returns: A `TupleElementSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.TupleElementSyntaxBuilder) -> Swift.Void)
+}
+
+extension TupleElementSyntax : WithTrailingCommaSyntax {
 }
 
 public struct TupleElementSyntaxBuilder {
@@ -13740,32 +14705,37 @@ public struct TupleExprSyntax : ExprSyntax, Hashable {
 
     public var leftParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleExprSyntax
 
     public var elementList: SwiftSyntax.TupleElementListSyntax { get }
 
-    public func addTupleElement(_ elt: SwiftSyntax.TupleElementSyntax) -> SwiftSyntax.TupleExprSyntax
+    /// Adds the provided `TupleElement` to the node's `elementList`
+    /// collection.
+    /// - param element: The new `TupleElement` to add to the node's
+    ///                  `elementList` collection.
+    /// - returns: A copy of the receiver with the provided `TupleElement`
+    ///            appended to its `elementList` collection.
+    public func addTupleElement(_ element: SwiftSyntax.TupleElementSyntax) -> SwiftSyntax.TupleExprSyntax
 
+    /// Returns a copy of the receiver with its `elementList` replaced.
+    /// - param newChild: The new `elementList` to replace the node's
+    ///                   current `elementList`, if present.
     public func withElementList(_ newChild: SwiftSyntax.TupleElementListSyntax?) -> SwiftSyntax.TupleExprSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TupleExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TupleExprSyntax, rhs: SwiftSyntax.TupleExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -13780,6 +14750,9 @@ extension TupleExprSyntax {
     /// - Returns: A `TupleExprSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.TupleExprSyntaxBuilder) -> Swift.Void)
+}
+
+extension TupleExprSyntax : ParenthesizedSyntax {
 }
 
 public struct TupleExprSyntaxBuilder {
@@ -13942,34 +14915,36 @@ public struct TuplePatternElementSyntax : Syntax, Hashable {
 
     public var labelName: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelName` replaced.
+    /// - param newChild: The new `labelName` to replace the node's
+    ///                   current `labelName`, if present.
     public func withLabelName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternElementSyntax
 
-    public var colon: SwiftSyntax.TokenSyntax? { get }
+    public var labelColon: SwiftSyntax.TokenSyntax? { get }
 
-    public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternElementSyntax
+    /// Returns a copy of the receiver with its `labelColon` replaced.
+    /// - param newChild: The new `labelColon` to replace the node's
+    ///                   current `labelColon`, if present.
+    public func withLabelColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternElementSyntax
 
     public var pattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `pattern` replaced.
+    /// - param newChild: The new `pattern` to replace the node's
+    ///                   current `pattern`, if present.
     public func withPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.TuplePatternElementSyntax
 
-    public var comma: SwiftSyntax.TokenSyntax? { get }
+    public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
-    public func withComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternElementSyntax
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
+    public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternElementSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TuplePatternElementSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TuplePatternElementSyntax, rhs: SwiftSyntax.TuplePatternElementSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -13986,47 +14961,55 @@ extension TuplePatternElementSyntax {
     public init(_ build: (inout SwiftSyntax.TuplePatternElementSyntaxBuilder) -> Swift.Void)
 }
 
+extension TuplePatternElementSyntax : WithTrailingCommaSyntax, LabeledSyntax {
+}
+
 public struct TuplePatternElementSyntaxBuilder {
 
     public mutating func useLabelName(_ node: SwiftSyntax.TokenSyntax)
 
-    public mutating func useColon(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useLabelColon(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func usePattern(_ node: PatternSyntax)
 
-    public mutating func useComma(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useTrailingComma(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct TuplePatternSyntax : PatternSyntax, Hashable {
 
-    public var openParen: SwiftSyntax.TokenSyntax { get }
+    public var leftParen: SwiftSyntax.TokenSyntax { get }
 
-    public func withOpenParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternSyntax
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
+    public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternSyntax
 
     public var elements: SwiftSyntax.TuplePatternElementListSyntax { get }
 
-    public func addTuplePatternElement(_ elt: SwiftSyntax.TuplePatternElementSyntax) -> SwiftSyntax.TuplePatternSyntax
+    /// Adds the provided `TuplePatternElement` to the node's `elements`
+    /// collection.
+    /// - param element: The new `TuplePatternElement` to add to the node's
+    ///                  `elements` collection.
+    /// - returns: A copy of the receiver with the provided `TuplePatternElement`
+    ///            appended to its `elements` collection.
+    public func addTuplePatternElement(_ element: SwiftSyntax.TuplePatternElementSyntax) -> SwiftSyntax.TuplePatternSyntax
 
+    /// Returns a copy of the receiver with its `elements` replaced.
+    /// - param newChild: The new `elements` to replace the node's
+    ///                   current `elements`, if present.
     public func withElements(_ newChild: SwiftSyntax.TuplePatternElementListSyntax?) -> SwiftSyntax.TuplePatternSyntax
 
-    public var closeParen: SwiftSyntax.TokenSyntax { get }
+    public var rightParen: SwiftSyntax.TokenSyntax { get }
 
-    public func withCloseParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternSyntax
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
+    public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TuplePatternSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TuplePatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TuplePatternSyntax, rhs: SwiftSyntax.TuplePatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14043,13 +15026,16 @@ extension TuplePatternSyntax {
     public init(_ build: (inout SwiftSyntax.TuplePatternSyntaxBuilder) -> Swift.Void)
 }
 
+extension TuplePatternSyntax : ParenthesizedSyntax {
+}
+
 public struct TuplePatternSyntaxBuilder {
 
-    public mutating func useOpenParen(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useLeftParen(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func addTuplePatternElement(_ elt: SwiftSyntax.TuplePatternElementSyntax)
 
-    public mutating func useCloseParen(_ node: SwiftSyntax.TokenSyntax)
+    public mutating func useRightParen(_ node: SwiftSyntax.TokenSyntax)
 }
 
 /// `TupleTypeElementListSyntax` represents a collection of one or more
@@ -14203,50 +15189,64 @@ public struct TupleTypeElementSyntax : Syntax, Hashable {
 
     public var inOut: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `inOut` replaced.
+    /// - param newChild: The new `inOut` to replace the node's
+    ///                   current `inOut`, if present.
     public func withInOut(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleTypeElementSyntax
 
     public var name: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `name` replaced.
+    /// - param newChild: The new `name` to replace the node's
+    ///                   current `name`, if present.
     public func withName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleTypeElementSyntax
 
     public var secondName: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `secondName` replaced.
+    /// - param newChild: The new `secondName` to replace the node's
+    ///                   current `secondName`, if present.
     public func withSecondName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleTypeElementSyntax
 
     public var colon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleTypeElementSyntax
 
     public var type: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `type` replaced.
+    /// - param newChild: The new `type` to replace the node's
+    ///                   current `type`, if present.
     public func withType(_ newChild: TypeSyntax?) -> SwiftSyntax.TupleTypeElementSyntax
 
     public var ellipsis: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `ellipsis` replaced.
+    /// - param newChild: The new `ellipsis` to replace the node's
+    ///                   current `ellipsis`, if present.
     public func withEllipsis(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleTypeElementSyntax
 
     public var initializer: SwiftSyntax.InitializerClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `initializer` replaced.
+    /// - param newChild: The new `initializer` to replace the node's
+    ///                   current `initializer`, if present.
     public func withInitializer(_ newChild: SwiftSyntax.InitializerClauseSyntax?) -> SwiftSyntax.TupleTypeElementSyntax
 
     public var trailingComma: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `trailingComma` replaced.
+    /// - param newChild: The new `trailingComma` to replace the node's
+    ///                   current `trailingComma`, if present.
     public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleTypeElementSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TupleTypeElementSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TupleTypeElementSyntax, rhs: SwiftSyntax.TupleTypeElementSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14261,6 +15261,9 @@ extension TupleTypeElementSyntax {
     /// - Returns: A `TupleTypeElementSyntax` with all the fields populated in the builder
     ///            closure.
     public init(_ build: (inout SwiftSyntax.TupleTypeElementSyntaxBuilder) -> Swift.Void)
+}
+
+extension TupleTypeElementSyntax : WithTrailingCommaSyntax {
 }
 
 public struct TupleTypeElementSyntaxBuilder {
@@ -14286,32 +15289,37 @@ public struct TupleTypeSyntax : TypeSyntax, Hashable {
 
     public var leftParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `leftParen` replaced.
+    /// - param newChild: The new `leftParen` to replace the node's
+    ///                   current `leftParen`, if present.
     public func withLeftParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleTypeSyntax
 
     public var elements: SwiftSyntax.TupleTypeElementListSyntax { get }
 
-    public func addTupleTypeElement(_ elt: SwiftSyntax.TupleTypeElementSyntax) -> SwiftSyntax.TupleTypeSyntax
+    /// Adds the provided `TupleTypeElement` to the node's `elements`
+    /// collection.
+    /// - param element: The new `TupleTypeElement` to add to the node's
+    ///                  `elements` collection.
+    /// - returns: A copy of the receiver with the provided `TupleTypeElement`
+    ///            appended to its `elements` collection.
+    public func addTupleTypeElement(_ element: SwiftSyntax.TupleTypeElementSyntax) -> SwiftSyntax.TupleTypeSyntax
 
+    /// Returns a copy of the receiver with its `elements` replaced.
+    /// - param newChild: The new `elements` to replace the node's
+    ///                   current `elements`, if present.
     public func withElements(_ newChild: SwiftSyntax.TupleTypeElementListSyntax?) -> SwiftSyntax.TupleTypeSyntax
 
     public var rightParen: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `rightParen` replaced.
+    /// - param newChild: The new `rightParen` to replace the node's
+    ///                   current `rightParen`, if present.
     public func withRightParen(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TupleTypeSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TupleTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TupleTypeSyntax, rhs: SwiftSyntax.TupleTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14328,6 +15336,9 @@ extension TupleTypeSyntax {
     public init(_ build: (inout SwiftSyntax.TupleTypeSyntaxBuilder) -> Swift.Void)
 }
 
+extension TupleTypeSyntax : ParenthesizedSyntax {
+}
+
 public struct TupleTypeSyntaxBuilder {
 
     public mutating func useLeftParen(_ node: SwiftSyntax.TokenSyntax)
@@ -14341,26 +15352,22 @@ public struct TypeAnnotationSyntax : Syntax, Hashable {
 
     public var colon: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TypeAnnotationSyntax
 
     public var type: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `type` replaced.
+    /// - param newChild: The new `type` to replace the node's
+    ///                   current `type`, if present.
     public func withType(_ newChild: TypeSyntax?) -> SwiftSyntax.TypeAnnotationSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TypeAnnotationSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TypeAnnotationSyntax, rhs: SwiftSyntax.TypeAnnotationSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14388,22 +15395,15 @@ public struct TypeExprSyntax : ExprSyntax, Hashable {
 
     public var type: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `type` replaced.
+    /// - param newChild: The new `type` to replace the node's
+    ///                   current `type`, if present.
     public func withType(_ newChild: TypeSyntax?) -> SwiftSyntax.TypeExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TypeExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TypeExprSyntax, rhs: SwiftSyntax.TypeExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14429,28 +15429,30 @@ public struct TypeInheritanceClauseSyntax : Syntax, Hashable {
 
     public var colon: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `colon` replaced.
+    /// - param newChild: The new `colon` to replace the node's
+    ///                   current `colon`, if present.
     public func withColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TypeInheritanceClauseSyntax
 
     public var inheritedTypeCollection: SwiftSyntax.InheritedTypeListSyntax { get }
 
-    public func addInheritedType(_ elt: SwiftSyntax.InheritedTypeSyntax) -> SwiftSyntax.TypeInheritanceClauseSyntax
+    /// Adds the provided `InheritedType` to the node's `inheritedTypeCollection`
+    /// collection.
+    /// - param element: The new `InheritedType` to add to the node's
+    ///                  `inheritedTypeCollection` collection.
+    /// - returns: A copy of the receiver with the provided `InheritedType`
+    ///            appended to its `inheritedTypeCollection` collection.
+    public func addInheritedType(_ element: SwiftSyntax.InheritedTypeSyntax) -> SwiftSyntax.TypeInheritanceClauseSyntax
 
+    /// Returns a copy of the receiver with its `inheritedTypeCollection` replaced.
+    /// - param newChild: The new `inheritedTypeCollection` to replace the node's
+    ///                   current `inheritedTypeCollection`, if present.
     public func withInheritedTypeCollection(_ newChild: SwiftSyntax.InheritedTypeListSyntax?) -> SwiftSyntax.TypeInheritanceClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TypeInheritanceClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TypeInheritanceClauseSyntax, rhs: SwiftSyntax.TypeInheritanceClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14478,26 +15480,22 @@ public struct TypeInitializerClauseSyntax : Syntax, Hashable {
 
     public var equal: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `equal` replaced.
+    /// - param newChild: The new `equal` to replace the node's
+    ///                   current `equal`, if present.
     public func withEqual(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TypeInitializerClauseSyntax
 
     public var value: TypeSyntax { get }
 
+    /// Returns a copy of the receiver with its `value` replaced.
+    /// - param newChild: The new `value` to replace the node's
+    ///                   current `value`, if present.
     public func withValue(_ newChild: TypeSyntax?) -> SwiftSyntax.TypeInitializerClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `TypeInitializerClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TypeInitializerClauseSyntax, rhs: SwiftSyntax.TypeInitializerClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14528,44 +15526,65 @@ public struct TypealiasDeclSyntax : DeclSyntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.TypealiasDeclSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.TypealiasDeclSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.TypealiasDeclSyntax
 
     public var accessLevelModifier: SwiftSyntax.DeclModifierSyntax? { get }
 
+    /// Returns a copy of the receiver with its `accessLevelModifier` replaced.
+    /// - param newChild: The new `accessLevelModifier` to replace the node's
+    ///                   current `accessLevelModifier`, if present.
     public func withAccessLevelModifier(_ newChild: SwiftSyntax.DeclModifierSyntax?) -> SwiftSyntax.TypealiasDeclSyntax
 
     public var typealiasKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `typealiasKeyword` replaced.
+    /// - param newChild: The new `typealiasKeyword` to replace the node's
+    ///                   current `typealiasKeyword`, if present.
     public func withTypealiasKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TypealiasDeclSyntax
 
     public var identifier: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `identifier` replaced.
+    /// - param newChild: The new `identifier` to replace the node's
+    ///                   current `identifier`, if present.
     public func withIdentifier(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.TypealiasDeclSyntax
 
     public var genericParameterClause: SwiftSyntax.GenericParameterClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `genericParameterClause` replaced.
+    /// - param newChild: The new `genericParameterClause` to replace the node's
+    ///                   current `genericParameterClause`, if present.
     public func withGenericParameterClause(_ newChild: SwiftSyntax.GenericParameterClauseSyntax?) -> SwiftSyntax.TypealiasDeclSyntax
 
     public var initializer: SwiftSyntax.TypeInitializerClauseSyntax? { get }
 
+    /// Returns a copy of the receiver with its `initializer` replaced.
+    /// - param newChild: The new `initializer` to replace the node's
+    ///                   current `initializer`, if present.
     public func withInitializer(_ newChild: SwiftSyntax.TypeInitializerClauseSyntax?) -> SwiftSyntax.TypealiasDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    public var genericWhereClause: SwiftSyntax.GenericWhereClauseSyntax? { get }
+
+    /// Returns a copy of the receiver with its `genericWhereClause` replaced.
+    /// - param newChild: The new `genericWhereClause` to replace the node's
+    ///                   current `genericWhereClause`, if present.
+    public func withGenericWhereClause(_ newChild: SwiftSyntax.GenericWhereClauseSyntax?) -> SwiftSyntax.TypealiasDeclSyntax
+
+    /// Determines if two `TypealiasDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.TypealiasDeclSyntax, rhs: SwiftSyntax.TypealiasDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14582,6 +15601,9 @@ extension TypealiasDeclSyntax {
     public init(_ build: (inout SwiftSyntax.TypealiasDeclSyntaxBuilder) -> Swift.Void)
 }
 
+extension TypealiasDeclSyntax : IdentifiedDeclSyntax {
+}
+
 public struct TypealiasDeclSyntaxBuilder {
 
     public mutating func addAttribute(_ elt: SwiftSyntax.AttributeSyntax)
@@ -14595,81 +15617,43 @@ public struct TypealiasDeclSyntaxBuilder {
     public mutating func useGenericParameterClause(_ node: SwiftSyntax.GenericParameterClauseSyntax)
 
     public mutating func useInitializer(_ node: SwiftSyntax.TypeInitializerClauseSyntax)
+
+    public mutating func useGenericWhereClause(_ node: SwiftSyntax.GenericWhereClauseSyntax)
 }
 
 public struct UnknownDeclSyntax : DeclSyntax, Hashable {
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `UnknownDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.UnknownDeclSyntax, rhs: SwiftSyntax.UnknownDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
 public struct UnknownExprSyntax : ExprSyntax, Hashable {
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `UnknownExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.UnknownExprSyntax, rhs: SwiftSyntax.UnknownExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
 public struct UnknownPatternSyntax : PatternSyntax, Hashable {
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `UnknownPatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.UnknownPatternSyntax, rhs: SwiftSyntax.UnknownPatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
 public struct UnknownStmtSyntax : StmtSyntax, Hashable {
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `UnknownStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.UnknownStmtSyntax, rhs: SwiftSyntax.UnknownStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14679,20 +15663,10 @@ public struct UnknownSyntax {
 
 public struct UnknownTypeSyntax : TypeSyntax, Hashable {
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `UnknownTypeSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.UnknownTypeSyntax, rhs: SwiftSyntax.UnknownTypeSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14700,22 +15674,15 @@ public struct UnresolvedPatternExprSyntax : ExprSyntax, Hashable {
 
     public var pattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `pattern` replaced.
+    /// - param newChild: The new `pattern` to replace the node's
+    ///                   current `pattern`, if present.
     public func withPattern(_ newChild: PatternSyntax?) -> SwiftSyntax.UnresolvedPatternExprSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `UnresolvedPatternExprSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.UnresolvedPatternExprSyntax, rhs: SwiftSyntax.UnresolvedPatternExprSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14741,26 +15708,22 @@ public struct ValueBindingPatternSyntax : PatternSyntax, Hashable {
 
     public var letOrVarKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `letOrVarKeyword` replaced.
+    /// - param newChild: The new `letOrVarKeyword` to replace the node's
+    ///                   current `letOrVarKeyword`, if present.
     public func withLetOrVarKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.ValueBindingPatternSyntax
 
     public var valuePattern: PatternSyntax { get }
 
+    /// Returns a copy of the receiver with its `valuePattern` replaced.
+    /// - param newChild: The new `valuePattern` to replace the node's
+    ///                   current `valuePattern`, if present.
     public func withValuePattern(_ newChild: PatternSyntax?) -> SwiftSyntax.ValueBindingPatternSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `ValueBindingPatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.ValueBindingPatternSyntax, rhs: SwiftSyntax.ValueBindingPatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14788,40 +15751,60 @@ public struct VariableDeclSyntax : DeclSyntax, Hashable {
 
     public var attributes: SwiftSyntax.AttributeListSyntax? { get }
 
-    public func addAttribute(_ elt: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.VariableDeclSyntax
+    /// Adds the provided `Attribute` to the node's `attributes`
+    /// collection.
+    /// - param element: The new `Attribute` to add to the node's
+    ///                  `attributes` collection.
+    /// - returns: A copy of the receiver with the provided `Attribute`
+    ///            appended to its `attributes` collection.
+    public func addAttribute(_ element: SwiftSyntax.AttributeSyntax) -> SwiftSyntax.VariableDeclSyntax
 
+    /// Returns a copy of the receiver with its `attributes` replaced.
+    /// - param newChild: The new `attributes` to replace the node's
+    ///                   current `attributes`, if present.
     public func withAttributes(_ newChild: SwiftSyntax.AttributeListSyntax?) -> SwiftSyntax.VariableDeclSyntax
 
     public var modifiers: SwiftSyntax.ModifierListSyntax? { get }
 
-    public func addModifier(_ elt: Syntax) -> SwiftSyntax.VariableDeclSyntax
+    /// Adds the provided `Modifier` to the node's `modifiers`
+    /// collection.
+    /// - param element: The new `Modifier` to add to the node's
+    ///                  `modifiers` collection.
+    /// - returns: A copy of the receiver with the provided `Modifier`
+    ///            appended to its `modifiers` collection.
+    public func addModifier(_ element: Syntax) -> SwiftSyntax.VariableDeclSyntax
 
+    /// Returns a copy of the receiver with its `modifiers` replaced.
+    /// - param newChild: The new `modifiers` to replace the node's
+    ///                   current `modifiers`, if present.
     public func withModifiers(_ newChild: SwiftSyntax.ModifierListSyntax?) -> SwiftSyntax.VariableDeclSyntax
 
     public var letOrVarKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `letOrVarKeyword` replaced.
+    /// - param newChild: The new `letOrVarKeyword` to replace the node's
+    ///                   current `letOrVarKeyword`, if present.
     public func withLetOrVarKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.VariableDeclSyntax
 
     public var bindings: SwiftSyntax.PatternBindingListSyntax { get }
 
-    public func addPatternBinding(_ elt: SwiftSyntax.PatternBindingSyntax) -> SwiftSyntax.VariableDeclSyntax
+    /// Adds the provided `PatternBinding` to the node's `bindings`
+    /// collection.
+    /// - param element: The new `PatternBinding` to add to the node's
+    ///                  `bindings` collection.
+    /// - returns: A copy of the receiver with the provided `PatternBinding`
+    ///            appended to its `bindings` collection.
+    public func addPatternBinding(_ element: SwiftSyntax.PatternBindingSyntax) -> SwiftSyntax.VariableDeclSyntax
 
+    /// Returns a copy of the receiver with its `bindings` replaced.
+    /// - param newChild: The new `bindings` to replace the node's
+    ///                   current `bindings`, if present.
     public func withBindings(_ newChild: SwiftSyntax.PatternBindingListSyntax?) -> SwiftSyntax.VariableDeclSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `VariableDeclSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.VariableDeclSyntax, rhs: SwiftSyntax.VariableDeclSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14853,26 +15836,22 @@ public struct WhereClauseSyntax : Syntax, Hashable {
 
     public var whereKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `whereKeyword` replaced.
+    /// - param newChild: The new `whereKeyword` to replace the node's
+    ///                   current `whereKeyword`, if present.
     public func withWhereKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.WhereClauseSyntax
 
     public var guardResult: ExprSyntax { get }
 
+    /// Returns a copy of the receiver with its `guardResult` replaced.
+    /// - param newChild: The new `guardResult` to replace the node's
+    ///                   current `guardResult`, if present.
     public func withGuardResult(_ newChild: ExprSyntax?) -> SwiftSyntax.WhereClauseSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `WhereClauseSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.WhereClauseSyntax, rhs: SwiftSyntax.WhereClauseSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14900,44 +15879,51 @@ public struct WhileStmtSyntax : StmtSyntax, Hashable {
 
     public var labelName: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelName` replaced.
+    /// - param newChild: The new `labelName` to replace the node's
+    ///                   current `labelName`, if present.
     public func withLabelName(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.WhileStmtSyntax
 
     public var labelColon: SwiftSyntax.TokenSyntax? { get }
 
+    /// Returns a copy of the receiver with its `labelColon` replaced.
+    /// - param newChild: The new `labelColon` to replace the node's
+    ///                   current `labelColon`, if present.
     public func withLabelColon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.WhileStmtSyntax
 
     public var whileKeyword: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `whileKeyword` replaced.
+    /// - param newChild: The new `whileKeyword` to replace the node's
+    ///                   current `whileKeyword`, if present.
     public func withWhileKeyword(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.WhileStmtSyntax
 
     public var conditions: SwiftSyntax.ConditionElementListSyntax { get }
 
-    public func addConditionElement(_ elt: SwiftSyntax.ConditionElementSyntax) -> SwiftSyntax.WhileStmtSyntax
+    /// Adds the provided `ConditionElement` to the node's `conditions`
+    /// collection.
+    /// - param element: The new `ConditionElement` to add to the node's
+    ///                  `conditions` collection.
+    /// - returns: A copy of the receiver with the provided `ConditionElement`
+    ///            appended to its `conditions` collection.
+    public func addConditionElement(_ element: SwiftSyntax.ConditionElementSyntax) -> SwiftSyntax.WhileStmtSyntax
 
+    /// Returns a copy of the receiver with its `conditions` replaced.
+    /// - param newChild: The new `conditions` to replace the node's
+    ///                   current `conditions`, if present.
     public func withConditions(_ newChild: SwiftSyntax.ConditionElementListSyntax?) -> SwiftSyntax.WhileStmtSyntax
 
     public var body: SwiftSyntax.CodeBlockSyntax { get }
 
+    /// Returns a copy of the receiver with its `body` replaced.
+    /// - param newChild: The new `body` to replace the node's
+    ///                   current `body`, if present.
     public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> SwiftSyntax.WhileStmtSyntax
 
-    public var semicolon: SwiftSyntax.TokenSyntax? { get }
-
-    public func withSemicolon(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.WhileStmtSyntax
-
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `WhileStmtSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.WhileStmtSyntax, rhs: SwiftSyntax.WhileStmtSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -14954,6 +15940,9 @@ extension WhileStmtSyntax {
     public init(_ build: (inout SwiftSyntax.WhileStmtSyntaxBuilder) -> Swift.Void)
 }
 
+extension WhileStmtSyntax : WithCodeBlockSyntax, LabeledSyntax {
+}
+
 public struct WhileStmtSyntaxBuilder {
 
     public mutating func useLabelName(_ node: SwiftSyntax.TokenSyntax)
@@ -14965,34 +15954,28 @@ public struct WhileStmtSyntaxBuilder {
     public mutating func addConditionElement(_ elt: SwiftSyntax.ConditionElementSyntax)
 
     public mutating func useBody(_ node: SwiftSyntax.CodeBlockSyntax)
-
-    public mutating func useSemicolon(_ node: SwiftSyntax.TokenSyntax)
 }
 
 public struct WildcardPatternSyntax : PatternSyntax, Hashable {
 
     public var wildcard: SwiftSyntax.TokenSyntax { get }
 
+    /// Returns a copy of the receiver with its `wildcard` replaced.
+    /// - param newChild: The new `wildcard` to replace the node's
+    ///                   current `wildcard`, if present.
     public func withWildcard(_ newChild: SwiftSyntax.TokenSyntax?) -> SwiftSyntax.WildcardPatternSyntax
 
     public var typeAnnotation: SwiftSyntax.TypeAnnotationSyntax? { get }
 
+    /// Returns a copy of the receiver with its `typeAnnotation` replaced.
+    /// - param newChild: The new `typeAnnotation` to replace the node's
+    ///                   current `typeAnnotation`, if present.
     public func withTypeAnnotation(_ newChild: SwiftSyntax.TypeAnnotationSyntax?) -> SwiftSyntax.WildcardPatternSyntax
 
-    /// Returns a Boolean value indicating whether two values are equal.
-    ///
-    /// Equality is the inverse of inequality. For any values `a` and `b`,
-    /// `a == b` implies that `a != b` is `false`.
-    ///
-    /// - Parameters:
-    ///   - lhs: A value to compare.
-    ///   - rhs: Another value to compare.
+    /// Determines if two `WildcardPatternSyntax` nodes are equal to each other.
     public static func == (lhs: SwiftSyntax.WildcardPatternSyntax, rhs: SwiftSyntax.WildcardPatternSyntax) -> Bool
 
-    /// The hash value.
-    ///
-    /// Hash values are not guaranteed to be equal across different executions of
-    /// your program. Do not save hash values to use during a future execution.
+    /// A unique hash value for this node.
     public var hashValue: Int { get }
 }
 
@@ -15014,5 +15997,26 @@ public struct WildcardPatternSyntaxBuilder {
     public mutating func useWildcard(_ node: SwiftSyntax.TokenSyntax)
 
     public mutating func useTypeAnnotation(_ node: SwiftSyntax.TypeAnnotationSyntax)
+}
+
+public protocol WithCodeBlockSyntax {
+
+    public var body: SwiftSyntax.CodeBlockSyntax { get }
+
+    public func withBody(_ newChild: SwiftSyntax.CodeBlockSyntax?) -> Self
+}
+
+public protocol WithStatementsSyntax {
+
+    public var statements: SwiftSyntax.CodeBlockItemListSyntax { get }
+
+    public func withStatements(_ newChild: SwiftSyntax.CodeBlockItemListSyntax?) -> Self
+}
+
+public protocol WithTrailingCommaSyntax {
+
+    public var trailingComma: SwiftSyntax.TokenSyntax? { get }
+
+    public func withTrailingComma(_ newChild: SwiftSyntax.TokenSyntax?) -> Self
 }
 

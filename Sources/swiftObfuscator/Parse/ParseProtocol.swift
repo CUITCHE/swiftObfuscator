@@ -8,12 +8,12 @@
 import Foundation
 import SwiftSyntax
 
-class ParserProtocol: SyntaxRewriter {
+class ParserProtocol: SyntaxVisitor {
     var funcDecls = [FunctionExpression]()
     var variableDelcs = [PropertyExpression]()
     var accessLevel: ExpressionAccessLevel = .internal
 
-    override func visit(_ node: StructDeclSyntax) -> DeclSyntax {
+    override func visit(_ node: StructDeclSyntax) {
         var accessLevel: ExpressionAccessLevel = .internal
         if let modifier = node.accessLevelModifier, modifier.description.isEmpty == false {
             if let access = ExpressionAccessLevel(rawValue: modifier.name.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
@@ -24,7 +24,7 @@ class ParserProtocol: SyntaxRewriter {
         return super.visit(node)
     }
 
-    override func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
+    override func visit(_ node: VariableDeclSyntax) {
         var accessLevel: ExpressionAccessLevel = self.accessLevel
         node.modifiers?.forEach({
             if let val = ExpressionAccessLevel(rawValue: $0.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
@@ -40,7 +40,7 @@ class ParserProtocol: SyntaxRewriter {
         return super.visit(node)
     }
 
-    override func visit(_ node: FunctionDeclSyntax) -> DeclSyntax {
+    override func visit(_ node: FunctionDeclSyntax) {
         var accessLevel: ExpressionAccessLevel = self.accessLevel
         if let modifiers = node.modifiers {
             for item in modifiers {

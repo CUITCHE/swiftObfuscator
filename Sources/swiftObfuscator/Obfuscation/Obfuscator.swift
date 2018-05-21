@@ -37,7 +37,7 @@ struct Obfuscator {
             do {
                 let sourceFile = try NestedParsePlaceholder.parse(item)
                 let sp = SourceFileParse()
-                _ = sp.visit(sourceFile)
+                sp.visit(sourceFile)
                 parsed.append(SourceFile(name: item.lastPathComponent, filepath: item, clazzs: sp.clazzes, protocols: sp.protocols, topFunctions: sp.topFunctions))
             } catch {
                 Log(error)

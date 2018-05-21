@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "swiftObfuscator::swiftObfuscator"
-               BuildableName = "swiftObfuscator"
-               BlueprintName = "swiftObfuscator"
-               ReferencedContainer = "container:swiftObfuscator.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "SQLite.swift::SQLite"
                BuildableName = "SQLite.framework"
                BlueprintName = "SQLite"
@@ -48,13 +34,26 @@
                ReferencedContainer = "container:swiftObfuscator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "swiftObfuscator::swiftObfuscator"
+               BuildableName = "swiftObfuscator"
+               BlueprintName = "swiftObfuscator"
+               ReferencedContainer = "container:swiftObfuscator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -65,7 +64,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -75,9 +73,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "swiftObfuscator::swiftObfuscator"
-            BuildableName = "swiftObfuscator"
-            BlueprintName = "swiftObfuscator"
+            BlueprintIdentifier = "SQLite.swift::SQLite"
+            BuildableName = "SQLite.framework"
+            BlueprintName = "SQLite"
             ReferencedContainer = "container:swiftObfuscator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -1,12 +1,12 @@
 //
-//  Renamer.swift
+//  RenamerFoo.swift
 //  swiftObfuscator
 //
 //  Created by He,Junqiu on 2018/1/30.
 //
 import SwiftSyntax
 
-class Renamer: SyntaxRewriter {
+class RenamerFoo: SyntaxRewriter {
 
     // MARK: - 成员访问(属性、方法)解析
     override func visit(_ node: MemberAccessExprSyntax) -> ExprSyntax {
@@ -20,9 +20,9 @@ class Renamer: SyntaxRewriter {
     }
 
     override func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
-        for idx in node.bindings.enumerated() {
-            print(idx.offset, idx.element)
-        }
+//        for idx in node.bindings.enumerated() {
+//            print(idx.offset, idx.element)
+//        }
         return super.visit(node)
     }
 
@@ -31,8 +31,7 @@ class Renamer: SyntaxRewriter {
         // delegate?.cropFrameCaptureView(self, didFinish: item)
         // calledExpression: delegate?.cropFrameCaptureView
         // argumentList: self, didFinish: item
-        //        print("\(node.calledExpression), \(node.argumentList)")
-//        print(node.calledExpression)
+        print("\(node.calledExpression), \(node.argumentList)", node.calledExpression)
         return super.visit(node)
     }
 

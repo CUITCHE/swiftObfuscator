@@ -14,7 +14,7 @@ func foo() {
 
         var textStream = String()
 
-        let R = Renamer()
+        let R = RenamerFoo()
 
         // Print the file after renaming
         textStream.append("\n//======== Renamed =========\n")
@@ -28,8 +28,12 @@ func foo() {
     print("...End...")
 }
 
-var obs = Obfuscator(filepaths: [FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("123.swift")])
-obs.start()
+//var obs = Obfuscator(filepaths: [FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("123.swift")])
+//obs.start()
 
 //foo()
 
+let reg = try! NSRegularExpression(pattern: "(?<=^(我要)?)(眼圈|厌倦|烟圈|验圈|烟卷|源泉|圆圈|袁泉)", options: .init(rawValue: 0))
+let search = "我要眼圈"
+let str = reg.stringByReplacingMatches(in: search, options: .reportProgress, range: .init(location: 0, length: search.count), withTemplate: "验券")
+print(str)

@@ -1,4 +1,4 @@
 module SQLiteObjc {
-    umbrella "/Users/hejunqiu/Documents/github-repo/swiftObfuscator/.build/checkouts/SQLite.swift.git--276985516849074578/Sources/SQLiteObjc/include"
+    umbrella "/Users/hejunqiu/Library/Mobile Documents/com~apple~CloudDocs/XcodeProjects/github/swiftObfuscator/.build/checkouts/SQLite.swift.git--276985516849074578/Sources/SQLiteObjc/include"
     export *
 }

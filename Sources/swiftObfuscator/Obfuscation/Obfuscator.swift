@@ -24,7 +24,7 @@ struct Obfuscator {
         let filepath: URL
         let clazzs: [ClassExpression]
         let protocols: [ProtocolExpression]
-        let topFunctions: [FunctionExpression]
+        let topFunctions: [TopFunctionExpression]
     }
     var parsed: [SourceFile] = []
 

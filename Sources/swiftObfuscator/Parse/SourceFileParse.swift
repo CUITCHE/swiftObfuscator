@@ -27,7 +27,13 @@ class SourceFileParse: SyntaxVisitor {
     private var currentClazz: _NestingClazzClause? { return _nestingClazzClauseList.last }
 
     var protocols = [ProtocolExpression]()
-    var topFunctions = [FunctionExpression]()
+    private struct _ProtocolClause {
+        let `protocol`: ProtocolExpression
+    }
+    private var protocolClause: _ProtocolClause?
+
+    var topFunctions = [TopFunctionExpression]()
+    private var topFunctionClauseCounter: Int = 0
 
     override func visit(_ node: ClassDeclSyntax) {
         var accessLevel: ExpressionAccessLevel = .internal
@@ -85,14 +91,23 @@ class SourceFileParse: SyntaxVisitor {
             }
         }
         
-        let structDecl = SyntaxFactory.makeStructDecl(attributes: nil, accessLevelModifier: node.accessLevelModifier, structKeyword: SyntaxFactory.makeStructKeyword(), identifier: SyntaxFactory.makeIdentifier("Temp"), genericParameterClause: nil, inheritanceClause: nil, genericWhereClause: nil, members: node.members)
-        let pp = ParserProtocol()
-        _ = pp.visit(structDecl)
-
+//        let structDecl = SyntaxFactory.makeStructDecl(attributes: nil, accessLevelModifier: node.accessLevelModifier, structKeyword: SyntaxFactory.makeStructKeyword(), identifier: SyntaxFactory.makeIdentifier("Temp"), genericParameterClause: nil, inheritanceClause: nil, genericWhereClause: nil, members: node.members)
+//        let pp = ParserProtocol()
+//        pp.visit(structDecl)
+//
+//        let protocolExpr = ProtocolExpression(accessLevel: accessLevel, name: node.identifier.description, inheritanceClause: node.inheritanceClause)
+//        protocolExpr.properties = pp.variableDelcs
+//        protocolExpr.methods    = pp.funcDecls
+//        for val in protocolExpr.methods {
+//            val.parent = protocolExpr
+//        }
+//        protocols.append(protocolExpr)
         let protocolExpr = ProtocolExpression(accessLevel: accessLevel, name: node.identifier.description, inheritanceClause: node.inheritanceClause)
-        protocolExpr.properties = pp.variableDelcs
-        protocolExpr.methods    = pp.funcDecls
         protocols.append(protocolExpr)
+        protocolClause = _ProtocolClause(protocol: protocolExpr)
+        defer {
+            protocolClause = nil
+        }
         super.visit(node)
     }
 
@@ -122,36 +137,44 @@ class SourceFileParse: SyntaxVisitor {
     }
 
     override func visit(_ node: FunctionDeclSyntax) {
-        guard let clazz = currentClazz else {
-            // FIXME:这里有可能是全局函数
+        var parent: Expression? = nil
+        if let clazz = currentClazz {
+            if clazz.clazzClauseCounter > clazz.functionClauseCounter {
+                parent = clazz.clazz
+            } else {
+                parent = clazz.clazz.methods.last
+            }
+        } else if topFunctionClauseCounter > 0 {
+            parent = topFunctions.last as? Expression
+        } else if protocolClause != nil {
+            parent = protocolClause?.protocol
+        }
+        let function = FunctionExpression(superAccessLevel: currentClazz?.clazz.accessLevel, modifierList: node.modifiers, name: node.identifier.description, signature: node.signature, parent: parent)
+        if let clazz = currentClazz {
+            clazz.clazz.methods.append(function)
+            clazz.functionClauseCounter += 1
+            defer {
+                clazz.functionClauseCounter -= 1
+            }
             return super.visit(node)
         }
-        var accessLevel: ExpressionAccessLevel = clazz.clazz.accessLevel
-        if let modifiers = node.modifiers {
-            for val in modifiers {
-                if let modifier = val as? DeclModifierSyntax, let val = ExpressionAccessLevel(rawValue: modifier.name.text) {
-                    accessLevel = val
-                    break
-                } else if let modifier = val as? AttributeSyntax, let val = ExpressionAccessLevel(rawValue: modifier.attributeName.text) {
-                    accessLevel = val
-                    break
-                }
-            }
+        if protocolClause != nil {
+            return super.visit(node)
         }
-        clazz.clazz.methods.append(FunctionExpression(accessLevel: accessLevel, name: node.identifier.description, signature: node.signature))
-        clazz.functionClauseCounter += 1
+        // top function
+        topFunctions.append(function)
+        topFunctionClauseCounter += 1
         defer {
-            clazz.functionClauseCounter -= 1
+            topFunctionClauseCounter -= 1
         }
         return super.visit(node)
     }
 
     override func visit(_ node: VariableDeclSyntax) {
-        guard let clazz = currentClazz else {
-            // 全局变量定义
-            return super.visit(node)
-        }
-        if clazz.clazzClauseCounter > clazz.functionClauseCounter {
+        if let clazz = currentClazz {
+            guard clazz.clazzClauseCounter > clazz.functionClauseCounter else {
+                return super.visit(node)
+            }
             guard let bindings = node.bindings.first else {
                 Log("No correct variable declaration.")
                 exit(-4)
@@ -173,7 +196,7 @@ class SourceFileParse: SyntaxVisitor {
             } else {
                 let function = SyntaxFactory.makeFunctionDecl(attributes: nil, modifiers: nil, funcKeyword: SyntaxFactory.makeFuncKeyword(), identifier: SyntaxFactory.makeIdentifier("tempFunction"), genericParameterClause: nil, signature: SyntaxFactory.makeFunctionSignature(input: SyntaxFactory.makeBlankParameterClause(), throwsOrRethrowsKeyword: nil, output: nil), genericWhereClause: nil, body: SyntaxFactory.makeCodeBlock(leftBrace: SyntaxFactory.makeLeftBraceToken(), statements: SyntaxFactory.makeCodeBlockItemList([SyntaxFactory.makeCodeBlockItem(item: bindings, semicolon: nil)]), rightBrace: SyntaxFactory.makeRightBraceToken()))
                 let ppt = ParsePropertyType()
-                _ = ppt.visit(function)
+                ppt.visit(function)
 
                 if case .unknown = ppt.exprType {
                     Log("Can not recognise type of member variable: \(bindings), \(ppt.exprType)")
@@ -182,6 +205,11 @@ class SourceFileParse: SyntaxVisitor {
                     let property = PropertyExpression(accessLevel: accessLevel, name: bindings.pattern.description, type: ppt.type, syntaxExpr: ppt.exprType)
                     clazz.clazz.properties.append(property)
                 }
+            }
+        } else if let pc = protocolClause {
+            if let binding = node.bindings.first, let type = binding.typeAnnotation?.type.description.trimmingCharacters(in: .whitespacesAndNewlines) {
+                let property = PropertyExpression(accessLevel: pc.protocol.accessLevel, name: binding.pattern.description.trimmingCharacters(in: .whitespacesAndNewlines), type: type)
+                pc.protocol.properties.append(property)
             }
         }
         return super.visit(node)

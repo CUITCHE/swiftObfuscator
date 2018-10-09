@@ -41,16 +41,7 @@ class ParserProtocol: SyntaxVisitor {
     }
 
     override func visit(_ node: FunctionDeclSyntax) {
-        var accessLevel: ExpressionAccessLevel = self.accessLevel
-        if let modifiers = node.modifiers {
-            for item in modifiers {
-                if let access = ExpressionAccessLevel(rawValue: item.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
-                    accessLevel = access
-                    break
-                }
-            }
-        }
-        funcDecls.append(FunctionExpression(accessLevel: accessLevel, name: node.identifier.description, signature: node.signature))
+        funcDecls.append(FunctionExpression(superAccessLevel: accessLevel, modifierList: node.modifiers, name: node.identifier.description, signature: node.signature, parent: nil))
         return super.visit(node)
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FBC3555220B29BAC007AE25A /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC3555020B29B6F007AE25A /* libsqlite3.0.tbd */; };
+		FBC3555420B2B6F6007AE25A /* TopFunctionExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3555320B2B6F6007AE25A /* TopFunctionExpression.swift */; };
 		OBJ_107 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* Package.swift */; };
 		OBJ_112 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* SQLite-Bridging.m */; };
 		OBJ_119 /* ClassExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* ClassExpression.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		FBC3555020B29B6F007AE25A /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		FBC3555320B2B6F6007AE25A /* TopFunctionExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFunctionExpression.swift; sourceTree = "<group>"; };
 		OBJ_10 /* ClassExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassExpression.swift; sourceTree = "<group>"; };
 		OBJ_11 /* EnumExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumExpression.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
@@ -279,7 +281,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -289,7 +291,6 @@
 				OBJ_67 /* Products */,
 				FBC3554F20B29B6E007AE25A /* Frameworks */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_54 /* Typed */ = {
@@ -355,6 +356,7 @@
 				OBJ_15 /* LibraryClassExpression.swift */,
 				OBJ_16 /* PropertyExpression.swift */,
 				OBJ_17 /* ProtocolExpression.swift */,
+				FBC3555320B2B6F6007AE25A /* TopFunctionExpression.swift */,
 			);
 			path = Expression;
 			sourceTree = "<group>";
@@ -456,7 +458,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_67 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -506,6 +508,7 @@
 				OBJ_131 /* Renamer.swift in Sources */,
 				OBJ_132 /* ParsePropertyType.swift in Sources */,
 				OBJ_133 /* ParseProtocol.swift in Sources */,
+				FBC3555420B2B6F6007AE25A /* TopFunctionExpression.swift in Sources */,
 				OBJ_134 /* SourceFileParse.swift in Sources */,
 				OBJ_135 /* ObfuscateDatabase.swift in Sources */,
 				OBJ_136 /* RenamerFoo.swift in Sources */,

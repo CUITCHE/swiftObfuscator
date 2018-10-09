@@ -19,7 +19,7 @@ enum ExpressionAccessLevel: String {
     case `open`, `public`, `internal`, `fileprivate`, `private`
 }
 
-protocol Expression {
+protocol Expression: class {
     var accessLevel: ExpressionAccessLevel { get }
     var name: String { get }
 

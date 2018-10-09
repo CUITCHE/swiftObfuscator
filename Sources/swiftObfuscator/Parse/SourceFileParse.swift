@@ -37,9 +37,11 @@ class SourceFileParse: SyntaxVisitor {
 
     override func visit(_ node: ClassDeclSyntax) {
         var accessLevel: ExpressionAccessLevel = .internal
-        if let modifier = node.accessLevelModifier {
-            if let access = ExpressionAccessLevel(rawValue: modifier.name.text) {
-                accessLevel = access
+        if let modifiers = node.modifiers {
+            for modifier in modifiers {
+                if let access = ExpressionAccessLevel(rawValue: modifier.name.text) {
+                    accessLevel = access
+                }
             }
         }
         let newClazz = _NestingClazzClause(clazz: ClassExpression(accessLevel: accessLevel, name: node.identifier.description,
@@ -61,9 +63,11 @@ class SourceFileParse: SyntaxVisitor {
 
     override func visit(_ node: StructDeclSyntax) {
         var accessLevel: ExpressionAccessLevel = .internal
-        if let modifier = node.accessLevelModifier {
-            if let access = ExpressionAccessLevel(rawValue: modifier.name.text) {
-                accessLevel = access
+        if let modifiers = node.modifiers {
+            for modifier in modifiers {
+                if let access = ExpressionAccessLevel(rawValue: modifier.name.text) {
+                    accessLevel = access
+                }
             }
         }
         let newClazz = _NestingClazzClause(clazz: ClassExpression(accessLevel: accessLevel, name: node.identifier.description,
@@ -85,9 +89,11 @@ class SourceFileParse: SyntaxVisitor {
 
     override func visit(_ node: ProtocolDeclSyntax) {
         var accessLevel: ExpressionAccessLevel = .internal
-        if let modifier = node.accessLevelModifier {
-            if let access = ExpressionAccessLevel(rawValue: modifier.name.text) {
-                accessLevel = access
+        if let modifiers = node.modifiers {
+            for modifier in modifiers {
+                if let access = ExpressionAccessLevel(rawValue: modifier.name.text) {
+                    accessLevel = access
+                }
             }
         }
         
@@ -113,9 +119,11 @@ class SourceFileParse: SyntaxVisitor {
 
     override func visit(_ node: ExtensionDeclSyntax) {
         var accessLevel: ExpressionAccessLevel = .internal
-        if let modifier = node.accessLevelModifier {
-            if let access = ExpressionAccessLevel(rawValue: modifier.name.text) {
-                accessLevel = access
+        if let modifiers = node.modifiers {
+            for modifier in modifiers {
+                if let access = ExpressionAccessLevel(rawValue: modifier.name.text) {
+                    accessLevel = access
+                }
             }
         }
 
@@ -149,7 +157,7 @@ class SourceFileParse: SyntaxVisitor {
         } else if protocolClause != nil {
             parent = protocolClause?.protocol
         }
-        let function = FunctionExpression(superAccessLevel: currentClazz?.clazz.accessLevel, modifierList: node.modifiers, name: node.identifier.description, signature: node.signature, parent: parent)
+        let function = FunctionExpression(superAccessLevel: currentClazz?.clazz.accessLevel, modifiers: node.modifiers, attributes: node.attributes, name: node.identifier.description, signature: node.signature, parent: parent)
         if let clazz = currentClazz {
             clazz.clazz.methods.append(function)
             clazz.functionClauseCounter += 1
@@ -182,10 +190,8 @@ class SourceFileParse: SyntaxVisitor {
             var accessLevel: ExpressionAccessLevel = clazz.clazz.accessLevel
             if let modifiers = node.modifiers {
                 for val in modifiers {
-                    if let modifier = val as? DeclModifierSyntax, let val = ExpressionAccessLevel(rawValue: modifier.name.text) {
-                        accessLevel = val
-                        break
-                    } else if let modifier = val as? AttributeSyntax, let val = ExpressionAccessLevel(rawValue: modifier.attributeName.text) {
+                    let modifier = val as DeclModifierSyntax
+                    if let val = ExpressionAccessLevel(rawValue: modifier.name.text) {
                         accessLevel = val
                         break
                     }

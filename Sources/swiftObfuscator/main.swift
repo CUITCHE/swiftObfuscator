@@ -10,7 +10,7 @@ func foo() {
     let currentFile = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("123.swift")
     do {
 
-        let parsed = try ABC.parse(currentFile)
+        let parsed = try SyntaxTreeParser.parse(currentFile)
 
         var textStream = String()
 

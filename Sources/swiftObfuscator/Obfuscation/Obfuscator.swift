@@ -16,7 +16,6 @@ struct Obfuscator {
     static var extensions = [Expression]()
     static var topfunctions  = [FunctionExpression]()
 
-    private struct NestedParsePlaceholder: Syntax { }
     let filepaths: [URL]
 
     struct SourceFile {
@@ -35,7 +34,7 @@ struct Obfuscator {
     mutating func start() {
         for item in filepaths {
             do {
-                let sourceFile = try NestedParsePlaceholder.parse(item)
+                let sourceFile = try SyntaxTreeParser.parse(item)
                 let sp = SourceFileParse()
                 sp.visit(sourceFile)
                 parsed.append(SourceFile(name: item.lastPathComponent, filepath: item, clazzs: sp.clazzes, protocols: sp.protocols, topFunctions: sp.topFunctions))

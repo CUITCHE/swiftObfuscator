@@ -20,24 +20,30 @@ class FunctionExpression: Expression {
     let isOverride: Bool
     let isObjc: Bool
 
-    init(superAccessLevel accessLevel: ExpressionAccessLevel?, modifierList: ModifierListSyntax?, name: String, signature: FunctionSignatureSyntax, parent: Expression?) {
+    init(superAccessLevel accessLevel: ExpressionAccessLevel?,
+         modifiers: ModifierListSyntax?,
+         attributes: AttributeListSyntax?,
+         name: String,
+         signature: FunctionSignatureSyntax,
+         parent: Expression?) {
         var accessLevel: ExpressionAccessLevel = accessLevel ?? .internal
         var isObjc = false
         var isOverride = false
-        if let modifiers = modifierList {
+        if let modifiers = modifiers {
             for val in modifiers {
-                if let modifier = (val as? DeclModifierSyntax)?.name.text {
-                    if let val = ExpressionAccessLevel(rawValue: modifier) {
-                        accessLevel = val
-                    } else if modifier == "override" {
-                        isOverride = true
-                    }
-                } else if let modifierList = val as? AttributeListSyntax {
-                    for val in modifierList {
-                        if val.attributeName.text == "objc" {
-                            isObjc = true; break
-                        }
-                    }
+                let modifier = (val as DeclModifierSyntax).name.text
+                if let val = ExpressionAccessLevel(rawValue: modifier) {
+                    accessLevel = val
+                } else if modifier == "override" {
+                    isOverride = true
+                }
+            }
+        }
+        if let attributes = attributes {
+            for val in attributes {
+                let attribute = val as AttributeSyntax
+                if attribute.attributeName.text == "objc" {
+                    isObjc = true; break
                 }
             }
         }
@@ -50,7 +56,8 @@ class FunctionExpression: Expression {
 
         var pl = ParameterList()
         for item in signature.input.parameterList {
-            let argument = ParameterList.Parameter(firstName: item.firstName.text, secondName: item.secondName?.text, typeString: item.typeAnnotation.description, type: nil, firstObfuscating: nil, secondObfuscating: nil)
+            // FIXME: item.firstName?.text
+            let argument = ParameterList.Parameter(firstName: item.firstName!.text, secondName: item.secondName?.text, typeString: item.type.debugDescription, type: nil, firstObfuscating: nil, secondObfuscating: nil)
             pl.append(argument)
         }
         parameterList = pl

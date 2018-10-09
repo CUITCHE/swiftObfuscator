@@ -15,9 +15,11 @@ class ParserProtocol: SyntaxVisitor {
 
     override func visit(_ node: StructDeclSyntax) {
         var accessLevel: ExpressionAccessLevel = .internal
-        if let modifier = node.accessLevelModifier, modifier.description.isEmpty == false {
-            if let access = ExpressionAccessLevel(rawValue: modifier.name.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
-                accessLevel = access
+        if let modifiers = node.modifiers {
+            for modifier in modifiers {
+                if let access = ExpressionAccessLevel(rawValue: modifier.name.description.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                    accessLevel = access
+                }
             }
         }
         self.accessLevel = accessLevel
@@ -41,7 +43,7 @@ class ParserProtocol: SyntaxVisitor {
     }
 
     override func visit(_ node: FunctionDeclSyntax) {
-        funcDecls.append(FunctionExpression(superAccessLevel: accessLevel, modifierList: node.modifiers, name: node.identifier.description, signature: node.signature, parent: nil))
+        funcDecls.append(FunctionExpression(superAccessLevel: accessLevel, modifiers: node.modifiers, attributes: node.attributes, name: node.identifier.description, signature: node.signature, parent: nil))
         return super.visit(node)
     }
 }
